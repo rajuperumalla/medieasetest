@@ -7,10 +7,9 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* Visuals handled by Tailwind classes in JS */
+    z-index: 100;
+    padding: 1rem;
     z-index: 100;
     padding: 1rem;
     display: none;
@@ -126,4 +125,168 @@
 .nav-categories-container.nav-hidden .max-w-7xl {
     padding-top: 0;
     padding-bottom: 0;
+}
+
+/* Uiverse Button Style - Adapted */
+.uiverse-btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    border-radius: 100em;
+    isolation: isolate;
+}
+
+.uiverse-btn:focus {
+    outline: none;
+}
+
+/* Outer bevel container */
+.uiverse-btn .button-outer {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    border-radius: inherit;
+    transition: box-shadow 300ms ease;
+    will-change: box-shadow;
+}
+
+.uiverse-btn:hover .button-outer {
+    box-shadow: none !important;
+}
+
+/* Inner clickable face */
+.uiverse-btn .button-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 0.8rem 1.5rem;
+    transition: box-shadow 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        clip-path 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        background-image 600ms ease,
+        transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: box-shadow, clip-path, background-image, transform;
+    overflow: hidden;
+    clip-path: inset(0 0 0 0 round 100em);
+}
+
+.uiverse-btn:hover .button-inner {
+    clip-path: inset(2px 2px 2px 2px round 100em);
+}
+
+.uiverse-btn .button-inner span {
+    position: relative;
+    z-index: 4;
+    font-family: inherit;
+    font-weight: 700;
+    color: white;
+    transition: transform 500ms cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.uiverse-btn:hover .button-inner span {
+    transform: scale(0.99);
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.uiverse-btn:active .button-inner {
+    transform: scale(0.98);
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- BLUE VARIANT --- */
+.uiverse-btn-blue .button-outer {
+    box-shadow:
+        0 0.05em 0.05em -0.01em rgba(29, 78, 216, 1),
+        0 0.01em 0.01em -0.01em rgba(29, 78, 216, 0.5),
+        0.15em 0.3em 0.1em -0.01em rgba(29, 78, 216, 0.3);
+}
+
+/* Desktop-specific black shadow override */
+@media (min-width: 1024px) {
+    .uiverse-btn-blue .button-outer {
+        box-shadow:
+            0 0.05em 0.05em -0.01em rgba(0, 0, 0, 1),
+            0 0.01em 0.01em -0.01em rgba(0, 0, 0, 0.5),
+            0.15em 0.3em 0.1em -0.01em rgba(0, 0, 0, 0.3);
+    }
+}
+
+.uiverse-btn-blue .button-inner {
+    background-image: linear-gradient(135deg, #3a5ee0, #1e40af);
+    box-shadow:
+        0 0 0 0 inset rgba(0, 0, 0, 0.1),
+        -0.05em -0.05em 0.05em 0 inset rgba(0, 0, 0, 0.2),
+        0 0 0 0 inset rgba(255, 255, 255, 0.1),
+        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.1),
+        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 0.4),
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
+        -0.075em -0.25em 0.25em 0.1em inset rgba(0, 0, 0, 0.1);
+}
+
+.uiverse-btn-blue:hover .button-inner {
+    box-shadow:
+        0.1em 0.15em 0.05em 0 inset rgba(0, 0, 0, 0.2),
+        -0.025em -0.03em 0.05em 0.025em inset rgba(0, 0, 0, 0.1),
+        0.25em 0.25em 0.2em 0 inset rgba(0, 0, 0, 0.1),
+        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.1),
+        0 0 0 0 inset rgba(255, 255, 255, 1),
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
+        -0.075em -0.12em 0.2em 0.1em inset rgba(0, 0, 0, 0.1);
+}
+
+/* --- GREEN VARIANT --- */
+.uiverse-btn-green .button-outer {
+    box-shadow:
+        0 0.05em 0.05em -0.01em rgba(21, 128, 61, 1),
+        0 0.01em 0.01em -0.01em rgba(21, 128, 61, 0.5),
+        0.15em 0.3em 0.1em -0.01em rgba(21, 128, 61, 0.3);
+}
+
+/* Desktop-specific black shadow override */
+@media (min-width: 1024px) {
+    .uiverse-btn-green .button-outer {
+        box-shadow:
+            0 0.05em 0.05em -0.01em rgba(0, 0, 0, 1),
+            0 0.01em 0.01em -0.01em rgba(0, 0, 0, 0.5),
+            0.15em 0.3em 0.1em -0.01em rgba(0, 0, 0, 0.3);
+    }
+}
+
+.uiverse-btn-green .button-inner {
+    background-image: linear-gradient(135deg, #22c55e, #15803d);
+    box-shadow:
+        0 0 0 0 inset rgba(0, 0, 0, 0.1),
+        -0.05em -0.05em 0.05em 0 inset rgba(0, 0, 0, 0.2),
+        0 0 0 0 inset rgba(255, 255, 255, 0.1),
+        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.1),
+        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 0.4),
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
+        -0.075em -0.25em 0.25em 0.1em inset rgba(0, 0, 0, 0.1);
+}
+
+.uiverse-btn-green:hover .button-inner {
+    box-shadow:
+        0.1em 0.15em 0.05em 0 inset rgba(0, 0, 0, 0.2),
+        -0.025em -0.03em 0.05em 0.025em inset rgba(0, 0, 0, 0.1),
+        0.25em 0.25em 0.2em 0 inset rgba(0, 0, 0, 0.1),
+        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.1),
+        0 0 0 0 inset rgba(255, 255, 255, 1),
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
+        -0.075em -0.12em 0.2em 0.1em inset rgba(0, 0, 0, 0.1);
+}
+
+/* Small Button Variant */
+.uiverse-btn-sm .button-inner {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
 }

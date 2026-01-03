@@ -174,14 +174,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             return `
             <div class="nav-item group relative flex-shrink-0">
-                <div class="dropdown-trigger hover:text-primary transition-colors flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-0.5" data-cat="${cat.id}">
+                <div class="dropdown-trigger hover:text-primary transition-colors flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-0.5 rounded-lg hover:shadow-neu-pressed active:shadow-neu-pressed px-3" data-cat="${cat.id}">
                     ${cat.name} <i class="fa-solid fa-chevron-down text-[8px] group-hover:rotate-180 transition-transform"></i>
                 </div>
-                <div class="dropdown-menu ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass}">
-                    <h4 class="text-[10px] text-primary font-bold uppercase tracking-widest mb-3 px-2 border-b border-gray-50 pb-2 cursor-pointer hover:bg-blue-50 transition-all nav-category-header" data-cat="${cat.id}">${cat.name} Services</h4>
+                <div class="dropdown-menu bg-neu-base shadow-neu-card border-none ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass}">
+                    <h4 class="text-[10px] text-primary font-bold uppercase tracking-widest mb-3 px-2 border-b border-gray-200/50 pb-2 cursor-pointer hover:bg-gray-100/50 transition-all nav-category-header" data-cat="${cat.id}">${cat.name} Services</h4>
                     <ul class="grid ${hasMany ? 'grid-cols-2' : 'grid-cols-1'} gap-x-4">
                         ${cat.diseases.map(d => `
-                            <li><a href="javascript:void(0)" class="nav-disease-link block px-2 py-1.5 hover:bg-blue-50 hover:text-primary hover:font-bold hover:text-[12px] rounded-md transition-all font-medium text-[11px] whitespace-normal leading-tight" title="${d}" data-cat="${cat.id}" data-name="${d}">${d}</a></li>
+                            <li><a href="javascript:void(0)" class="nav-disease-link block px-2 py-1.5 hover:shadow-neu-pressed hover:text-primary hover:font-bold hover:text-[12px] rounded-md transition-all font-medium text-[11px] whitespace-normal leading-tight text-gray-600" title="${d}" data-cat="${cat.id}" data-name="${d}">${d}</a></li>
                         `).join('')}
                     </ul>
                 </div>
@@ -193,8 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const mobileCategoriesContainer = document.getElementById('mobileCategoriesContainer');
         if (mobileCategoriesContainer) {
             mobileCategoriesContainer.innerHTML = medicalData.categories.map((cat, index) => `
-                <div class="mobile-category-item border-b border-gray-50 last:border-0">
-                    <button class="w-full flex justify-between items-center py-3 text-gray-800 font-bold text-sm bg-white hover:bg-gray-50 transition-colors rounded-lg px-2" 
+                <div class="mobile-category-item border-b border-white/20 last:border-0">
+                    <button class="w-full flex justify-between items-center py-3 text-gray-700 font-bold text-sm bg-neu-base hover:shadow-neu-pressed transition-all rounded-xl px-4" 
                         onclick="toggleMobileAccordion(this)">
                         <span class="flex items-center gap-3">
                             <i class="${cat.icon} text-primary w-5 text-center"></i> 
@@ -409,11 +409,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             return `
-                <div class="category-card flex flex-col items-center p-6 border border-gray-100 rounded-3xl bg-white cursor-pointer group hover:bg-primary ${widthClass}" data-id="${cat.id}">
-                    <div class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:bg-white transition-all">
+                <div class="category-card flex flex-col items-center p-6 bg-neu-base rounded-[2rem] shadow-neu-card cursor-pointer group hover:shadow-neu-pressed transition-all ${widthClass}" data-id="${cat.id}">
+                    <div class="w-16 h-16 bg-neu-base rounded-full flex items-center justify-center text-primary mb-4 shadow-neu-icon group-hover:scale-110 transition-transform duration-300">
                         <i class="${cat.icon} text-2xl"></i>
                     </div>
-                    <h3 class="font-bold text-gray-800 text-sm group-hover:text-white text-center">${cat.name}</h3>
+                    <h3 class="font-bold text-gray-700 text-sm text-center">${cat.name}</h3>
                 </div>
             `;
         }).join('');
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const mainCategoryChips = document.getElementById('mainCategoryChips');
         if (mainCategoryChips) {
             mainCategoryChips.innerHTML = medicalData.categories.map(cat => `
-                <button type="button" class="whitespace-nowrap px-4 py-2 border border-blue-100 rounded-lg text-[11px] font-bold text-[#1a365d] hover:bg-blue-50 hover:border-blue-500 transition-all bg-white shadow-sm flex-shrink-0 category-chip" data-id="${cat.id}">
+                <button type="button" class="whitespace-nowrap px-6 py-2.5 rounded-2xl text-[11px] font-bold text-gray-600 hover:shadow-neu-pressed transition-all bg-neu-base shadow-neu-flat flex-shrink-0 category-chip active:shadow-neu-pressed border border-white/20" data-id="${cat.id}">
                     ${cat.name}
                 </button>
             `).join('');
@@ -433,8 +433,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Pass false to prevent scrolling when using the form chips
                     showSubcategories(cat.id, false);
                     // Highlight active chip
-                    document.querySelectorAll('.category-chip').forEach(b => b.classList.remove('bg-blue-50', 'border-blue-500', 'text-blue-600'));
-                    chip.classList.add('bg-blue-50', 'border-blue-500', 'text-blue-600');
+                    document.querySelectorAll('.category-chip').forEach(b => {
+                        b.classList.remove('shadow-neu-pressed', 'text-primary');
+                        b.classList.add('shadow-neu-flat', 'text-gray-600');
+                    });
+                    chip.classList.remove('shadow-neu-flat', 'text-gray-600');
+                    chip.classList.add('shadow-neu-pressed', 'text-primary');
                 });
             });
         }
@@ -455,9 +459,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selectedCategoryTitle.innerText = `${category.name} Care`;
         subcategoryGrid.innerHTML = category.diseases.map(disease => `
-            <div class="p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:border-primary transition-all cursor-pointer disease-item" data-name="${disease}">
+            <div class="p-6 bg-neu-base rounded-2xl shadow-neu-card hover:shadow-neu-pressed transition-all cursor-pointer disease-item border-none" data-name="${disease}">
                 <div class="flex justify-between items-center">
-                    <span class="font-bold text-gray-800">${disease}</span>
+                    <span class="font-bold text-gray-700">${disease}</span>
                     <i class="fa-solid fa-arrow-right text-primary"></i>
                 </div>
             </div>
@@ -494,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         doctorGrid.innerHTML = doctors.length > 0 ? doctors.map(doc => `
-            <div class="doctor-card bg-white p-6 rounded-3xl border border-gray-100 shadow-sm animate-fade-in">
+            <div class="doctor-card bg-neu-base p-6 rounded-[2rem] shadow-neu-card animate-fade-in border-none">
                 <div class="flex items-center gap-4 mb-6">
                     <img src="${doc.img}" class="w-20 h-20 rounded-2xl object-cover shadow-sm" alt="${doc.name}">
                     <div>
@@ -516,8 +520,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span>Earliest slot: Today</span>
                     </div>
                 </div>
-                <button class="w-full py-3 bg-gray-900 text-white rounded-xl text-sm font-bold hover:bg-primary transition-colors">
-                    Book Appointment
+                <button class="uiverse-btn uiverse-btn-blue w-full">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span>Book Appointment</span>
+                        </div>
+                    </div>
                 </button>
             </div>
         `).join('') : `
@@ -559,30 +567,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="w-12 h-1 bg-primary rounded-full mb-6"></div>
                     
                     <div class="space-y-6">
-                        <div class="bg-white p-4 rounded-2xl border border-blue-50 shadow-sm">
+                        <div class="bg-neu-base p-6 rounded-3xl shadow-neu-pressed">
                             <h4 class="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
                                 <i class="fa-solid fa-circle-info text-blue-500"></i> What is it?
                             </h4>
                             <p class="text-xs text-gray-600 leading-relaxed">${info.whatIs}</p>
                         </div>
                         
-                        <div class="bg-white p-4 rounded-2xl border border-blue-50 shadow-sm">
+                        <div class="bg-neu-base p-6 rounded-3xl shadow-neu-pressed">
                             <h4 class="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
                                 <i class="fa-solid fa-syringe text-green-500"></i> Procedure
                             </h4>
                             <p class="text-xs text-gray-600 leading-relaxed">${info.procedure}</p>
                         </div>
                         
-                        <div class="bg-white p-4 rounded-2xl border border-blue-50 shadow-sm">
+                        <div class="bg-neu-base p-6 rounded-3xl shadow-neu-pressed">
                              <h4 class="text-sm font-bold text-gray-800 mb-2 flex items-center gap-2">
                                 <i class="fa-solid fa-heart-pulse text-red-500"></i> Recovery
                             </h4>
                             <p class="text-xs text-gray-600 leading-relaxed">${info.recovery}</p>
                         </div>
 
-                         <div class="p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                            <h4 class="text-xs font-bold text-primary mb-1">Why Choose Us?</h4>
-                            <ul class="text-[10px] text-gray-600 space-y-1">
+                         <div class="p-6 bg-neu-base rounded-3xl shadow-neu-flat">
+                            <h4 class="text-xs font-bold text-primary mb-2">Why Choose Us?</h4>
+                            <ul class="text-[10px] text-gray-600 space-y-2">
                                 <li><i class="fa-solid fa-check text-green-500 mr-1"></i> Insurance Approved</li>
                                 <li><i class="fa-solid fa-check text-green-500 mr-1"></i> Cost-Effective</li>
                                 <li><i class="fa-solid fa-check text-green-500 mr-1"></i> Free Pick & Drop</li>
@@ -623,10 +631,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (filtered.length > 0) {
                 resultsElem.innerHTML = filtered.map(d => `
-                <div class="px-5 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-50 last:border-0 search-item" data-name="${d.name}">
+                <div class="px-5 py-3 hover:shadow-neu-pressed bg-neu-base cursor-pointer border-b border-white/20 last:border-0 search-item" data-name="${d.name}">
                     <div class="flex justify-between items-center">
-                        <span class="font-bold text-gray-800 text-sm lg:text-xs">${d.name}</span>
-                        <span class="text-[11px] lg:text-[9px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full font-bold lg:font-normal">${d.category}</span>
+                        <span class="font-bold text-gray-700 text-sm lg:text-xs">${d.name}</span>
+                        <span class="text-[11px] lg:text-[9px] text-gray-500 bg-transparent px-2 py-0.5 rounded-full font-bold lg:font-normal shadow-neu-flat">${d.category}</span>
                     </div>
                 </div>
             `).join('');
@@ -759,14 +767,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (results.length > 0) {
                 resultsContainer.innerHTML = results.map((item, index) => `
-                    <div class="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-50 last:border-0 flex items-center gap-3 global-search-item" data-index="${index}">
+                    <div class="px-4 py-3 hover:shadow-neu-pressed bg-neu-base cursor-pointer border-b border-white/20 last:border-0 flex items-center gap-3 global-search-item" data-index="${index}">
                         ${item.image ?
-                        `<img src="${item.image}" class="w-8 h-8 rounded-full object-cover">` :
-                        `<div class="w-8 h-8 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-xs"><i class="${item.icon}"></i></div>`
+                        `<img src="${item.image}" class="w-8 h-8 rounded-full object-cover shadow-neu-flat">` :
+                        `<div class="w-8 h-8 rounded-full bg-neu-base text-primary shadow-neu-icon flex items-center justify-center text-xs"><i class="${item.icon}"></i></div>`
                     }
                         <div>
-                            <p class="text-sm lg:text-xs font-bold text-gray-800">${item.name}</p>
-                            <p class="text-[12px] lg:text-[10px] text-gray-400 capitalize font-bold lg:font-normal">${item.type} • ${item.subtitle}</p>
+                            <p class="text-sm lg:text-xs font-bold text-gray-700">${item.name}</p>
+                            <p class="text-[12px] lg:text-[10px] text-gray-500 capitalize font-bold lg:font-normal">${item.type} • ${item.subtitle}</p>
                         </div>
                     </div>
                 `).join('');
@@ -917,8 +925,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Don't increment if modal is currently showing or user is interacting with form
         if (modalShown || isInteractingWithForm) return;
 
-        // Show popup ONLY on mobile devices (less than 768px width)
-        if (window.innerWidth >= 768) return;
+        // Show popup on ALL devices (Mobile & Desktop) after inactivity
+        // if (window.innerWidth >= 768) return; // Constraint removed
 
         idleTime = idleTime + 1;
         if (idleTime >= 10) { // Show popup after 10 seconds of inactivity
@@ -968,15 +976,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', resetTimer, true);
 
     // Modal Close Logic
+    // Modal Close Logic
     if (closeModalBtn && inactivityModal) {
         closeModalBtn.addEventListener('click', closeInactivityModal);
 
-        // Close on click outside
-        inactivityModal.addEventListener('click', (e) => {
-            if (e.target === inactivityModal) {
-                closeInactivityModal();
-            }
-        });
+        // Background click closing disabled as per requirement
     }
 
     // Mobile Nav Book Appointment Button - Show popup immediately
@@ -1316,7 +1320,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Apply phone validation with autofill support to all mobile phone inputs
-    const phoneInputIds = ['mobileQuickPhone', 'mobileHeroPhone', 'modalMobileNumber'];
+    const phoneInputIds = ['mobileQuickPhone', 'mobileHeroPhone', 'modalMobileNumber', 'heroMobileNumber'];
 
     phoneInputIds.forEach(inputId => {
         const phoneInput = document.getElementById(inputId);

@@ -14,6 +14,20 @@
                     colors: {
                         primary: '#3a5ee0',
                         secondary: '#00A651',
+                        'neu-base': '#e0e5ec',
+                        'neu-text': '#4a5568',
+                    },
+                    boxShadow: {
+                        'neu-flat': '9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5)',
+                        'neu-pressed': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
+                        'neu-icon': '5px 5px 10px #b8b9be, -5px -5px 10px #ffffff',
+                        'neu-btn': '6px 6px 10px rgba(58, 94, 224, 0.2), -6px -6px 10px rgba(255, 255, 255, 0.5)',
+                        'neu-card': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff',
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                        '3xl': '2rem',
                     }
                 }
             }
@@ -24,17 +38,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-neu-base text-gray-700 font-sans antialiased">
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl mx-2 mt-2">
         <!-- Top Row: Branding & Utility -->
-        <div class="border-b border-gray-50">
+        <div class="rounded-b-2xl">
             <div class="container mx-auto px-4 py-3 flex justify-between items-center">
                 <div class="flex items-center gap-3 lg:gap-12 flex-1">
                     <div class="flex items-center gap-2 flex-shrink-0">
                         <div
-                            class="w-8 h-8 lg:w-10 lg:h-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                            class="w-10 h-10 bg-neu-base rounded-full flex items-center justify-center text-primary shadow-neu-flat">
                             <i class="fa-solid fa-house-medical text-sm lg:text-xl"></i>
                         </div>
                         <span class="text-lg lg:text-2xl font-extrabold tracking-tight text-gray-800">MediEase<span
@@ -44,7 +58,7 @@
                     <!-- Mobile Inline Search -->
                     <div class="lg:hidden flex-1 relative min-w-[120px] max-w-[240px] ml-2">
                         <input type="text" id="navMobileSearchInput" placeholder="Search disease, doctor..."
-                            class="w-full pl-8 pr-2 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-bold text-gray-700">
+                            class="w-full pl-8 pr-2 py-2 bg-neu-base rounded-full text-sm focus:outline-none focus:ring-0 shadow-neu-pressed transition-all font-bold text-gray-600 placeholder-gray-400">
                         <i
                             class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
                         <!-- Mobile Nav Search Results -->
@@ -58,7 +72,7 @@
                         <div class="relative">
                             <input type="text" id="globalSearchInput"
                                 placeholder="Search disease, doctor, speciality..."
-                                class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-gray-400">
+                                class="w-full pl-10 pr-4 py-3 bg-neu-base rounded-full text-sm focus:outline-none focus:ring-0 shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700">
                             <i
                                 class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         </div>
@@ -75,20 +89,23 @@
                         <span class="text-sm xl:text-base">1800-123-456</span>
                     </a>
                     <button onclick="document.getElementById('booking-form').scrollIntoView({behavior: 'smooth'})"
-                        class="bg-primary text-white px-6 xl:px-8 py-2.5 rounded-full font-bold text-sm btn-primary hidden sm:block whitespace-nowrap hover:bg-blue-700 transition-all shadow-lg shadow-primary/20">
-                        Book Appointment
+                        class="uiverse-btn uiverse-btn-blue hidden sm:block w-auto">
+                        <div class="button-outer">
+                            <div class="button-inner">
+                                <span>Book Appointment</span>
+                            </div>
+                        </div>
                     </button>
                     <!-- Mobile Menu Toggle -->
                     <button id="mobileMenuToggle"
-                        class="lg:hidden text-gray-700 hover:text-primary transition-colors p-1">
+                        class="lg:hidden text-primary hover:text-blue-700 transition-all p-2 rounded-xl shadow-neu-flat hover:shadow-neu-pressed active:shadow-neu-pressed bg-neu-base">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Bottom Row: Categories -->
-        <div class="bg-white hidden lg:block border-b border-gray-100 nav-categories-container"
-            id="navCategoriesContainer">
+        <div class="bg-neu-base hidden lg:block rounded-b-2xl nav-categories-container" id="navCategoriesContainer">
             <div class="max-w-7xl mx-auto px-4">
                 <div class="flex flex-nowrap gap-3 xl:gap-8 text-[11px] xl:text-[13px] font-bold text-gray-600 items-center justify-center py-1.5"
                     id="navCategories">
@@ -98,16 +115,19 @@
         </div>
         <!-- Mobile Menu Container - Positioned as overlay on top of hero section -->
         <div id="mobileMenu"
-            class="hidden lg:hidden absolute left-0 right-0 top-full bg-white border-t border-gray-100 px-4 py-4 space-y-4 animate-fade-in max-h-[70vh] overflow-y-auto z-[100] shadow-2xl">
+            class="hidden lg:hidden absolute left-0 right-0 top-full bg-neu-base px-4 py-4 space-y-4 animate-fade-in max-h-[70vh] overflow-y-auto z-[100] shadow-neu-flat mx-4 mt-2 rounded-2xl">
 
             <!-- Mobile Categories Container -->
             <div id="mobileCategoriesContainer" class="space-y-1">
                 <!-- JS will populate accordion items here -->
             </div>
-            <div class="pt-4 sticky bottom-0 bg-white pb-2">
-                <button id="mobileNavBookAppointmentBtn"
-                    class="w-full bg-primary text-white py-4 rounded-xl font-bold shadow-lg">
-                    Book Appointment
+            <div class="pt-4 sticky bottom-0 bg-neu-base pb-2 px-2">
+                <button id="mobileNavBookAppointmentBtn" class="uiverse-btn uiverse-btn-blue w-full">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span>Book Appointment</span>
+                        </div>
+                    </div>
                 </button>
             </div>
         </div>
@@ -116,27 +136,27 @@
 
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden pt-6 pb-12 md:py-10 gradient-bg">
+    <section class="relative overflow-hidden pt-6 pb-12 md:py-10 bg-neu-base">
         <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
             <!-- Left Side: Content -->
             <div class="space-y-5">
                 <div>
                     <span
-                        class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-[10px] font-bold mb-3">
+                        class="inline-block px-4 py-1.5 bg-neu-base text-green-600 rounded-full text-[10px] font-bold mb-4 shadow-neu-flat">
                         <i class="fa-solid fa-shield-halved mr-1"></i> IRDAI Certified
                     </span>
                     <h1 class="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] text-left">
                         Healthcare <span class="text-primary italic">Simplified</span>,<br> Services <span
                             class="text-secondary italic">Hassle-Free</span>.
                     </h1>
-                    <p class="mt-4 text-sm md:text-base text-gray-600 leading-relaxed max-w-lg text-left">
+                    <p class="mt-4 text-sm md:text-base text-gray-500 leading-relaxed max-w-lg text-left">
                         Experience stress-free medical care. We handle your documentation, insurance approvals, and even
                         provide free pick-up and drop-off.
                     </p>
                 </div>
 
                 <!-- Mobile Booking Form -->
-                <div class="lg:hidden bg-white p-5 rounded-3xl border border-gray-100 shadow-lg mr-4 relative">
+                <div class="lg:hidden bg-neu-base p-6 rounded-3xl shadow-neu-card mr-4 relative">
                     <div class="absolute -top-3 right-6 bg-[#4BAE00] text-white px-4 py-1.5 rounded-lg font-bold text-[10px] shadow-sm z-10"
                         style="clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);">
                         Free Consultation
@@ -146,18 +166,18 @@
                         <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
                         <div class="relative">
                             <input type="text" name="name" id="mobileHeroName" placeholder="Patient Name"
-                                class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-all text-sm"
+                                class="w-full px-4 py-3 bg-neu-base rounded-2xl focus:outline-none shadow-neu-pressed transition-all text-sm text-gray-600 placeholder-gray-400"
                                 required>
                         </div>
                         <div class="relative">
                             <input type="tel" name="phone" id="mobileHeroPhone" placeholder="Mobile Number"
-                                class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-all text-sm"
+                                class="w-full px-4 py-3 bg-neu-base rounded-2xl focus:outline-none shadow-neu-pressed transition-all text-sm text-gray-600 placeholder-gray-400"
                                 required maxlength="14" pattern="[0-9]{10}">
                         </div>
 
                         <div class="relative">
                             <select name="city"
-                                class="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-lg text-sm outline-none appearance-none"
+                                class="w-full px-4 py-3 pr-10 bg-neu-base rounded-2xl text-sm outline-none appearance-none shadow-neu-pressed text-gray-600"
                                 required>
                                 <option value="Hyderabad" selected>Hyderabad</option>
                                 <option value="Bangalore">Bangalore</option>
@@ -170,7 +190,7 @@
                         <div class="relative">
                             <input type="text" name="disease" id="mobileHeroDiseaseInput"
                                 placeholder="Search disease, doctor..."
-                                class="w-full px-4 py-2.5 pr-10 bg-gray-50 border border-gray-200 rounded-lg text-base outline-none focus:border-primary transition-all font-bold"
+                                class="w-full px-4 py-3 pr-10 bg-neu-base rounded-2xl text-base outline-none shadow-neu-pressed transition-all font-bold text-gray-600 placeholder-gray-400"
                                 autocomplete="off" required>
                             <i
                                 class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
@@ -178,18 +198,21 @@
                                 class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-gray-100 rounded-xl shadow-xl z-50 overflow-hidden max-h-48 overflow-y-auto">
                             </div>
                         </div>
-                        <button type="submit"
-                            class="w-full bg-primary text-white py-3 rounded-lg font-bold text-sm hover:bg-blue-700 transition-all shadow-md mt-2">
-                            Book Free Appointment
+                        <button type="submit" class="uiverse-btn uiverse-btn-blue mt-2 w-full">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Book Free Appointment</span>
+                                </div>
+                            </div>
                         </button>
                     </form>
                 </div>
 
                 <!-- Features Grid -->
                 <div class="hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                         <div
-                            class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-neu-base text-blue-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-file-invoice-dollar text-base"></i>
                         </div>
                         <div>
@@ -197,9 +220,9 @@
                             <p class="text-[10px] text-gray-500">Claim settlements handled by us.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                         <div
-                            class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-neu-base text-blue-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-user-doctor text-base"></i>
                         </div>
                         <div>
@@ -207,9 +230,9 @@
                             <p class="text-[10px] text-gray-500">Dedicated coordinator for you.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                         <div
-                            class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-neu-base text-green-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-car-side text-base"></i>
                         </div>
                         <div>
@@ -217,9 +240,9 @@
                             <p class="text-[10px] text-gray-500">Doorstep pick-up and drop-off.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                         <div
-                            class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                            class="w-12 h-12 bg-neu-base text-purple-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-handshake-angle text-base"></i>
                         </div>
                         <div>
@@ -232,7 +255,7 @@
 
             <!-- Right Side: Booking Form -->
             <div id="booking-form"
-                class="hidden lg:block bg-white p-5 rounded-3xl border border-gray-100 form-shadow relative max-w-md mx-auto lg:ml-auto">
+                class="hidden lg:block bg-neu-base p-8 rounded-[2rem] shadow-neu-card relative max-w-md mx-auto lg:ml-auto">
                 <div class="absolute -top-3 right-6 bg-[#4BAE00] text-white px-4 py-1.5 rounded-lg font-bold text-xs shadow-md z-10 transition-all hover:scale-105"
                     style="clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);">
                     Free Consultation
@@ -244,17 +267,17 @@
                     <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
                     <div class="relative">
                         <input type="text" name="name" placeholder="Patient Name" id="heroPatientName"
-                            class="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-all font-medium text-sm text-gray-700 placeholder-gray-400"
+                            class="w-full px-6 py-3 bg-neu-base rounded-2xl focus:outline-none shadow-neu-pressed transition-all font-medium text-sm text-gray-600 placeholder-gray-400 border-none"
                             required>
                     </div>
                     <div class="relative">
                         <input type="tel" name="phone" placeholder="Mobile Number" id="heroMobileNumber"
-                            class="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-all font-medium text-sm text-gray-700 placeholder-gray-400"
-                            required>
+                            class="w-full px-6 py-3 bg-neu-base rounded-2xl focus:outline-none shadow-neu-pressed transition-all font-medium text-sm text-gray-600 placeholder-gray-400 border-none"
+                            required maxlength="14" pattern="[0-9]{10}">
                     </div>
                     <div class="relative">
                         <select name="city"
-                            class="w-full px-4 py-2.5 bg-white border border-gray-300 rounded-lg focus:outline-none appearance-none font-medium text-sm text-gray-700"
+                            class="w-full px-6 py-3 bg-neu-base rounded-2xl focus:outline-none appearance-none font-medium text-sm text-gray-600 shadow-neu-pressed border-none"
                             required>
                             <option value="">Select City</option>
                             <option value="hyderabad" selected>Hyderabad</option>
@@ -280,7 +303,7 @@
                     <div class="relative" id="diseaseSelectContainer">
                         <div class="absolute left-4 top-2 text-[9px] text-blue-600 font-bold">Or Enter Disease</div>
                         <input type="text" id="diseaseInput" name="disease" placeholder="Piles, Hernia, etc."
-                            class="w-full px-4 pt-6 pb-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-all font-semibold text-sm text-gray-700"
+                            class="w-full px-6 pt-6 pb-2 bg-neu-base rounded-2xl focus:outline-none shadow-neu-pressed transition-all font-semibold text-sm text-gray-600 placeholder-gray-400 border-none"
                             autocomplete="off" required>
                         <div class="absolute right-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none text-xs">
                             <i class="fa-solid fa-chevron-down"></i>
@@ -292,18 +315,21 @@
                         </div>
                     </div>
 
-                    <button type="submit"
-                        class="w-full py-3 bg-[#3a5ee0] text-white rounded-xl font-bold text-lg shadow-lg hover:bg-[#2d4ab3] transition-all mt-2">
-                        Book Free Appointment
+                    <button type="submit" class="uiverse-btn uiverse-btn-blue mt-2 w-full">
+                        <div class="button-outer">
+                            <div class="button-inner">
+                                <span>Book Free Appointment</span>
+                            </div>
+                        </div>
                     </button>
                 </form>
             </div>
 
             <!-- Mobile Features Grid (Visible only on LG and below) -->
             <div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-                <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                     <div
-                        class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        class="w-12 h-12 bg-neu-base text-blue-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                         <i class="fa-solid fa-file-invoice-dollar text-base"></i>
                     </div>
                     <div>
@@ -311,9 +337,9 @@
                         <p class="text-[10px] text-gray-500">Claim settlements handled by us.</p>
                     </div>
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                     <div
-                        class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        class="w-12 h-12 bg-neu-base text-blue-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                         <i class="fa-solid fa-user-doctor text-base"></i>
                     </div>
                     <div>
@@ -321,9 +347,9 @@
                         <p class="text-[10px] text-gray-500">Dedicated coordinator for you.</p>
                     </div>
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                     <div
-                        class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        class="w-12 h-12 bg-neu-base text-green-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                         <i class="fa-solid fa-car-side text-base"></i>
                     </div>
                     <div>
@@ -331,9 +357,9 @@
                         <p class="text-[10px] text-gray-500">Doorstep pick-up and drop-off.</p>
                     </div>
                 </div>
-                <div class="flex items-start gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-start gap-3 p-4 bg-neu-base rounded-2xl shadow-neu-card">
                     <div
-                        class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        class="w-12 h-12 bg-neu-base text-purple-600 rounded-full shadow-neu-icon flex items-center justify-center flex-shrink-0">
                         <i class="fa-solid fa-handshake-angle text-base"></i>
                     </div>
                     <div>
@@ -346,7 +372,7 @@
     </section>
 
     <!-- Categories Section -->
-    <section id="categories" class="py-24 bg-white">
+    <section id="categories" class="py-24 bg-neu-base">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Our Specialities</h2>
@@ -361,11 +387,11 @@
     </section>
 
     <!-- Subcategories Section (Hidden by default, shown when category selected) -->
-    <section id="subcategories" class="py-12 bg-gray-50 border-t border-gray-100 hidden">
+    <section id="subcategories" class="py-12 bg-neu-base border-t border-gray-200/50 hidden">
         <div class="container mx-auto px-4">
             <div class="flex items-center gap-4 mb-8">
                 <button id="backToCategories"
-                    class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-all">
+                    class="w-10 h-10 rounded-full bg-neu-base shadow-neu-flat flex items-center justify-center text-gray-500 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed">
                     <i class="fa-solid fa-arrow-left"></i>
                 </button>
                 <h2 class="text-2xl font-bold text-gray-800" id="selectedCategoryTitle">Sub Categories</h2>
@@ -378,7 +404,7 @@
 
     <!-- Doctors Section -->
     <!-- Doctors Section -->
-    <section id="doctors" class="py-24 bg-white hidden">
+    <section id="doctors" class="py-24 bg-neu-base hidden">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight"
@@ -397,7 +423,7 @@
 
                 <!-- Right: Disease Info Panel -->
                 <div id="diseaseInfoPanel"
-                    class="lg:col-span-2 bg-blue-50/50 p-6 rounded-3xl border border-blue-100 shadow-sm sticky top-28 h-fit space-y-6 animate-fade-in mt-8 lg:mt-0">
+                    class="lg:col-span-2 bg-neu-base p-6 rounded-[2rem] shadow-neu-pressed sticky top-28 h-fit space-y-6 animate-fade-in mt-8 lg:mt-0">
                     <div class="text-center text-gray-400 py-10">Select a disease to view details</div>
                 </div>
             </div>
@@ -415,19 +441,19 @@
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
                             <i class="fa-brands fa-twitter"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -454,16 +480,25 @@
                     <h4 class="text-lg font-bold mb-6">Contact Us</h4>
                     <ul class="space-y-4 text-gray-400 text-sm">
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-location-dot text-primary"></i>
-                            Banjara Hills, Hyderabad, India
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937]">
+                                <i class="fa-solid fa-location-dot text-primary text-xs"></i>
+                            </div>
+                            <span class="text-sm">Banjara Hills, Hyderabad, India</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-primary"></i>
-                            +91 1800-123-456
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937]">
+                                <i class="fa-solid fa-phone text-primary text-xs"></i>
+                            </div>
+                            <span class="text-sm">+91 1800-123-456</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-primary"></i>
-                            contact@mediease.com
+                            <div
+                                class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937]">
+                                <i class="fa-solid fa-envelope text-primary text-xs"></i>
+                            </div>
+                            <span class="text-sm">contact@mediease.com</span>
                         </li>
                 </div>
             </div>
@@ -478,15 +513,16 @@
     <!-- Inactivity Popup Modal -->
     <div id="inactivityModal"
         class="fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden transform scale-95 transition-all duration-300"
+        <div class="bg-neu-base rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden transform scale-95 transition-all duration-300"
             id="inactivityModalContent">
             <!-- Header -->
-            <div class="bg-primary px-6 py-4 flex justify-between items-center text-white relative overflow-hidden">
-                <div class="absolute inset-0 bg-white/10 skew-x-12 -translate-x-full animate-[shimmer_2s_infinite]">
+            <div
+                class="bg-neu-base px-6 py-4 flex justify-between items-center text-gray-800 relative overflow-hidden shadow-neu-flat rounded-t-2xl z-20">
+                <div class="absolute inset-0 bg-neu-base/10 skew-x-12 -translate-x-full animate-[shimmer_2s_infinite]">
                 </div>
-                <h3 class="font-bold text-lg relative z-10">Book Your FREE Consultation Now</h3>
+                <h3 class="font-bold text-lg relative z-10 text-primary">Book Your FREE Consultation Now</h3>
                 <button id="closeModalBtn"
-                    class="hover:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center transition-colors relative z-10">
+                    class="bg-neu-base text-gray-500 hover:text-primary hover:shadow-neu-pressed shadow-neu-flat rounded-full w-8 h-8 flex items-center justify-center transition-all relative z-10 active:shadow-neu-pressed">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
@@ -494,7 +530,7 @@
             <div class="flex flex-col md:flex-row">
                 <!-- Left Side: Trust & Steps (Hidden on Mobile) -->
                 <div
-                    class="hidden md:block p-8 md:w-1/2 border-r border-gray-100 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+                    class="hidden md:block p-8 md:w-1/2 border-r border-gray-200/50 bg-neu-base relative overflow-hidden">
                     <div
                         class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
                     </div>
@@ -507,7 +543,7 @@
                         <!-- Step 1 -->
                         <div class="flex gap-4 items-start group">
                             <div
-                                class="w-10 h-10 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 rounded-full bg-neu-base shadow-neu-icon flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fa-solid fa-phone-volume"></i>
                             </div>
                             <div>
@@ -519,7 +555,7 @@
                         <!-- Step 2 -->
                         <div class="flex gap-4 items-start group">
                             <div
-                                class="w-10 h-10 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 rounded-full bg-neu-base shadow-neu-icon flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fa-solid fa-user-doctor"></i>
                             </div>
                             <div>
@@ -531,7 +567,7 @@
                         <!-- Step 3 -->
                         <div class="flex gap-4 items-start group">
                             <div
-                                class="w-10 h-10 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                class="w-10 h-10 rounded-full bg-neu-base shadow-neu-icon flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                 <i class="fa-solid fa-calendar-check"></i>
                             </div>
                             <div>
@@ -543,7 +579,7 @@
                     </div>
 
                     <!-- Trust Badges -->
-                    <div class="grid grid-cols-3 gap-2 bg-blue-50/50 p-4 rounded-xl border border-blue-50">
+                    <div class="grid grid-cols-3 gap-2 bg-neu-base p-4 rounded-2xl shadow-neu-pressed">
                         <div class="text-center border-r border-blue-100 last:border-0 px-2">
                             <p class="text-lg font-extrabold text-primary">3M+</p>
                             <p class="text-[9px] text-gray-500 uppercase font-bold tracking-tight">Happy Patients</p>
@@ -560,7 +596,7 @@
                 </div>
 
                 <!-- Right Side: Form -->
-                <div class="p-6 md:p-8 md:w-1/2 bg-white relative">
+                <div class="p-6 md:p-8 md:w-1/2 bg-neu-base relative">
                     <div class="text-center mb-6 md:hidden">
                         <h3 class="text-xl font-bold text-gray-900">Book Free Appointment</h3>
                     </div>
@@ -569,18 +605,18 @@
                         <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
                         <div class="relative">
                             <input type="text" name="name" placeholder="Patient Name" id="modalPatientName"
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
                                 required>
                         </div>
                         <div class="relative">
                             <input type="tel" name="phone" placeholder="Mobile Number" id="modalMobileNumber"
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-gray-400"
+                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
                                 pattern="[0-9]{10}" maxlength="14" required>
                         </div>
 
                         <div class="relative">
                             <select name="city"
-                                class="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-gray-600 bg-white"
+                                class="w-full px-4 py-3 rounded-2xl border-none bg-neu-base text-sm focus:outline-none appearance-none shadow-neu-pressed transition-all text-gray-600"
                                 required>
                                 <option value="" disabled>Select City</option>
                                 <option>Delhi</option>
@@ -599,15 +635,28 @@
                                 Specialty</label>
                             <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-none" id="modalSpecialtyChips">
                                 <button type="button"
-                                    class="whitespace-nowrap px-4 py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-700 hover:border-primary hover:text-primary transition-all">Proctology</button>
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Proctology</button>
                                 <button type="button"
-                                    class="whitespace-nowrap px-4 py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-700 hover:border-primary hover:text-primary transition-all">Laparoscopy</button>
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Laparoscopy</button>
                                 <button type="button"
-                                    class="whitespace-nowrap px-4 py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-700 hover:border-primary hover:text-primary transition-all">Gynaecology</button>
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Gynaecology</button>
                                 <button type="button"
-                                    class="whitespace-nowrap px-4 py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-700 hover:border-primary hover:text-primary transition-all">ENT</button>
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">ENT</button>
                                 <button type="button"
-                                    class="whitespace-nowrap px-4 py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-700 hover:border-primary hover:text-primary transition-all">Urology</button>
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Urology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Dermatology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Vascular</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Aesthetics</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Orthopedics</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Ophthalmology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Weight
+                                    Loss</button>
                             </div>
                         </div>
 
@@ -616,7 +665,7 @@
                             <div class="relative">
                                 <input type="text" name="disease" placeholder="Search disease, doctor..."
                                     id="modalDiseaseInput" required
-                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 text-base lg:text-sm focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all font-bold lg:font-normal">
+                                    class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-base lg:text-sm focus:outline-none shadow-neu-pressed transition-all font-bold lg:font-normal placeholder:text-gray-400 text-gray-700">
                                 <i
                                     class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
                             </div>
@@ -627,10 +676,14 @@
                             </div>
                         </div>
 
-                        <button type="submit"
-                            class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-500/30 transition-all transform active:scale-95 flex justify-center items-center gap-2 mt-4">
-                            <span>Book Free Appointment</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+                        <button type="submit" class="uiverse-btn uiverse-btn-blue mt-4 w-full">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>
+                                        Book Free Appointment <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </button>
                     </form>
                 </div>
@@ -641,31 +694,35 @@
     <div id="successModal"
         class="fixed inset-0 z-[1002] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
         <div
-            class="bg-white rounded-2xl p-8 flex flex-col items-center justify-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out] transform transition-all scale-100">
-            <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6 relative">
+            class="bg-neu-base rounded-[2rem] shadow-neu-card p-8 flex flex-col items-center justify-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out] transform transition-all scale-100">
+            <div
+                class="w-20 h-20 bg-neu-base rounded-full flex items-center justify-center mb-6 relative shadow-neu-icon">
                 <i class="fa-solid fa-check text-4xl text-green-500 animate-[bounce_1s_infinite]"></i>
-                <div class="absolute inset-0 border-4 border-green-100 rounded-full animate-ping opacity-20"></div>
+                <div class="absolute inset-0 border-4 border-green-500/20 rounded-full animate-ping opacity-20"></div>
             </div>
             <h3 class="text-2xl font-bold text-gray-800 mb-2 text-center">Request Submitted!</h3>
             <p class="text-gray-500 text-center mb-8 text-sm leading-relaxed">Thank you for choosing us. Our medical
                 expert will contact you shortly to confirm your appointment.</p>
-            <button id="closeSuccessModal"
-                class="w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-green-500/30 transform active:scale-95">
-                Excellent!
+            <button id="closeSuccessModal" class="uiverse-btn uiverse-btn-green w-full">
+                <div class="button-outer">
+                    <div class="button-inner">
+                        <span>Excellent!</span>
+                    </div>
+                </div>
             </button>
         </div>
     </div>
 
     <!-- Mobile Bottom Action Bar -->
     <div id="mobileBottomBar"
-        class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 transform translate-y-full transition-transform duration-300 ease-out">
+        class="lg:hidden fixed bottom-0 left-0 right-0 bg-neu-base border-t border-white/20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50 transform translate-y-full transition-transform duration-300 ease-out">
 
         <!-- Expandable Quick Booking Form -->
         <div id="mobileQuickBookForm" class="hidden px-4 pt-4 pb-2 border-b border-gray-100 animate-fade-in">
             <div class="flex justify-between items-center mb-3">
                 <h4 class="font-bold text-gray-800 text-sm">Share Your Details</h4>
                 <button onclick="document.getElementById('mobileQuickBookForm').classList.add('hidden')"
-                    class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200">
+                    class="w-8 h-8 rounded-full bg-neu-base shadow-neu-flat flex items-center justify-center text-gray-500 hover:text-red-500 hover:shadow-neu-pressed transition-all">
                     <i class="fa-solid fa-xmark text-xs"></i>
                 </button>
             </div>
@@ -676,38 +733,52 @@
                     <label class="text-xs text-gray-600 font-medium mb-1 block">Your Name<span
                             class="text-red-500">*</span></label>
                     <input type="text" name="name" id="mobileQuickName" placeholder="Enter your name"
-                        class="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:border-primary transition-all text-sm"
+                        class="w-full px-4 py-3 bg-neu-base rounded-full focus:outline-none shadow-neu-pressed transition-all text-sm"
                         required minlength="2">
                 </div>
                 <div class="relative">
                     <label class="text-xs text-gray-600 font-medium mb-1 block">Mobile Number<span
                             class="text-red-500">*</span></label>
-                    <div class="flex items-center border border-gray-200 rounded-full overflow-hidden bg-gray-50">
+                    <div class="flex items-center rounded-full overflow-hidden bg-neu-base shadow-neu-pressed">
                         <span class="px-3 py-2.5 bg-orange-400 text-white font-bold text-sm rounded-l-full">+91</span>
                         <input type="tel" name="phone" id="mobileQuickPhone" placeholder="Enter mobile number"
-                            class="flex-1 px-3 py-2.5 bg-transparent focus:outline-none text-sm" required
+                            class="flex-1 px-3 py-3 bg-transparent focus:outline-none text-sm" required
                             pattern="[0-9]{10}" maxlength="14">
                     </div>
                 </div>
-                <button type="submit"
-                    class="w-full bg-primary text-white py-3 rounded-full font-bold text-sm hover:bg-blue-700 transition-all shadow-md">
-                    Book Now
+                <button type="submit" class="uiverse-btn uiverse-btn-blue w-full">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span>Submit</span>
+                        </div>
+                    </div>
                 </button>
             </form>
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-4 py-3 pb-6 flex gap-3">
-            <a href="tel:+919876543210"
-                class="flex-1 flex items-center justify-center gap-2 bg-green-500 text-white py-3.5 rounded-xl font-bold text-sm hover:bg-green-600 transition-all shadow-md">
-                <i class="fa-solid fa-phone"></i>
-                Call Us
-            </a>
-            <button id="mobileBookBtn" onclick="toggleMobileQuickForm()"
-                class="flex-1 flex items-center justify-center gap-2 bg-primary text-white py-3.5 rounded-xl font-bold text-sm hover:bg-blue-700 transition-all shadow-md">
-                <i class="fa-solid fa-calendar-check"></i>
-                Book Appointment
-            </button>
+        <div class="px-4 py-2 pb-6 flex gap-3 w-full items-stretch">
+            <div class="flex-1">
+                <a href="tel:+919876543210"
+                    class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
+                    <div class="button-outer h-full">
+                        <div class="button-inner h-full justify-center items-center !py-3">
+                            <span class="text-sm font-bold"><i class="fa-solid fa-phone mr-1"></i> Call Us</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1">
+                <button id="mobileBookBtn" onclick="toggleMobileQuickForm()"
+                    class="uiverse-btn uiverse-btn-blue w-full h-full flex items-center justify-center">
+                    <div class="button-outer h-full">
+                        <div class="button-inner h-full justify-center items-center !py-3">
+                            <span class="text-sm font-bold"><i class="fa-solid fa-calendar-check mr-1"></i>
+                                Book-Now</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
         </div>
     </div>
 
