@@ -25,12 +25,33 @@
     right: 0;
 }
 
+/* Invisible bridge to prevent closing on gap */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    /* Bridge the gap */
+    display: block;
+}
+
 .nav-item:hover .dropdown-menu {
     display: block;
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
     visibility: visible;
+    transition-delay: 0s;
+    /* Immediate open */
+}
+
+/* Add a slight delay before closing to help user catch it */
+.nav-item>.dropdown-menu {
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s;
+    transition-delay: 0.15s;
+    /* Delay closing */
 }
 
 .nav-item:hover .dropdown-trigger {
@@ -157,15 +178,35 @@
     display: contents;
 }
 
-/* Blue Variant (Primary Action) */
+/* Blue Variant (Primary Action) - Solid Blue per request */
 .uiverse-btn-blue,
 .neu-btn-primary {
-    color: #6D83F2;
+    background-color: #6D83F2;
+    /* Solid Blue */
+    color: #ffffff;
+    /* White Text */
+    box-shadow: 6px 6px 12px rgba(109, 131, 242, 0.25), -6px -6px 12px rgba(255, 255, 255, 0.8);
 }
 
 .uiverse-btn-blue:hover,
 .neu-btn-primary:hover {
-    color: #5a75f0;
+    background-color: #5a75f0;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 16px rgba(109, 131, 242, 0.35), -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.uiverse-btn-blue:active,
+.neu-btn-primary:active {
+    background-color: #5a75f0;
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+/* Mobile Search Input Specific Padding (to avoid overlap) */
+#navMobileSearchInput {
+    padding-left: 2.5rem !important;
+    /* 40px to clear the icon */
 }
 
 /* Green Variant */
