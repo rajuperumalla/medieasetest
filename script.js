@@ -705,19 +705,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Fuzzy Match Scoring Function
         function scoreMatch(query, text) {
+            const normalize = (str) => str.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+
             const q = query.toLowerCase();
             const t = text.toLowerCase();
-            if (t === q) return 100; // Exact match
-            if (t.startsWith(q)) return 80; // Starts with
-            if (t.includes(q)) return 60; // Contains
+            const qNorm = normalize(q);
+            const tNorm = normalize(t);
 
-            // Simple fuzzy check (allow 1 character mistake for short words, 2 for long)
+            // 1. Exact Match (Highest)
+            if (t === q || tNorm === qNorm) return 100;
+
+            // 2. Starts With
+            if (t.startsWith(q) || tNorm.startsWith(qNorm)) return 80;
+
+            // 3. Contains
+            if (t.includes(q) || tNorm.includes(qNorm)) return 60;
+
+            // 4. Word-by-Word Check (e.g. "Sameer" in "Dr. Sameer Gupta")
+            const queryWords = qNorm.split(' ');
+            const textWords = tNorm.split(' ');
+
+            // If every word in query exists in text (in any order)
+            const allWordsFound = queryWords.every(qw => textWords.some(tw => tw.includes(qw)));
+            if (allWordsFound) return 70;
+
+            // Simple fuzzy check (allow 1 character mistake)
             let mistakes = 0;
             let j = 0;
-            for (let i = 0; i < q.length; i++) {
-                if (q[i] !== t[j]) {
+            // Use the normalized versions for fuzzy check to ignore dots
+            for (let i = 0; i < qNorm.length && j < tNorm.length; i++) {
+                if (qNorm[i] !== tNorm[j]) {
                     mistakes++;
-                    if (mistakes > 2) return 0; // Too many mistakes
+                    if (mistakes > 2) return 0;
                 } else {
                     j++;
                 }
@@ -743,20 +762,20 @@ document.addEventListener('DOMContentLoaded', () => {
             let allResults = [];
             const addedItems = new Set();
 
-            // 1. Search Categories (Services)
+            // 1. Search Categories (Score: 600 - 650)
             medicalData.categories.forEach(cat => {
                 const score = Math.max(
                     scoreMatch(query, cat.name),
                     mappedIntent && intentMap[mappedIntent] === cat.name ? 90 : 0
                 );
 
-                if (score > 0) {
+                if (score > 60) {
                     allResults.push({
                         type: 'Service Category',
                         name: cat.name,
                         subtitle: 'Explore all treatments',
                         icon: cat.icon,
-                        score: score + 10, // Boost category matches
+                        score: score + 550, // Base 600 range
                         action: () => {
                             showSubcategories(cat.id, true);
                             document.getElementById('mobileMenu').classList.add('hidden');
@@ -764,16 +783,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
 
-                // Search Diseases within Category
+                // Search Diseases (Score: 700 - 800)
                 cat.diseases.forEach(d => {
                     const dScore = scoreMatch(query, d);
-                    if (dScore > 0 && !addedItems.has(d)) {
+                    if (dScore > 40 && !addedItems.has(d)) {
+                        // Diseases get high priority
+                        let finalDScore = dScore + 700;
+                        if (dScore === 100) finalDScore = 800; // Exact disease match
+
                         allResults.push({
                             type: 'Treatment',
                             name: d,
                             subtitle: `in ${cat.name}`,
                             icon: 'fa-solid fa-notes-medical',
-                            score: dScore,
+                            score: finalDScore,
                             action: () => {
                                 showDoctors(d, true);
                                 document.getElementById('mobileMenu').classList.add('hidden');
@@ -784,13 +807,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // 2. Search Doctors
+            // 2. Search Doctors (Score: Variable)
             medicalData.doctors.forEach(doc => {
                 const nameScore = scoreMatch(query, doc.name);
                 const cityScore = scoreMatch(query, doc.city);
-                const diseaseScore = doc.diseases.some(d => scoreMatch(query, d) > 0) ? 50 : 0;
 
-                const finalDocScore = Math.max(nameScore, cityScore, diseaseScore);
+                let finalDocScore = 0;
+
+                // CRITICAL: Logic for "Copy Paste Doctor Name" -> Top Priority
+                if (nameScore === 100) {
+                    finalDocScore = 2000; // Absolute Top Priority
+                }
+                else if (nameScore >= 80) { // Starts with "Dr. Sam..."
+                    finalDocScore = 1000; // High Priority (Above Diseases)
+                }
+                else if (nameScore >= 60) { // Contains "Sameer"
+                    // If just containing the name, we show it BELOW diseases (as per user req)
+                    // Diseases are ~700-800. So we put this at ~400.
+                    finalDocScore = 400 + nameScore;
+                }
+                else if (cityScore > 80) {
+                    finalDocScore = 300;
+                }
+                else if (nameScore >= 40) { // Fuzzy match
+                    finalDocScore = 200;
+                }
+
 
                 if (finalDocScore > 0) {
                     allResults.push({
@@ -801,7 +843,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         image: doc.img,
                         score: finalDocScore,
                         action: () => {
-                            // Show specific doctor logic or just open doctor section
                             document.getElementById('doctors').classList.remove('hidden');
                             document.getElementById('doctorsSectionTitle').innerText = 'Search Result';
                             document.getElementById('doctorGrid').innerHTML = `
@@ -1021,6 +1062,16 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileQuickBookForm.addEventListener('input', pauseInactivityWhileInteracting);
         mobileQuickBookForm.addEventListener('touchstart', pauseInactivityWhileInteracting);
         mobileQuickBookForm.addEventListener('focusout', resumeInactivityTracking);
+    }
+
+    // CRITICAL: Pause inactivity timer when user types in SEARCH input
+    const mobileSearchInput = document.getElementById('navMobileSearchInput');
+    if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('focus', pauseInactivityWhileInteracting);
+        mobileSearchInput.addEventListener('input', pauseInactivityWhileInteracting);
+        mobileSearchInput.addEventListener('click', pauseInactivityWhileInteracting);
+        // Resume when they leave the search bar
+        mobileSearchInput.addEventListener('blur', resumeInactivityTracking);
     }
 
     // Increment idle time every second
