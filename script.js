@@ -670,57 +670,112 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDiseaseSearch('modalDiseaseInput', 'modalSearchResults');
     setupDiseaseSearch('mobileHeroDiseaseInput', 'mobileHeroDiseaseResults');
 
-    // 5. Global Search Bar Logic (Nav & Mobile)
+    // 5. Intelligent Global Search Bar Logic (Nav & Mobile) - REPLACED
     function setupGlobalSearch(inputId, resultsId) {
         const input = document.getElementById(inputId);
         const resultsContainer = document.getElementById(resultsId);
 
         if (!input || !resultsContainer) return;
 
+        // Intent Mapping (Colloquial -> Technical)
+        const intentMap = {
+            'headache': 'Neurology', // Example if we had neurology
+            'stomach': 'Laparoscopy', // General abdominal
+            'baby': 'Gynaecology',
+            'delivery': 'Gynaecology',
+            'skin': 'Dermatology',
+            'face': 'Aesthetics',
+            'bone': 'Orthopedics',
+            'joint': 'Orthopedics',
+            'eye': 'Ophthalmology',
+            'vision': 'Ophthalmology',
+            'lens': 'Ophthalmology',
+            'fat': 'Weight Loss',
+            'diet': 'Weight Loss',
+            'nose': 'ENT',
+            'ear': 'ENT',
+            'throat': 'ENT',
+            'pee': 'Urology',
+            'urine': 'Urology',
+            'kidney': 'Urology',
+            'vein': 'Vascular',
+            'piles': 'Proctology',
+            'fissure': 'Proctology'
+        };
+
+        // Fuzzy Match Scoring Function
+        function scoreMatch(query, text) {
+            const q = query.toLowerCase();
+            const t = text.toLowerCase();
+            if (t === q) return 100; // Exact match
+            if (t.startsWith(q)) return 80; // Starts with
+            if (t.includes(q)) return 60; // Contains
+
+            // Simple fuzzy check (allow 1 character mistake for short words, 2 for long)
+            let mistakes = 0;
+            let j = 0;
+            for (let i = 0; i < q.length; i++) {
+                if (q[i] !== t[j]) {
+                    mistakes++;
+                    if (mistakes > 2) return 0; // Too many mistakes
+                } else {
+                    j++;
+                }
+            }
+            return 40; // Fuzzy match
+        }
+
         input.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
+            let query = e.target.value.toLowerCase().trim();
             if (query.length < 1) {
                 resultsContainer.classList.add('hidden');
                 return;
             }
 
-            let results = [];
-            const addedItems = new Set(); // To avoid duplicates
+            // Check for intent mapping
+            const mappedIntent = Object.keys(intentMap).find(key => query.includes(key));
+            if (mappedIntent) {
+                // Determine if we should prioritize the mapped category
+                // For now, we'll just treat the mapped internal term as a strong signal
+                // console.log("Mapped intent:", mappedIntent, "->", intentMap[mappedIntent]);
+            }
 
-            // 1. Check Categories (if match, add all its diseases)
+            let allResults = [];
+            const addedItems = new Set();
+
+            // 1. Search Categories (Services)
             medicalData.categories.forEach(cat => {
-                if (cat.name.toLowerCase().includes(query)) {
-                    cat.diseases.forEach(d => {
-                        if (!addedItems.has(d)) {
-                            results.push({
-                                type: 'Service',
-                                name: d,
-                                subtitle: `in ${cat.name}`,
-                                icon: cat.icon,
-                                action: () => {
-                                    showSubcategories(cat.id, true);
-                                    // Close mobile menu if open
-                                    document.getElementById('mobileMenu').classList.add('hidden');
-                                }
-                            });
-                            addedItems.add(d);
+                const score = Math.max(
+                    scoreMatch(query, cat.name),
+                    mappedIntent && intentMap[mappedIntent] === cat.name ? 90 : 0
+                );
+
+                if (score > 0) {
+                    allResults.push({
+                        type: 'Service Category',
+                        name: cat.name,
+                        subtitle: 'Explore all treatments',
+                        icon: cat.icon,
+                        score: score + 10, // Boost category matches
+                        action: () => {
+                            showSubcategories(cat.id, true);
+                            document.getElementById('mobileMenu').classList.add('hidden');
                         }
                     });
                 }
-            });
 
-            // 2. Check Diseases (matches directly)
-            medicalData.categories.forEach(cat => {
+                // Search Diseases within Category
                 cat.diseases.forEach(d => {
-                    if (d.toLowerCase().includes(query) && !addedItems.has(d)) {
-                        results.push({
-                            type: 'Service',
+                    const dScore = scoreMatch(query, d);
+                    if (dScore > 0 && !addedItems.has(d)) {
+                        allResults.push({
+                            type: 'Treatment',
                             name: d,
                             subtitle: `in ${cat.name}`,
-                            icon: cat.icon,
+                            icon: 'fa-solid fa-notes-medical',
+                            score: dScore,
                             action: () => {
                                 showDoctors(d, true);
-                                // Close mobile menu if open
                                 document.getElementById('mobileMenu').classList.add('hidden');
                             }
                         });
@@ -729,23 +784,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // 3. Check Doctors
+            // 2. Search Doctors
             medicalData.doctors.forEach(doc => {
-                if (doc.name.toLowerCase().includes(query)) {
-                    results.push({
+                const nameScore = scoreMatch(query, doc.name);
+                const cityScore = scoreMatch(query, doc.city);
+                const diseaseScore = doc.diseases.some(d => scoreMatch(query, d) > 0) ? 50 : 0;
+
+                const finalDocScore = Math.max(nameScore, cityScore, diseaseScore);
+
+                if (finalDocScore > 0) {
+                    allResults.push({
                         type: 'Doctor',
                         name: doc.name,
-                        subtitle: doc.exp + ' Exp',
+                        subtitle: `${doc.exp} Exp • ${doc.city}`,
                         icon: 'fa-user-doctor',
                         image: doc.img,
+                        score: finalDocScore,
                         action: () => {
+                            // Show specific doctor logic or just open doctor section
                             document.getElementById('doctors').classList.remove('hidden');
                             document.getElementById('doctorsSectionTitle').innerText = 'Search Result';
-                            const doctorGrid = document.getElementById('doctorGrid');
-                            doctorGrid.innerHTML = `
+                            document.getElementById('doctorGrid').innerHTML = `
                                 <div class="doctor-card bg-neu-base p-6 rounded-[2rem] shadow-neu-card animate-fade-in border-none">
                                     <div class="flex items-center gap-4 mb-6">
-                                        <img src="${doc.img}" class="w-20 h-20 rounded-2xl object-cover shadow-sm" alt="${doc.name}">
+                                        <img src="${doc.img}" class="w-20 h-20 rounded-2xl object-cover shadow-neu-pressed" alt="${doc.name}">
                                         <div>
                                             <h4 class="font-extrabold text-gray-900">${doc.name}</h4>
                                             <p class="text-xs text-gray-600 font-medium">${doc.exp} Experience</p>
@@ -755,12 +817,14 @@ document.addEventListener('DOMContentLoaded', () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="uiverse-btn uiverse-btn-blue w-full">
-                                        <div class="button-outer">
-                                            <div class="button-inner">
-                                                <span>Book Appointment</span>
-                                            </div>
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex items-center gap-2 text-xs text-gray-600">
+                                            <i class="fa-solid fa-location-dot text-primary"></i>
+                                            <span>Available in ${doc.city}</span>
                                         </div>
+                                    </div>
+                                    <button class="uiverse-btn uiverse-btn-blue w-full">
+                                        <div class="button-outer"><div class="button-inner"><span>Book Appointment</span></div></div>
                                     </button>
                                 </div>
                             `;
@@ -771,40 +835,75 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            if (results.length > 0) {
-                resultsContainer.innerHTML = results.map((item, index) => `
-                    <div class="px-4 py-3 hover:shadow-neu-pressed bg-neu-base cursor-pointer border-b border-white/20 last:border-0 flex items-center gap-3 global-search-item" data-index="${index}">
+            // General Website Sections (Intent)
+            const staticPages = [
+                { name: 'Book Appointment', type: 'Action', keywords: ['book', 'appointment', 'consult', 'schedule'], action: () => document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' }) },
+                { name: 'Our Specialities', type: 'Section', keywords: ['specialities', 'services', 'departments', 'catgories'], action: () => document.getElementById('categories').scrollIntoView({ behavior: 'smooth' }) }
+            ];
+
+            staticPages.forEach(page => {
+                if (page.keywords.some(k => scoreMatch(query, k) > 50)) {
+                    allResults.push({
+                        type: page.type,
+                        name: page.name,
+                        subtitle: 'Go to section',
+                        icon: 'fa-solid fa-arrow-up-right-from-square',
+                        score: 70,
+                        action: page.action
+                    });
+                }
+            });
+
+
+            // Sort by score DESC
+            allResults.sort((a, b) => b.score - a.score);
+
+            // Render
+            if (allResults.length > 0) {
+                // Group by type for a cleaner look if we have many
+                resultsContainer.innerHTML = `
+                    ${mappedIntent ? `<div class="px-4 py-2 text-[10px] text-primary font-bold bg-blue-50/50 border-b border-white/20">Related to "${mappedIntent}"</div>` : ''}
+                    ${allResults.slice(0, 8).map((item, index) => `
+                    <div class="px-4 py-3 hover:shadow-neu-pressed bg-neu-base cursor-pointer border-b border-white/20 last:border-0 flex items-center gap-3 global-search-item group transition-all" data-index="${index}">
                         ${item.image ?
-                        `<img src="${item.image}" class="w-8 h-8 rounded-full object-cover shadow-neu-flat">` :
-                        `<div class="w-8 h-8 rounded-full bg-neu-base text-primary shadow-neu-icon flex items-center justify-center text-xs"><i class="${item.icon}"></i></div>`
+                        `<img src="${item.image}" class="w-10 h-10 rounded-xl object-cover shadow-neu-flat group-hover:scale-110 transition-transform">` :
+                        `<div class="w-10 h-10 rounded-xl bg-neu-base text-primary shadow-neu-flat flex items-center justify-center text-sm group-hover:text-blue-600 group-hover:shadow-neu-pressed transition-all"><i class="${item.icon}"></i></div>`
                     }
                         <div>
-                            <p class="text-sm lg:text-xs font-bold text-gray-700">${item.name}</p>
-                            <p class="text-[12px] lg:text-[10px] text-gray-500 capitalize font-bold lg:font-normal">${item.type} • ${item.subtitle}</p>
+                            <p class="text-sm lg:text-xs font-bold text-gray-700 group-hover:text-primary transition-colors">${item.name}</p>
+                            <p class="text-[11px] lg:text-[10px] text-gray-500 capitalize font-medium">${item.type} • ${item.subtitle}</p>
                         </div>
                     </div>
-                `).join('');
+                `).join('')}`;
+
                 resultsContainer.classList.remove('hidden');
 
-                resultsContainer.querySelectorAll('.global-search-item').forEach(el => {
+                // Re-attach listeners using the *current* sorted array indices won't match direct lookup easily if we don't store ref.
+                // Better approach: Store the filtered sorted list on the element or closure.
+                // For simplicity, we just use the index of the slice.
+                const topResults = allResults.slice(0, 8);
+                resultsContainer.querySelectorAll('.global-search-item').forEach((el, idx) => {
                     el.addEventListener('click', () => {
-                        const index = el.dataset.index;
-                        results[index].action();
+                        topResults[idx].action();
                         resultsContainer.classList.add('hidden');
                         input.value = '';
                     });
                 });
+
             } else {
+                // Soft failure message
                 resultsContainer.innerHTML = `
                     <div class="px-4 py-6 text-center text-gray-400 text-xs">
-                        <i class="fa-regular fa-face-frown mb-2 text-lg"></i>
-                        <p>No matches found</p>
+                        <i class="fa-solid fa-microscope mb-2 text-lg opacity-50"></i>
+                        <p class="font-medium">Searching our database...</p>
+                        <p class="text-[10px] mt-1">Try "Piles", "Viral Fever", or "Dr. Sharma"</p>
                     </div>
                 `;
                 resultsContainer.classList.remove('hidden');
             }
         });
 
+        // Hide on outside click
         document.addEventListener('click', (e) => {
             if (!input.contains(e.target) && !resultsContainer.contains(e.target)) {
                 resultsContainer.classList.add('hidden');

@@ -132,9 +132,24 @@
     pointer-events: none;
 }
 
-/* --- NEUMORPHIC COMPONENT SYSTEM --- */
+/* --- NEUMORPHIC DESIGN SYSTEM 2.0 (Premium) --- */
 
-/* 1. Neumorphic Button (Replaces uiverse-btn) */
+/* Global Smoothness */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #E0E5EC;
+    color: #4A5568;
+}
+
+::selection {
+    background: #6D83F2;
+    color: #ffffff;
+}
+
+/* 1. Rich Neumorphic Buttons */
 .uiverse-btn,
 .neu-btn {
     appearance: none;
@@ -144,100 +159,89 @@
     color: #4A5568;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    padding: 12px 24px;
+    padding: 14px 28px;
     border-radius: 50px;
-    /* Pillow shape */
-    box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
+    /* Soft extruded shadow */
+    box-shadow:
+        9px 9px 16px rgb(163, 177, 198, 0.6),
+        -9px -9px 16px rgba(255, 255, 255, 0.5);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .uiverse-btn:hover,
 .neu-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 8px 8px 16px #b8b9be, -8px -8px 16px #ffffff;
+    box-shadow:
+        12px 12px 20px rgb(163, 177, 198, 0.7),
+        -12px -12px 20px rgba(255, 255, 255, 0.6);
     color: #6D83F2;
-    /* Primary highlight */
 }
 
 .uiverse-btn:active,
 .neu-btn:active {
     transform: translateY(1px);
-    box-shadow: inset 4px 4px 8px #b8b9be, inset -4px -4px 8px #ffffff;
-    color: #6D83F2;
+    box-shadow:
+        inset 6px 6px 10px rgb(163, 177, 198, 0.7),
+        inset -6px -6px 10px rgba(255, 255, 255, 0.8);
 }
 
-/* Use inner wrapper for compatibility with existing HTML, but flatten the structure visually */
-.uiverse-btn .button-outer,
-.uiverse-btn .button-inner {
-    all: unset;
-    display: contents;
-}
-
-/* Blue Variant (Primary Action) - Colored Neumorphism */
+/* RICH PRIMARY BUTTON (The "Wow" Factor) */
 .uiverse-btn-blue,
 .neu-btn-primary {
-    background: linear-gradient(145deg, #748cf9, #6276da);
-    /* Gradient for depth */
+    background: linear-gradient(145deg, #6D83F2, #5a75f0);
     color: #ffffff;
-    border: none;
-    /* Colored Shadows for Blue Neumorphism */
-    box-shadow: 6px 6px 12px #5162b6, -6px -6px 12px #89a4ff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle rim */
+    box-shadow:
+        6px 6px 12px rgba(90, 117, 240, 0.4),
+        -6px -6px 12px rgba(255, 255, 255, 0.9),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.2),
+        /* Inner light highlights */
+        inset -2px -2px 4px rgba(0, 0, 0, 0.1);
+    /* Inner dark depth */
 }
 
 .uiverse-btn-blue:hover,
 .neu-btn-primary:hover {
-    background: linear-gradient(145deg, #6276da, #748cf9);
-    transform: translateY(-2px);
-    box-shadow: 8px 8px 16px #5162b6, -8px -8px 16px #89a4ff;
+    background: linear-gradient(145deg, #5a75f0, #6D83F2);
     color: #ffffff;
+    box-shadow:
+        8px 8px 16px rgba(90, 117, 240, 0.5),
+        -8px -8px 16px rgba(255, 255, 255, 1),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .uiverse-btn-blue:active,
 .neu-btn-primary:active {
-    background: #6D83F2;
-    box-shadow: inset 4px 4px 8px #4a59a5, inset -4px -4px 8px #90adf9;
-    /* Inset on blue */
+    background: #5a75f0;
+    box-shadow:
+        inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.1);
     transform: translateY(1px);
 }
 
-/* Force Padding for Search Inputs to fix overlap */
-#navMobileSearchInput,
-#globalSearchInput,
-#modalDiseaseInput,
-#diseaseInput,
-#mobileHeroDiseaseInput {
-    padding-left: 3.5rem !important;
-    /* 56px - Sufficient space for icon */
-    background-color: #E0E5EC !important;
-}
 
-/* Mobile Search Container tweaks */
-#navMobileSearchInput {
-    font-size: 13px;
-    /* Slightly smaller to fit placeholder */
-    width: 100%;
-}
-
-/* Green Variant */
-.uiverse-btn-green,
-.neu-btn-success {
-    color: #4FD1C5;
-}
-
-/* 2. Neumorphic Card */
+/* 2. Neumorphic Cards (Soft & Tangible) */
 .neu-card {
     background: #E0E5EC;
-    border-radius: 24px;
-    box-shadow: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    /* Soft corners */
+    box-shadow:
+        12px 12px 24px #a3b1c6,
+        -12px -12px 24px #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* Highlight top-left border */
 }
 
-/* 3. Neumorphic Input */
+/* 3. Neumorphic Inputs (Deep Inset) */
 input[type="text"],
 input[type="tel"],
 input[type="email"],
@@ -245,41 +249,63 @@ select,
 textarea {
     background: #E0E5EC !important;
     border: none !important;
-    border-radius: 16px !important;
-    padding: 14px 20px !important;
-    box-shadow: inset 6px 6px 10px 0 rgba(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8) !important;
+    border-radius: 1.5rem !important;
+    padding: 1rem 1.5rem !important;
+    /* Soft inset shadow */
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff !important;
     color: #4A5568 !important;
     font-family: 'Poppins', sans-serif !important;
+    font-weight: 500;
     transition: all 0.3s ease !important;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    box-shadow: inset 3px 3px 6px 0 rgba(163, 177, 198, 0.8), inset -3px -3px 6px 0 rgba(255, 255, 255, 0.9) !important;
+    /* Deeper inset on focus */
+    box-shadow:
+        inset 8px 8px 16px #acb4c2,
+        inset -8px -8px 16px #ffffff !important;
     outline: none !important;
     color: #2D3748 !important;
+}
+
+/* Specific Search Input Fixes */
+#navMobileSearchInput,
+#globalSearchInput,
+#modalDiseaseInput,
+#diseaseInput,
+#mobileHeroDiseaseInput {
+    padding-left: 3.5rem !important;
+    background-color: #E0E5EC !important;
+}
+
+/* 4. Text Effects */
+.neu-text-extruded {
+    text-shadow: 2px 2px 4px rgba(163, 177, 198, 0.4), -2px -2px 4px rgba(255, 255, 255, 0.8);
 }
 
 /* Chips/Tags */
 .neu-chip {
     background: #E0E5EC;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 50px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #718096;
-    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #ffffff;
+    box-shadow:
+        5px 5px 10px #b8b9be,
+        -5px -5px 10px #ffffff;
     transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .neu-chip:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     color: #6D83F2;
-}
-
-.neu-chip:active {
-    box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #ffffff;
-    transform: translateY(1px);
+    box-shadow:
+        7px 7px 14px #b8b9be,
+        -7px -7px 14px #ffffff;
 }
