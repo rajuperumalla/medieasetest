@@ -5,29 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediEase | Healthcare Simplified</title>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
                     colors: {
-                        primary: '#3a5ee0',
-                        secondary: '#00A651',
-                        'neu-base': '#e0e5ec',
-                        'neu-text': '#4a5568',
+                        primary: '#6D83F2', /* Softer, premium blue */
+                        secondary: '#4FD1C5', /* Soft teal */
+                        'neu-base': '#E0E5EC', /* The classic soft grey-blue neumorphic base */
+                        'neu-text-main': '#4A5568',
+                        'neu-text-sub': '#A0AEC0',
                     },
                     boxShadow: {
-                        'neu-flat': '9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5)',
+                        'neu-flat': '9px 9px 16px rgb(163,177,198,0.5), -9px -9px 16px rgba(255,255,255, 0.6)',
+                        'neu-flat-sm': '5px 5px 10px rgb(163,177,198,0.5), -5px -5px 10px rgba(255,255,255, 0.6)',
                         'neu-pressed': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
-                        'neu-icon': '5px 5px 10px #b8b9be, -5px -5px 10px #ffffff',
-                        'neu-btn': '6px 6px 10px rgba(58, 94, 224, 0.2), -6px -6px 10px rgba(255, 255, 255, 0.5)',
-                        'neu-card': '8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff',
+                        'neu-icon': '6px 6px 12px #b8b9be, -6px -6px 12px #ffffff',
+                        'neu-card': '12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff',
                     },
                     borderRadius: {
                         'xl': '1rem',
                         '2xl': '1.5rem',
-                        '3xl': '2rem',
+                        '3xl': '2.5rem',
+                    },
+                    transitionTimingFunction: {
+                        'soft': 'cubic-bezier(0.4, 0, 0.2, 1)',
                     }
                 }
             }
@@ -36,6 +49,11 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 
 <body class="bg-neu-base text-gray-700 font-sans antialiased">
@@ -430,37 +448,42 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-24 pb-12">
+    <!-- Footer - Dark Neumorphism -->
+    <footer class="bg-[#2D3748] text-gray-300 pt-24 pb-12 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div
+            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-30">
+        </div>
+
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
-                    <h3 class="text-2xl font-extrabold mb-6">MediEase<span class="text-primary">.</span></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    <h3 class="text-3xl font-bold mb-6 text-[#E0E5EC]">MediEase<span class="text-primary">.</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
                         Pioneering hassle-free surgical care with expert specialists and patient-centric support.
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
                             <i class="fa-brands fa-twitter"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937] hover:shadow-[inset_4px_4px_8px_#000000,inset_-4px_-4px_8px_#1f2937]">
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Services</h4>
-                    <ul class="space-y-4 text-gray-400 text-sm">
+                    <h4 class="text-lg font-bold mb-6 text-[#E0E5EC]">Services</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
                         <li><a href="#" class="hover:text-primary transition-colors">Insurance Claim Support</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Post-Surgery Consultation</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Free Cab Services</a></li>
@@ -468,8 +491,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Support</h4>
-                    <ul class="space-y-4 text-gray-400 text-sm">
+                    <h4 class="text-lg font-bold mb-6 text-[#E0E5EC]">Support</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
                         <li><a href="#" class="hover:text-primary transition-colors">Patient Stories</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
                         <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
@@ -477,25 +500,25 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
-                    <ul class="space-y-4 text-gray-400 text-sm">
-                        <li class="flex items-center gap-3">
+                    <h4 class="text-lg font-bold mb-6 text-[#E0E5EC]">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
+                        <li class="flex items-center gap-4">
                             <div
-                                class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937]">
+                                class="w-10 h-10 rounded-full bg-[#2D3748] flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#232b38,-4px_-4px_8px_#374358]">
                                 <i class="fa-solid fa-location-dot text-primary text-xs"></i>
                             </div>
                             <span class="text-sm">Banjara Hills, Hyderabad, India</span>
                         </li>
-                        <li class="flex items-center gap-3">
+                        <li class="flex items-center gap-4">
                             <div
-                                class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937]">
+                                class="w-10 h-10 rounded-full bg-[#2D3748] flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#232b38,-4px_-4px_8px_#374358]">
                                 <i class="fa-solid fa-phone text-primary text-xs"></i>
                             </div>
-                            <span class="text-sm">+91 1800-123-456</span>
+                            <span class="text-sm font-mono">+91 1800-123-456</span>
                         </li>
-                        <li class="flex items-center gap-3">
+                        <li class="flex items-center gap-4">
                             <div
-                                class="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#000000,-4px_-4px_8px_#1f2937]">
+                                class="w-10 h-10 rounded-full bg-[#2D3748] flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#232b38,-4px_-4px_8px_#374358]">
                                 <i class="fa-solid fa-envelope text-primary text-xs"></i>
                             </div>
                             <span class="text-sm">contact@mediease.com</span>
@@ -503,7 +526,7 @@
                 </div>
             </div>
         </div>
-        <div class="border-t border-gray-800 pt-12 text-center text-gray-500 text-xs">
+        <div class="border-t border-gray-700/50 pt-12 text-center text-gray-500 text-xs font-medium tracking-wide">
             &copy; 2025 MediEase Healthcare Private Limited. All Rights Reserved.
         </div>
         </div>

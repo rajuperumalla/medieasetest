@@ -5,18 +5,19 @@
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 120%;
+    /* Slightly lower to float */
     left: 0;
-    /* Visuals handled by Tailwind classes in JS */
     z-index: 100;
-    padding: 1rem;
-    z-index: 100;
-    padding: 1rem;
+    padding: 0.5rem;
     display: none;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.2s ease-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    background-color: #E0E5EC;
+    border-radius: 1rem;
+    box-shadow: 9px 9px 16px rgb(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
 
 .dropdown-menu.align-right {
@@ -33,8 +34,8 @@
 }
 
 .nav-item:hover .dropdown-trigger {
-    color: #3a5ee0;
-    /* primary color */
+    color: #6D83F2;
+    /* New Primary */
 }
 
 /* Force hide dropdown after click */
@@ -49,14 +50,14 @@
 #subcategories,
 #doctors,
 #categories {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 140px;
 }
 
 /* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(20px);
     }
 
     to {
@@ -66,10 +67,21 @@
 }
 
 .animate-fade-in {
-    animation: fadeIn 0.3s ease-out forwards;
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Scrollbar Hide */
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #E0E5EC;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a3b1c6;
+    border-radius: 1rem;
+    border: 2px solid #E0E5EC;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
@@ -79,33 +91,11 @@
     scrollbar-width: none;
 }
 
-/* Custom Gradients */
-.gradient-bg {
-    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
-}
-
-.form-shadow {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Shimmer Animation */
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%) skewX(-12deg);
-    }
-
-    100% {
-        transform: translateX(200%) skewX(-12deg);
-    }
-}
-
 /* Nav Categories Scroll Animation */
 .nav-categories-container {
-    max-height: 50px;
+    max-height: 60px;
     overflow: visible;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.3s ease-out,
-        transform 0.3s ease-out;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
     transform: translateY(0);
     position: relative;
@@ -115,178 +105,126 @@
 .nav-categories-container.nav-hidden {
     max-height: 0;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
     border-bottom-width: 0;
     overflow: hidden;
     pointer-events: none;
 }
 
-/* Smooth padding transition for the nav container */
-.nav-categories-container.nav-hidden .max-w-7xl {
-    padding-top: 0;
-    padding-bottom: 0;
-}
+/* --- NEUMORPHIC COMPONENT SYSTEM --- */
 
-/* Uiverse Button Style - Adapted */
-.uiverse-btn {
+/* 1. Neumorphic Button (Replaces uiverse-btn) */
+.uiverse-btn,
+.neu-btn {
     appearance: none;
-    background: transparent;
     border: none;
-    padding: 0;
-    cursor: pointer;
-    position: relative;
-    border-radius: 100em;
-    isolation: isolate;
-}
-
-.uiverse-btn:focus {
     outline: none;
+    background: #E0E5EC;
+    color: #4A5568;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 24px;
+    border-radius: 50px;
+    /* Pillow shape */
+    box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-/* Outer bevel container */
-.uiverse-btn .button-outer {
-    position: relative;
-    width: 100%;
-    z-index: 1;
-    border-radius: inherit;
-    transition: box-shadow 300ms ease;
-    will-change: box-shadow;
+.uiverse-btn:hover,
+.neu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 8px 16px #b8b9be, -8px -8px 16px #ffffff;
+    color: #6D83F2;
+    /* Primary highlight */
 }
 
-.uiverse-btn:hover .button-outer {
-    box-shadow: none !important;
+.uiverse-btn:active,
+.neu-btn:active {
+    transform: translateY(1px);
+    box-shadow: inset 4px 4px 8px #b8b9be, inset -4px -4px 8px #ffffff;
+    color: #6D83F2;
 }
 
-/* Inner clickable face */
+/* Use inner wrapper for compatibility with existing HTML, but flatten the structure visually */
+.uiverse-btn .button-outer,
 .uiverse-btn .button-inner {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    border-radius: inherit;
-    padding: 0.8rem 1.5rem;
-    transition: box-shadow 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
-        clip-path 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
-        background-image 600ms ease,
-        transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: box-shadow, clip-path, background-image, transform;
-    overflow: hidden;
-    clip-path: inset(0 0 0 0 round 100em);
+    all: unset;
+    display: contents;
 }
 
-.uiverse-btn:hover .button-inner {
-    clip-path: inset(2px 2px 2px 2px round 100em);
+/* Blue Variant (Primary Action) */
+.uiverse-btn-blue,
+.neu-btn-primary {
+    color: #6D83F2;
 }
 
-.uiverse-btn .button-inner span {
-    position: relative;
-    z-index: 4;
-    font-family: inherit;
-    font-weight: 700;
-    color: white;
-    transition: transform 500ms cubic-bezier(0.25, 1, 0.5, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+.uiverse-btn-blue:hover,
+.neu-btn-primary:hover {
+    color: #5a75f0;
 }
 
-.uiverse-btn:hover .button-inner span {
-    transform: scale(0.99);
-    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+/* Green Variant */
+.uiverse-btn-green,
+.neu-btn-success {
+    color: #4FD1C5;
 }
 
-.uiverse-btn:active .button-inner {
-    transform: scale(0.98);
-    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+/* 2. Neumorphic Card */
+.neu-card {
+    background: #E0E5EC;
+    border-radius: 24px;
+    box-shadow: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* --- BLUE VARIANT --- */
-.uiverse-btn-blue .button-outer {
-    box-shadow:
-        0 0.05em 0.05em -0.01em rgba(29, 78, 216, 1),
-        0 0.01em 0.01em -0.01em rgba(29, 78, 216, 0.5),
-        0.15em 0.3em 0.1em -0.01em rgba(29, 78, 216, 0.3);
+/* 3. Neumorphic Input */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    background: #E0E5EC !important;
+    border: none !important;
+    border-radius: 16px !important;
+    padding: 14px 20px !important;
+    box-shadow: inset 6px 6px 10px 0 rgba(163, 177, 198, 0.7), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.8) !important;
+    color: #4A5568 !important;
+    font-family: 'Poppins', sans-serif !important;
+    transition: all 0.3s ease !important;
 }
 
-/* Desktop-specific black shadow override */
-@media (min-width: 1024px) {
-    .uiverse-btn-blue .button-outer {
-        box-shadow:
-            0 0.05em 0.05em -0.01em rgba(0, 0, 0, 1),
-            0 0.01em 0.01em -0.01em rgba(0, 0, 0, 0.5),
-            0.15em 0.3em 0.1em -0.01em rgba(0, 0, 0, 0.3);
-    }
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: inset 3px 3px 6px 0 rgba(163, 177, 198, 0.8), inset -3px -3px 6px 0 rgba(255, 255, 255, 0.9) !important;
+    outline: none !important;
+    color: #2D3748 !important;
 }
 
-.uiverse-btn-blue .button-inner {
-    background-image: linear-gradient(135deg, #3a5ee0, #1e40af);
-    box-shadow:
-        0 0 0 0 inset rgba(0, 0, 0, 0.1),
-        -0.05em -0.05em 0.05em 0 inset rgba(0, 0, 0, 0.2),
-        0 0 0 0 inset rgba(255, 255, 255, 0.1),
-        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.1),
-        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 0.4),
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
-        -0.075em -0.25em 0.25em 0.1em inset rgba(0, 0, 0, 0.1);
-}
-
-.uiverse-btn-blue:hover .button-inner {
-    box-shadow:
-        0.1em 0.15em 0.05em 0 inset rgba(0, 0, 0, 0.2),
-        -0.025em -0.03em 0.05em 0.025em inset rgba(0, 0, 0, 0.1),
-        0.25em 0.25em 0.2em 0 inset rgba(0, 0, 0, 0.1),
-        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.1),
-        0 0 0 0 inset rgba(255, 255, 255, 1),
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
-        -0.075em -0.12em 0.2em 0.1em inset rgba(0, 0, 0, 0.1);
-}
-
-/* --- GREEN VARIANT --- */
-.uiverse-btn-green .button-outer {
-    box-shadow:
-        0 0.05em 0.05em -0.01em rgba(21, 128, 61, 1),
-        0 0.01em 0.01em -0.01em rgba(21, 128, 61, 0.5),
-        0.15em 0.3em 0.1em -0.01em rgba(21, 128, 61, 0.3);
-}
-
-/* Desktop-specific black shadow override */
-@media (min-width: 1024px) {
-    .uiverse-btn-green .button-outer {
-        box-shadow:
-            0 0.05em 0.05em -0.01em rgba(0, 0, 0, 1),
-            0 0.01em 0.01em -0.01em rgba(0, 0, 0, 0.5),
-            0.15em 0.3em 0.1em -0.01em rgba(0, 0, 0, 0.3);
-    }
-}
-
-.uiverse-btn-green .button-inner {
-    background-image: linear-gradient(135deg, #22c55e, #15803d);
-    box-shadow:
-        0 0 0 0 inset rgba(0, 0, 0, 0.1),
-        -0.05em -0.05em 0.05em 0 inset rgba(0, 0, 0, 0.2),
-        0 0 0 0 inset rgba(255, 255, 255, 0.1),
-        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.1),
-        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 0.4),
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
-        -0.075em -0.25em 0.25em 0.1em inset rgba(0, 0, 0, 0.1);
-}
-
-.uiverse-btn-green:hover .button-inner {
-    box-shadow:
-        0.1em 0.15em 0.05em 0 inset rgba(0, 0, 0, 0.2),
-        -0.025em -0.03em 0.05em 0.025em inset rgba(0, 0, 0, 0.1),
-        0.25em 0.25em 0.2em 0 inset rgba(0, 0, 0, 0.1),
-        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.1),
-        0 0 0 0 inset rgba(255, 255, 255, 1),
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.1),
-        -0.075em -0.12em 0.2em 0.1em inset rgba(0, 0, 0, 0.1);
-}
-
-/* Small Button Variant */
-.uiverse-btn-sm .button-inner {
-    padding: 0.5rem 1rem;
+/* Chips/Tags */
+.neu-chip {
+    background: #E0E5EC;
+    padding: 8px 16px;
+    border-radius: 50px;
     font-size: 0.85rem;
+    font-weight: 500;
+    color: #718096;
+    box-shadow: 5px 5px 10px #b8b9be, -5px -5px 10px #ffffff;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neu-chip:hover {
+    transform: translateY(-1px);
+    color: #6D83F2;
+}
+
+.neu-chip:active {
+    box-shadow: inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #ffffff;
+    transform: translateY(1px);
 }
