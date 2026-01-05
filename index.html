@@ -62,31 +62,55 @@
     <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl mx-2 mt-2">
         <!-- Top Row: Branding & Utility -->
         <div class="rounded-b-2xl">
-            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-                <div class="flex items-center gap-3 lg:gap-12 flex-1">
-                    <div class="flex items-center gap-2 flex-shrink-0">
-                        <div
-                            class="w-10 h-10 bg-neu-base rounded-full flex items-center justify-center text-primary shadow-neu-flat">
-                            <i class="fa-solid fa-house-medical text-sm lg:text-xl"></i>
-                        </div>
-                        <span class="text-lg lg:text-2xl font-extrabold tracking-tight text-gray-800">MediEase<span
-                                class="text-primary">.</span></span>
+            <!-- Mobile Nav Structure (33% - 47% - 20%) -->
+            <div class="lg:hidden flex items-center w-full px-2 py-3">
+                <!-- 1. Logo (33%) -->
+                <div class="w-[33%] flex items-center gap-1.5 flex-shrink-0">
+                    <div
+                        class="w-9 h-9 bg-neu-base rounded-full flex items-center justify-center text-primary shadow-neu-flat">
+                        <i class="fa-solid fa-house-medical text-sm"></i>
                     </div>
+                    <span class="text-base font-extrabold tracking-tight text-gray-800 leading-tight">MediEase<span
+                            class="text-primary">.</span></span>
+                </div>
 
-                    <!-- Mobile Inline Search -->
-                    <div class="lg:hidden flex-1 relative min-w-[150px] ml-2">
-                        <input type="text" id="navMobileSearchInput" placeholder="Search..."
-                            class="w-full py-2 bg-neu-base rounded-full text-xs focus:outline-none focus:ring-0 shadow-neu-pressed transition-all font-bold text-gray-700 placeholder-gray-500">
+                <!-- 2. Search (47%) -->
+                <div class="w-[47%] px-1">
+                    <div class="relative w-full">
+                        <input type="text" id="navMobileSearchInput" placeholder="Diseases, Doctors, Specialities..."
+                            class="w-full py-2.5 pl-6 bg-neu-base rounded-full text-[11px] focus:outline-none focus:ring-0 shadow-neu-pressed transition-all font-bold text-gray-700 placeholder-gray-500">
                         <i
-                            class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                            class="fa-solid fa-magnifying-glass absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
                         <!-- Mobile Nav Search Results -->
                         <div id="navMobileSearchResults"
                             class="hidden absolute left-0 w-[80vw] sm:w-[350px] top-full mt-2 bg-white border border-gray-100 rounded-xl shadow-xl z-50 overflow-hidden max-h-60 overflow-y-auto">
                         </div>
                     </div>
+                </div>
+
+                <!-- 3. Menu Toggle (20%) -->
+                <div class="w-[20%] flex justify-end">
+                    <button id="mobileMenuToggle"
+                        class="text-primary transition-all p-2.5 rounded-xl shadow-neu-flat bg-neu-base">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Structure (Hidden on Mobile) -->
+            <div class="hidden lg:flex container mx-auto px-4 py-3 justify-between items-center">
+                <div class="flex items-center gap-3 lg:gap-12 flex-1">
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <div
+                            class="w-10 h-10 bg-neu-base rounded-full flex items-center justify-center text-primary shadow-neu-flat">
+                            <i class="fa-solid fa-house-medical text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-extrabold tracking-tight text-gray-800">MediEase<span
+                                class="text-primary">.</span></span>
+                    </div>
 
                     <!-- Global Search Bar (Desktop) -->
-                    <div class="hidden lg:block relative flex-1 max-w-[500px]">
+                    <div class="relative flex-1 max-w-[500px]">
                         <div class="relative">
                             <input type="text" id="globalSearchInput"
                                 placeholder="Search disease, doctor, speciality..."
@@ -100,25 +124,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 lg:gap-8 ml-4">
+                <div class="flex items-center gap-8 ml-4">
                     <a href="tel:1800-123-456"
-                        class="hidden lg:flex items-center gap-2 text-primary font-bold hover:text-blue-700 transition-colors">
+                        class="flex items-center gap-2 text-primary font-bold hover:text-blue-700 transition-colors">
                         <i class="fa-solid fa-phone-volume"></i>
-                        <span class="text-sm xl:text-base">1800-123-456</span>
+                        <span class="text-base">1800-123-456</span>
                     </a>
                     <button
                         onclick="document.getElementById('inactivityModal').classList.remove('hidden'); document.getElementById('inactivityModal').classList.add('flex'); setTimeout(() => document.getElementById('inactivityModal').classList.remove('opacity-0'), 10);"
-                        class="uiverse-btn uiverse-btn-blue hidden sm:block w-auto neu-btn-primary">
+                        class="uiverse-btn uiverse-btn-blue w-auto neu-btn-primary">
                         <div class="button-outer">
                             <div class="button-inner">
                                 <span>Book Appointment</span>
                             </div>
                         </div>
-                    </button>
-                    <!-- Mobile Menu Toggle -->
-                    <button id="mobileMenuToggle"
-                        class="lg:hidden text-primary hover:text-blue-700 transition-all p-3 rounded-2xl shadow-neu-flat hover:shadow-neu-pressed active:shadow-neu-pressed bg-neu-base">
-                        <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
