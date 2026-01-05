@@ -296,12 +296,7 @@ textarea:focus {
     margin-top: 1rem;
 }
 
-/* Font Utilities */
-.text-tiny {
-    font-size: 0.65rem;
-    /* ~10-11px */
-}
-
+/* Nav Categories Container - Ensure it sits below search */
 .nav-categories-container {
     z-index: 40 !important;
     position: relative;

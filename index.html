@@ -106,7 +106,8 @@
                         <i class="fa-solid fa-phone-volume"></i>
                         <span class="text-sm xl:text-base">1800-123-456</span>
                     </a>
-                    <button onclick="document.getElementById('booking-form').scrollIntoView({behavior: 'smooth'})"
+                    <button
+                        onclick="document.getElementById('inactivityModal').classList.remove('hidden'); document.getElementById('inactivityModal').classList.add('flex'); setTimeout(() => document.getElementById('inactivityModal').classList.remove('opacity-0'), 10);"
                         class="uiverse-btn uiverse-btn-blue hidden sm:block w-auto neu-btn-primary">
                         <div class="button-outer">
                             <div class="button-inner">
@@ -539,11 +540,11 @@
     <!-- Inactivity Popup Modal -->
     <div id="inactivityModal"
         class="fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-neu-base rounded-2xl shadow-2xl w-[95%] md:w-full max-w-5xl overflow-hidden transform scale-95 transition-all duration-300 max-h-[85vh] overflow-y-auto"
+        <div class="bg-neu-base rounded-2xl shadow-2xl w-[95%] md:w-full max-w-5xl overflow-hidden transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto scrollbar-hide"
             id="inactivityModalContent">
             <!-- Header -->
             <div
-                class="bg-neu-base px-5 py-3 md:px-6 md:py-4 flex justify-between items-center text-gray-800 relative overflow-hidden shadow-neu-flat rounded-t-2xl z-20 sticky top-0">
+                class="bg-neu-base px-5 py-3 md:px-6 md:py-3 flex justify-between items-center text-gray-800 relative overflow-hidden shadow-neu-flat rounded-t-2xl z-20 sticky top-0">
                 <div class="absolute inset-0 bg-neu-base/10 skew-x-12 -translate-x-full animate-[shimmer_2s_infinite]">
                 </div>
                 <h3 class="font-bold text-base md:text-lg relative z-10 text-primary">Book Your FREE Consultation</h3>
@@ -553,19 +554,19 @@
                 </button>
             </div>
 
-            <div class="flex flex-col md:flex-row">
+            <div class="flex flex-col md:flex-row h-full">
                 <!-- Left Side: Trust & Steps (Hidden on Mobile) -->
                 <div
-                    class="hidden md:block p-8 md:w-1/2 border-r border-gray-200/50 bg-neu-base relative overflow-hidden">
+                    class="hidden md:block p-6 md:w-1/2 border-r border-gray-200/50 bg-neu-base relative overflow-hidden">
                     <div
                         class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
                     </div>
 
-                    <h4 class="text-2xl font-extrabold text-gray-800 mb-2">Simplifying Surgery Experience</h4>
-                    <p class="text-sm text-gray-500 mb-8 border-l-4 border-primary pl-3">Consult with our expert surgeon
+                    <h4 class="text-xl font-extrabold text-gray-800 mb-2">Simplifying Surgery Experience</h4>
+                    <p class="text-sm text-gray-500 mb-6 border-l-4 border-primary pl-3">Consult with our expert surgeon
                         for more than <span class="font-bold text-primary">50+ diseases</span></p>
 
-                    <div class="space-y-6 mb-10 relative z-10">
+                    <div class="space-y-4 mb-8 relative z-10">
                         <!-- Step 1 -->
                         <div class="flex gap-4 items-start group">
                             <div
@@ -622,7 +623,7 @@
                 </div>
 
                 <!-- Right Side: Form -->
-                <div class="p-6 md:p-8 md:w-1/2 bg-neu-base relative">
+                <div class="p-6 md:p-6 md:w-1/2 bg-neu-base relative">
                     <div class="text-center mb-6 md:hidden">
                         <h3 class="text-xl font-bold text-gray-900">Book Free Appointment</h3>
                     </div>
@@ -783,14 +784,14 @@
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-4 py-2 pb-5 flex gap-3 w-full items-stretch">
+        <div class="px-4 py-2 pb-6 flex gap-3 w-full items-stretch">
             <div class="flex-1">
                 <a href="tel:+919876543210"
                     class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
                     <div class="button-outer h-full">
-                        <div class="button-inner h-full justify-center items-center !py-2.5 !px-3">
-                            <span class="text-tiny font-bold uppercase tracking-wide"><i
-                                    class="fa-solid fa-phone mr-1"></i> Call Us</span>
+                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
+                            <span class="text-sm font-bold whitespace-nowrap"><i class="fa-solid fa-phone mr-1"></i>
+                                Call Us</span>
                         </div>
                     </div>
                 </a>
@@ -799,8 +800,8 @@
                 <button id="mobileBookBtn" onclick="toggleMobileQuickForm()"
                     class="uiverse-btn uiverse-btn-blue w-full h-full flex items-center justify-center">
                     <div class="button-outer h-full">
-                        <div class="button-inner h-full justify-center items-center !py-2.5 !px-3">
-                            <span class="text-tiny font-bold uppercase tracking-wide"><i
+                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
+                            <span class="text-sm font-bold whitespace-nowrap"><i
                                     class="fa-solid fa-calendar-check mr-1"></i>
                                 Book Now</span>
                         </div>
