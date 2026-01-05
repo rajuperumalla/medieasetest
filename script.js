@@ -224,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const ul = btn.nextElementSibling;
                     const icon = btn.querySelector('.fa-chevron-down');
                     const isCurrentlyOpen = !ul.classList.contains('hidden');
+                    const container = document.getElementById('mobileCategoriesContainer');
 
                     // Close all other open accordions first (only one open at a time)
                     const allCategoryItems = document.querySelectorAll('.mobile-category-item');
@@ -249,17 +250,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         ul.classList.add('hidden');
                         icon.classList.remove('rotate-180');
                         btn.classList.remove('text-primary');
+                        // Remove scroll if closed
+                        if (container) container.classList.replace('overflow-y-auto', 'overflow-y-hidden');
                     } else {
                         // Open current
                         ul.classList.remove('hidden');
                         icon.classList.add('rotate-180');
                         btn.classList.add('text-primary');
+                        // Enable scroll when opened
+                        if (container) container.classList.replace('overflow-y-hidden', 'overflow-y-auto');
 
-                        // Enable scrolling for the menu container now that it has expanded content
-                        const mobileMenuContainer = document.getElementById('mobileMenu');
-                        if (mobileMenuContainer) {
-                            mobileMenuContainer.classList.add('max-h-[85vh]', 'overflow-y-auto');
-                        }
+                        // Scroll the opened item into view smoothly within the container
+                        setTimeout(() => {
+                            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
                     }
                 };
             }
@@ -329,10 +333,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeMobileMenu = () => {
             if (mobileMenuElem && !mobileMenuElem.classList.contains('hidden')) {
                 mobileMenuElem.classList.add('hidden');
-
-                // Reset scrolling classes so it shows entire menu next time it opens
-                mobileMenuElem.classList.remove('max-h-[85vh]', 'overflow-y-auto');
-
                 const toggleIcon = mobileMenuToggle.querySelector('i');
                 if (toggleIcon) {
                     toggleIcon.classList.add('fa-bars');
@@ -340,6 +340,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Re-enable body scroll
                 document.body.style.overflow = '';
+
+                // Reset mobile categories container scroll state
+                const container = document.getElementById('mobileCategoriesContainer');
+                if (container) {
+                    container.classList.add('overflow-y-hidden');
+                    container.classList.remove('overflow-y-auto');
+                }
 
                 // Show mobile bottom bar again (if it was visible before based on scroll position)
                 if (mobileBottomBarElem && window.scrollY > 200) {
@@ -353,10 +360,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const openMobileMenu = () => {
             if (mobileMenuElem) {
                 mobileMenuElem.classList.remove('hidden');
-
-                // Ensure scrolling is disabled initially so all main categories are shown
-                mobileMenuElem.classList.remove('max-h-[85vh]', 'overflow-y-auto');
-
                 const toggleIcon = mobileMenuToggle.querySelector('i');
                 if (toggleIcon) {
                     toggleIcon.classList.remove('fa-bars');
@@ -364,6 +367,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Disable body scroll when menu is open
                 document.body.style.overflow = 'hidden';
+
+                // Ensure mobile categories container starts with no scroll
+                const container = document.getElementById('mobileCategoriesContainer');
+                if (container) {
+                    container.classList.add('overflow-y-hidden');
+                    container.classList.remove('overflow-y-auto');
+                    container.scrollTop = 0;
+                }
 
                 // Hide mobile bottom bar to avoid duplicate booking options
                 if (mobileBottomBarElem) {
