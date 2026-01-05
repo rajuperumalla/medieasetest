@@ -282,6 +282,36 @@ textarea:focus {
     background-color: #E0E5EC !important;
 }
 
+/* Global Search Results Dropdown - Desktop */
+#globalSearchResults {
+    z-index: 9999 !important;
+    /* Force on top of everything */
+    background: rgba(224, 229, 236, 0.95);
+    /* Neumorphic glass */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
+    /* Floating effect */
+    border-radius: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Font Utilities */
+.text-tiny {
+    font-size: 0.65rem;
+    /* ~10-11px */
+}
+
+.nav-categories-container {
+    z-index: 40 !important;
+    position: relative;
+}
+
+nav {
+    z-index: 100 !important;
+    /* Navbar stays high */
+}
+
 /* 4. Text Effects */
 .neu-text-extruded {
     text-shadow: 2px 2px 4px rgba(163, 177, 198, 0.4), -2px -2px 4px rgba(255, 255, 255, 0.8);

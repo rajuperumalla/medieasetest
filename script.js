@@ -1064,10 +1064,27 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileQuickBookForm.addEventListener('focusout', resumeInactivityTracking);
     }
 
-    // CRITICAL: Pause inactivity timer when user types in SEARCH input
+    // CRITICAL: Pause inactivity timer when user types in SEARCH input AND Close Mobile Menu
     const mobileSearchInput = document.getElementById('navMobileSearchInput');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+
     if (mobileSearchInput) {
-        mobileSearchInput.addEventListener('focus', pauseInactivityWhileInteracting);
+        mobileSearchInput.addEventListener('focus', () => {
+            pauseInactivityWhileInteracting();
+            // Close mobile menu if it is open
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = ''; // Re-enable scroll
+                if (mobileMenuToggle) {
+                    const icon = mobileMenuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-xmark');
+                    }
+                }
+            }
+        });
         mobileSearchInput.addEventListener('input', pauseInactivityWhileInteracting);
         mobileSearchInput.addEventListener('click', pauseInactivityWhileInteracting);
         // Resume when they leave the search bar
