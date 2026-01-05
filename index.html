@@ -153,17 +153,14 @@
         </div>
         <!-- Mobile Menu Container - Positioned as overlay on top of hero section -->
         <div id="mobileMenu"
-            class="hidden lg:hidden absolute left-0 right-0 top-full bg-neu-base px-4 pt-4 animate-fade-in max-h-[85vh] flex flex-col z-[100] shadow-neu-flat mx-4 mt-2 rounded-2xl border border-white/40 overflow-hidden">
+            class="hidden lg:hidden absolute left-0 right-0 top-full bg-neu-base px-4 py-4 space-y-4 animate-fade-in max-h-none z-[100] shadow-neu-flat mx-4 mt-2 rounded-2xl border border-white/40">
 
-            <!-- Mobile Categories Container - Initially No Scroll -->
-            <div id="mobileCategoriesContainer" class="space-y-1 overflow-y-hidden transition-all duration-300">
+            <!-- Mobile Categories Container -->
+            <div id="mobileCategoriesContainer" class="space-y-1">
                 <!-- JS will populate accordion items here -->
             </div>
-
-            <div class="pt-4 pb-4 sticky bottom-0 bg-neu-base px-2 mt-auto border-t border-white/10 z-20">
-                <button id="mobileNavBookAppointmentBtn"
-                    onclick="document.getElementById('inactivityModal').classList.remove('hidden'); document.getElementById('inactivityModal').classList.add('flex'); setTimeout(() => document.getElementById('inactivityModal').classList.remove('opacity-0'), 10);"
-                    class="uiverse-btn uiverse-btn-blue w-full neu-btn-primary">
+            <div class="pt-4 sticky bottom-0 bg-neu-base pb-2 px-2">
+                <button id="mobileNavBookAppointmentBtn" class="uiverse-btn uiverse-btn-blue w-full neu-btn-primary">
                     <div class="button-outer">
                         <div class="button-inner">
                             <span>Book Appointment</span>

@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const ul = btn.nextElementSibling;
                     const icon = btn.querySelector('.fa-chevron-down');
                     const isCurrentlyOpen = !ul.classList.contains('hidden');
-                    const container = document.getElementById('mobileCategoriesContainer');
+                    const mobileMenuElem = document.getElementById('mobileMenu');
 
                     // Close all other open accordions first (only one open at a time)
                     const allCategoryItems = document.querySelectorAll('.mobile-category-item');
@@ -233,10 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         const otherUl = item.querySelector('ul');
                         const otherIcon = otherBtn.querySelector('.fa-chevron-down');
 
-                        // Skip if this is the current button being clicked
                         if (otherBtn === btn) return;
 
-                        // Close if open
                         if (!otherUl.classList.contains('hidden')) {
                             otherUl.classList.add('hidden');
                             otherIcon.classList.remove('rotate-180');
@@ -246,24 +244,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     // Toggle the clicked accordion
                     if (isCurrentlyOpen) {
-                        // Close current
                         ul.classList.add('hidden');
                         icon.classList.remove('rotate-180');
                         btn.classList.remove('text-primary');
-                        // Remove scroll if closed
-                        if (container) container.classList.replace('overflow-y-auto', 'overflow-y-hidden');
+
+                        // If everything is closed, remove scroll and height limit
+                        if (mobileMenuElem) {
+                            mobileMenuElem.classList.remove('max-h-[75vh]', 'overflow-y-auto');
+                            mobileMenuElem.classList.add('max-h-none');
+                        }
                     } else {
-                        // Open current
                         ul.classList.remove('hidden');
                         icon.classList.add('rotate-180');
                         btn.classList.add('text-primary');
-                        // Enable scroll when opened
-                        if (container) container.classList.replace('overflow-y-hidden', 'overflow-y-auto');
 
-                        // Scroll the opened item into view smoothly within the container
-                        setTimeout(() => {
-                            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        }, 100);
+                        // If something is open, enable scroll and restrict height
+                        if (mobileMenuElem) {
+                            mobileMenuElem.classList.add('max-h-[75vh]', 'overflow-y-auto');
+                            mobileMenuElem.classList.remove('max-h-none');
+                        }
                     }
                 };
             }
@@ -338,15 +337,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     toggleIcon.classList.add('fa-bars');
                     toggleIcon.classList.remove('fa-xmark');
                 }
+
+                // Collapse all open sub-categories (accordions) when the menu is closed
+                const allCategoryItems = document.querySelectorAll('.mobile-category-item');
+                allCategoryItems.forEach(item => {
+                    const btn = item.querySelector('button');
+                    const ul = item.querySelector('ul');
+                    const icon = btn.querySelector('.fa-chevron-down');
+                    if (ul && !ul.classList.contains('hidden')) {
+                        ul.classList.add('hidden');
+                        if (icon) icon.classList.remove('rotate-180');
+                        btn.classList.remove('text-primary');
+                    }
+                });
+
                 // Re-enable body scroll
                 document.body.style.overflow = '';
-
-                // Reset mobile categories container scroll state
-                const container = document.getElementById('mobileCategoriesContainer');
-                if (container) {
-                    container.classList.add('overflow-y-hidden');
-                    container.classList.remove('overflow-y-auto');
-                }
 
                 // Show mobile bottom bar again (if it was visible before based on scroll position)
                 if (mobileBottomBarElem && window.scrollY > 200) {
@@ -360,6 +366,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const openMobileMenu = () => {
             if (mobileMenuElem) {
                 mobileMenuElem.classList.remove('hidden');
+                mobileMenuElem.classList.add('max-h-none');
+                mobileMenuElem.classList.remove('max-h-[75vh]', 'overflow-y-auto');
+
                 const toggleIcon = mobileMenuToggle.querySelector('i');
                 if (toggleIcon) {
                     toggleIcon.classList.remove('fa-bars');
@@ -367,14 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 // Disable body scroll when menu is open
                 document.body.style.overflow = 'hidden';
-
-                // Ensure mobile categories container starts with no scroll
-                const container = document.getElementById('mobileCategoriesContainer');
-                if (container) {
-                    container.classList.add('overflow-y-hidden');
-                    container.classList.remove('overflow-y-auto');
-                    container.scrollTop = 0;
-                }
 
                 // Hide mobile bottom bar to avoid duplicate booking options
                 if (mobileBottomBarElem) {
