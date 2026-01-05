@@ -254,6 +254,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         ul.classList.remove('hidden');
                         icon.classList.add('rotate-180');
                         btn.classList.add('text-primary');
+
+                        // Enable scrolling for the menu container now that it has expanded content
+                        const mobileMenuContainer = document.getElementById('mobileMenu');
+                        if (mobileMenuContainer) {
+                            mobileMenuContainer.classList.add('max-h-[85vh]', 'overflow-y-auto');
+                        }
                     }
                 };
             }
@@ -323,6 +329,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeMobileMenu = () => {
             if (mobileMenuElem && !mobileMenuElem.classList.contains('hidden')) {
                 mobileMenuElem.classList.add('hidden');
+
+                // Reset scrolling classes so it shows entire menu next time it opens
+                mobileMenuElem.classList.remove('max-h-[85vh]', 'overflow-y-auto');
+
                 const toggleIcon = mobileMenuToggle.querySelector('i');
                 if (toggleIcon) {
                     toggleIcon.classList.add('fa-bars');
@@ -343,6 +353,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const openMobileMenu = () => {
             if (mobileMenuElem) {
                 mobileMenuElem.classList.remove('hidden');
+
+                // Ensure scrolling is disabled initially so all main categories are shown
+                mobileMenuElem.classList.remove('max-h-[85vh]', 'overflow-y-auto');
+
                 const toggleIcon = mobileMenuToggle.querySelector('i');
                 if (toggleIcon) {
                     toggleIcon.classList.remove('fa-bars');
