@@ -743,19 +743,25 @@ document.addEventListener('DOMContentLoaded', () => {
                             document.getElementById('doctorsSectionTitle').innerText = 'Search Result';
                             const doctorGrid = document.getElementById('doctorGrid');
                             doctorGrid.innerHTML = `
-                                <div class="doctor-card bg-white p-6 rounded-3xl border border-gray-100 shadow-sm animate-fade-in">
+                                <div class="doctor-card bg-neu-base p-6 rounded-[2rem] shadow-neu-card animate-fade-in border-none">
                                     <div class="flex items-center gap-4 mb-6">
                                         <img src="${doc.img}" class="w-20 h-20 rounded-2xl object-cover shadow-sm" alt="${doc.name}">
                                         <div>
                                             <h4 class="font-extrabold text-gray-900">${doc.name}</h4>
-                                            <p class="text-xs text-gray-500 font-medium">${doc.exp} Experience</p>
+                                            <p class="text-xs text-gray-600 font-medium">${doc.exp} Experience</p>
                                             <div class="flex items-center gap-1 text-yellow-500 mt-1">
                                                 <i class="fa-solid fa-star text-[10px]"></i>
                                                 <span class="text-xs font-bold text-gray-800">${doc.rating}</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="w-full py-3 bg-gray-50 text-blue-600 font-bold rounded-xl text-sm hover:bg-blue-50 transition-colors">Book Appointment</button>
+                                    <button class="uiverse-btn uiverse-btn-blue w-full">
+                                        <div class="button-outer">
+                                            <div class="button-inner">
+                                                <span>Book Appointment</span>
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
                             `;
                             document.getElementById('doctors').scrollIntoView({ behavior: 'smooth' });

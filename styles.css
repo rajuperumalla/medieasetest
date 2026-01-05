@@ -178,35 +178,49 @@
     display: contents;
 }
 
-/* Blue Variant (Primary Action) - Solid Blue per request */
+/* Blue Variant (Primary Action) - Colored Neumorphism */
 .uiverse-btn-blue,
 .neu-btn-primary {
-    background-color: #6D83F2;
-    /* Solid Blue */
+    background: linear-gradient(145deg, #748cf9, #6276da);
+    /* Gradient for depth */
     color: #ffffff;
-    /* White Text */
-    box-shadow: 6px 6px 12px rgba(109, 131, 242, 0.25), -6px -6px 12px rgba(255, 255, 255, 0.8);
+    border: none;
+    /* Colored Shadows for Blue Neumorphism */
+    box-shadow: 6px 6px 12px #5162b6, -6px -6px 12px #89a4ff;
 }
 
 .uiverse-btn-blue:hover,
 .neu-btn-primary:hover {
-    background-color: #5a75f0;
-    color: #ffffff;
+    background: linear-gradient(145deg, #6276da, #748cf9);
     transform: translateY(-2px);
-    box-shadow: 8px 8px 16px rgba(109, 131, 242, 0.35), -8px -8px 16px rgba(255, 255, 255, 0.9);
+    box-shadow: 8px 8px 16px #5162b6, -8px -8px 16px #89a4ff;
+    color: #ffffff;
 }
 
 .uiverse-btn-blue:active,
 .neu-btn-primary:active {
-    background-color: #5a75f0;
-    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+    background: #6D83F2;
+    box-shadow: inset 4px 4px 8px #4a59a5, inset -4px -4px 8px #90adf9;
+    /* Inset on blue */
     transform: translateY(1px);
 }
 
-/* Mobile Search Input Specific Padding (to avoid overlap) */
+/* Force Padding for Search Inputs to fix overlap */
+#navMobileSearchInput,
+#globalSearchInput,
+#modalDiseaseInput,
+#diseaseInput,
+#mobileHeroDiseaseInput {
+    padding-left: 3.5rem !important;
+    /* 56px - Sufficient space for icon */
+    background-color: #E0E5EC !important;
+}
+
+/* Mobile Search Container tweaks */
 #navMobileSearchInput {
-    padding-left: 2.5rem !important;
-    /* 40px to clear the icon */
+    font-size: 13px;
+    /* Slightly smaller to fit placeholder */
+    width: 100%;
 }
 
 /* Green Variant */
