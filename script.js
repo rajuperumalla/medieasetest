@@ -1458,31 +1458,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Bottom Bar Scroll Animation
+    // Mobile Bottom Bar Visibility Check (Intersection Observer with Hero Form)
     const mobileBottomBar = document.getElementById('mobileBottomBar');
-    let lastScrollY = 0;
-    const scrollThreshold = 200; // Show after scrolling 200px
+    const mobileHeroFormForVisibility = document.getElementById('mobileHeroForm'); // The form in the hero section
 
     if (mobileBottomBar) {
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
+        if (mobileHeroFormForVisibility && window.innerWidth < 1024) {
+            // Logic: Hide bottom bar when Hero Form is visible, Show when scrolled past
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // entry.isIntersecting means the Hero Form is visible on screen
+                    if (entry.isIntersecting) {
+                        // Hide bottom bar to avoid redundancy
+                        mobileBottomBar.classList.add('translate-y-full');
+                        mobileBottomBar.classList.remove('translate-y-0');
+                    } else {
+                        // Show bottom bar when Hero Form is NOT visible
+                        mobileBottomBar.classList.remove('translate-y-full');
+                        mobileBottomBar.classList.add('translate-y-0');
+                    }
+                });
+            }, {
+                root: null, // viewport
+                threshold: 0.1 // Trigger when even 10% of the form is visible
+            });
 
-            // Show bar when scrolled past threshold
-            // Show bar when scrolled past threshold
-            // MODIFIED: Keep always visible for better UX
-            if (currentScrollY > scrollThreshold) {
-                // Ensure it stays visible
-                mobileBottomBar.classList.remove('translate-y-full');
-                mobileBottomBar.classList.add('translate-y-0');
-            } else {
-                // Do NOT hide it
-                // mobileBottomBar.classList.add('translate-y-full');
-                mobileBottomBar.classList.remove('translate-y-full'); // Force visible
-                mobileBottomBar.classList.add('translate-y-0');
-            }
-
-            lastScrollY = currentScrollY;
-        });
+            observer.observe(mobileHeroFormForVisibility);
+        } else {
+            // Fallback: If no hero form (e.g., sub-pages) or on desktop, logic handles itself or use default scroll
+            // On surgery pages, maybe show always after valid scroll?
+            // For now, ensuring it's visible by default on non-hero pages if content is long enough
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    mobileBottomBar.classList.remove('translate-y-full');
+                    mobileBottomBar.classList.add('translate-y-0');
+                }
+            });
+        }
     }
 
     // Desktop Nav Categories Scroll Trigger Animation
