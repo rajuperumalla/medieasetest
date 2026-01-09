@@ -192,6 +192,18 @@ body {
         inset -6px -6px 10px rgba(255, 255, 255, 0.8);
 }
 
+/* Mobile Touch Support */
+@media (hover: none) and (pointer: coarse) {
+
+    .uiverse-btn:active,
+    .neu-btn:active {
+        transform: scale(0.98) translateY(1px);
+        box-shadow:
+            inset 6px 6px 10px rgb(163, 177, 198, 0.7),
+            inset -6px -6px 10px rgba(255, 255, 255, 0.8);
+    }
+}
+
 /* RICH PRIMARY BUTTON (The "Wow" Factor) */
 .uiverse-btn-blue,
 .neu-btn-primary {
@@ -226,6 +238,19 @@ body {
         inset 4px 4px 8px rgba(0, 0, 0, 0.2),
         inset -4px -4px 8px rgba(255, 255, 255, 0.1);
     transform: translateY(1px);
+}
+
+/* Mobile Touch Support for Primary Buttons */
+@media (hover: none) and (pointer: coarse) {
+
+    .uiverse-btn-blue:active,
+    .neu-btn-primary:active {
+        background: #5a75f0;
+        box-shadow:
+            inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+            inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+        transform: scale(0.98) translateY(1px);
+    }
 }
 
 

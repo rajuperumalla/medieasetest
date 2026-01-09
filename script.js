@@ -1458,36 +1458,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mobile Bottom Bar Visibility Check (Intersection Observer with Hero Form)
+    // Mobile Bottom Bar Visibility - Smart Detection for Home and Surgery Pages
     const mobileBottomBar = document.getElementById('mobileBottomBar');
-    const mobileHeroFormForVisibility = document.getElementById('mobileHeroForm'); // The form in the hero section
+    const mobileHeroFormForVisibility = document.getElementById('mobileHeroForm'); // Home page mobile form
+    const surgeryBookingSection = document.getElementById('booking'); // Surgery pages booking section
 
-    if (mobileBottomBar) {
-        if (mobileHeroFormForVisibility && window.innerWidth < 1024) {
-            // Logic: Hide bottom bar when Hero Form is visible, Show when scrolled past
+    if (mobileBottomBar && window.innerWidth < 1024) {
+        // Determine which element to observe
+        const bookingElementToObserve = mobileHeroFormForVisibility || surgeryBookingSection;
+
+        if (bookingElementToObserve) {
+            // Use IntersectionObserver to show/hide footer based on booking form visibility
+            // Goal: Only ONE "Book Now" button visible at a time (form OR footer)
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // entry.isIntersecting means the Hero Form is visible on screen
                     if (entry.isIntersecting) {
-                        // Hide bottom bar to avoid redundancy
+                        // Booking form is visible - HIDE footer buttons to avoid duplicate CTAs
                         mobileBottomBar.classList.add('translate-y-full');
                         mobileBottomBar.classList.remove('translate-y-0');
                     } else {
-                        // Show bottom bar when Hero Form is NOT visible
+                        // Booking form is NOT visible - SHOW footer buttons
                         mobileBottomBar.classList.remove('translate-y-full');
                         mobileBottomBar.classList.add('translate-y-0');
                     }
                 });
             }, {
                 root: null, // viewport
-                threshold: 0.1 // Trigger when even 10% of the form is visible
+                threshold: 0.1 // Trigger when 10% of the booking section is visible
             });
 
-            observer.observe(mobileHeroFormForVisibility);
+            observer.observe(bookingElementToObserve);
         } else {
-            // Fallback: If no hero form (e.g., sub-pages) or on desktop, logic handles itself or use default scroll
-            // On surgery pages, maybe show always after valid scroll?
-            // For now, ensuring it's visible by default on non-hero pages if content is long enough
+            // Fallback for pages without booking forms - show after scrolling
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 200) {
                     mobileBottomBar.classList.remove('translate-y-full');
