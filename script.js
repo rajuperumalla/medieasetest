@@ -3,68 +3,143 @@ const medicalData = {
         {
             id: 'dermatology',
             name: 'Dermatology',
+            folder: 'plastic-surgery', // Assumed based on file structure
             icon: 'fa-solid fa-hand-dots',
-            diseases: ['Botox', 'Dermal Fillers', 'Hair Transplant', 'Anti-Aging', 'Pigmentation treatment', 'Hydra Facial']
+            diseases: [
+                { name: 'Botox', slug: 'botox' },
+                { name: 'Dermal Fillers', slug: 'dermal-fillers' },
+                { name: 'Hair Transplant', slug: 'hair-transplant' },
+                { name: 'Anti-Aging', slug: 'anti-aging' },
+                { name: 'Pigmentation treatment', slug: 'pigmentation' },
+                { name: 'Hydra Facial', slug: 'hydra-facial' }
+            ]
         },
         {
             id: 'proctology',
             name: 'Proctology',
+            folder: 'proctology',
             icon: 'fa-solid fa-user-doctor',
-            diseases: ['Piles Treatment', 'Fistula Treatment', 'Fissure Treatment', 'Pilonidal Sinus Treatment', 'Rectal Prolapse']
+            diseases: [
+                { name: 'Piles Treatment', slug: 'piles' },
+                { name: 'Fistula Treatment', slug: 'fistula' },
+                { name: 'Fissure Treatment', slug: 'fissure' },
+                { name: 'Pilonidal Sinus Treatment', slug: 'pilonidal' },
+                { name: 'Rectal Prolapse', slug: 'rectal-prolapse' }
+            ]
         },
         {
             id: 'laparoscopy',
             name: 'Laparoscopy',
+            folder: 'general-surgery',
             icon: 'fa-solid fa-microscope',
-            diseases: ['Hernia Surgery', 'Gallstones Treatment', 'Appendicitis', 'Inguinal Hernia Treatment', 'Umbilical Hernia Treatment']
+            diseases: [
+                { name: 'Hernia Surgery', slug: 'hernia' },
+                { name: 'Gallstones Treatment', slug: 'gallbladder' },
+                { name: 'Appendicitis', slug: 'appendicitis' },
+                { name: 'Inguinal Hernia', slug: 'hernia' }, // Mapping to hernia for now
+                { name: 'Umbilical Hernia', slug: 'hernia' }
+            ]
         },
         {
             id: 'gynecology',
             name: 'Gynaecology',
+            folder: 'gynaecology',
             icon: 'fa-solid fa-venus',
-            diseases: ['Surgical Abortion and MTP', 'Ectopic and Molar Pregnancy', 'Uterus Removal', 'Ovarian Cyst', 'Miscarriage Treatment', 'Bartholin Cyst', 'Endometriosis', 'Adenomyosis', 'PCOS-PCOD', 'Pregnancy Care', 'Laser Vaginal Tightening', 'Hymenoplasty', 'Vaginoplasty', 'Labiaplasty', 'Vaginal Wart Removal']
+            diseases: [
+                { name: 'Surgical Abortion', slug: 'abortion' },
+                { name: 'Uterus Removal', slug: 'uterus-removal' },
+                { name: 'Ovarian Cyst', slug: 'ovarian-cysts' },
+                { name: 'Pregnancy Care', slug: 'pregnancy-care' },
+                { name: 'Vaginoplasty', slug: 'vaginoplasty' }
+            ]
         },
         {
             id: 'ent',
             name: 'ENT',
+            folder: 'ent',
             icon: 'fa-solid fa-ear-listen',
-            diseases: ['Tympanoplasty', 'Mastoidectomy', 'Stapedectomy', 'Myringotomy', 'Sinus Treatment', 'Septoplasty', 'FESS Surgery', 'Nasal Polyps', 'Turbinate Reduction', 'Adenoidectomy', 'Thyroidectomy', 'Tonsillectomy', 'Vocal Cord Polyps']
+            diseases: [
+                { name: 'Tympanoplasty', slug: 'tympanoplasty' },
+                { name: 'Sinus Treatment', slug: 'sinus-surgery' },
+                { name: 'Septoplasty', slug: 'septoplasty' },
+                { name: 'Tonsillectomy', slug: 'tonsillectomy' },
+                { name: 'Adenoidectomy', slug: 'adenoidectomy' }
+            ]
         },
         {
             id: 'urology',
             name: 'Urology',
+            folder: 'urology',
             icon: 'fa-solid fa-droplet',
-            diseases: ['Circumcision', 'Stapler Circumcision', 'Kidney Stones (ESWL/RIRS/PCNL)', 'Frenuloplasty', 'Balanitis', 'Paraphimosis', 'Phimosis', 'Hydrocele', 'Enlarged Prostate', 'Vasectomy', 'Testicular Torsion', 'Epididymal cyst', 'Corn Removal', 'Toenail Removal']
+            diseases: [
+                { name: 'Circumcision', slug: 'circumcision' },
+                { name: 'Kidney Stones', slug: 'kidney-stones' },
+                { name: 'Enlarged Prostate', slug: 'enlarged-prostate' },
+                { name: 'Hydrocele', slug: 'hydrocele' },
+                { name: 'Vasectomy', slug: 'vasectomy' }
+            ]
         },
         {
             id: 'vascular',
             name: 'Vascular',
+            folder: 'vascular',
             icon: 'fa-solid fa-layer-group',
-            diseases: ['Varicose Veins Treatment', 'Varicocele Treatment', 'DVT Treatment', 'Diabetic Foot Ulcer', 'Uterine Fibroids', 'AV Fistula']
+            diseases: [
+                { name: 'Varicose Veins', slug: 'varicose-veins' },
+                { name: 'Varicocele', slug: 'varicocele' },
+                { name: 'DVT Treatment', slug: 'dvt' },
+                { name: 'Diabetic Foot Ulcer', slug: 'diabetic-foot' },
+                { name: 'AV Fistula', slug: 'av-fistula' }
+            ]
         },
         {
-            id: 'aesthetics',
+            id: 'plastic-surgery',
             name: 'Aesthetics',
+            folder: 'plastic-surgery',
             icon: 'fa-solid fa-wand-magic-sparkles',
-            diseases: ['Liposuction', 'Lipoma Surgery', 'Tummy Tuck', 'Fat Loss', 'Gynecomastia', 'Breast Lift', 'Breast Augmentation', 'Rhinoplasty', 'Double Chin', 'Buccal Fat', 'Blepharoplasty', 'Earlobe Repair', 'Scar Removal', 'Beard Transplant', 'Hair Fall PRP', 'Cleft Lip', 'Sebaceous Cyst Surgery']
+            diseases: [
+                { name: 'Liposuction', slug: 'liposuction' },
+                { name: 'Lipoma Surgery', slug: 'lipoma' },
+                { name: 'Gynecomastia', slug: 'gynecomastia' },
+                { name: 'Rhinoplasty', slug: 'rhinoplasty' },
+                { name: 'Hair Transplant', slug: 'hair-transplant' }
+            ]
         },
         {
             id: 'orthopedics',
             name: 'Orthopedics',
+            folder: 'orthopedics',
             icon: 'fa-solid fa-bone',
-            diseases: ['Knee Replacement', 'Hip Replacement', 'Shoulder Replacement', 'ACL Tear Treatment', 'Meniscus Tear Treatment', 'Rotator Cuff Repair', 'Knee Arthroscopy', 'Shoulder Arthroscopy', 'Carpal Tunnel Syndrome', 'Spine Surgery', 'Shoulder Dislocation']
+            diseases: [
+                { name: 'Knee Replacement', slug: 'knee-replacement' },
+                { name: 'Hip Replacement', slug: 'hip-replacement' },
+                { name: 'ACL Tear', slug: 'acl-tear' },
+                { name: 'Spine Surgery', slug: 'spine-surgery' },
+                { name: 'Carpal Tunnel', slug: 'carpal-tunnel' }
+            ]
         },
         {
             id: 'ophthalmology',
             name: 'Ophthalmology',
+            folder: 'ophthalmology', // Note: Folder currently missing
             icon: 'fa-solid fa-eye',
-            diseases: ['Lasik', 'PRK Lasik', 'SMILE Lasik', 'FEMTO Lasik', 'ICL surgery', 'Contoura Vision', 'Cataract Surgery', 'Retinal Detachment', 'Glaucoma', 'Squint Surgery', 'Diabetic Retinopathy', 'Vitrectomy']
+            diseases: [
+                { name: 'Lasik', slug: 'lasik' },
+                { name: 'Cataract', slug: 'cataract' },
+                { name: 'Glaucoma', slug: 'glaucoma' },
+                { name: 'Squint Surgery', slug: 'squint' },
+                { name: 'Retinal Detachment', slug: 'retinal-detachment' }
+            ]
         },
         {
-            id: 'weightloss',
+            id: 'bariatric',
             name: 'Weight Loss',
+            folder: 'bariatric',
             icon: 'fa-solid fa-weight-scale',
-            diseases: ['Bariatric Surgery', 'SPATZ Intragastric Balloon', 'General Weightloss Surgery']
+            diseases: [
+                { name: 'Bariatric Surgery', slug: 'bariatric-surgery' },
+                { name: 'Gastric Balloon', slug: 'gastric-balloon' }
+            ]
         }
     ],
     doctors: [
@@ -84,60 +159,33 @@ const medicalData = {
         { name: 'Dr. Arjun Mehta', exp: '15 Yrs', city: 'Hyderabad', rating: 4.8, diseases: ['Spine Surgery', 'Shoulder Replacement', 'Knee Arthroscopy'], img: 'https://i.pravatar.cc/150?u=14' },
         { name: 'Dr. Neha Gupta', exp: '11 Yrs', city: 'Pune', rating: 4.7, diseases: ['Endometriosis', 'Ovarian Cyst', 'Hysterectomy'], img: 'https://i.pravatar.cc/150?u=15' },
         { name: 'Dr. Karthik Rao', exp: '14 Yrs', city: 'Chennai', rating: 4.9, diseases: ['FESS Surgery', 'Septoplasty', 'Thyroidectomy'], img: 'https://i.pravatar.cc/150?u=16' },
-        { name: 'Dr. Manoj Singh', exp: '17 Yrs', city: 'Kolkata', rating: 4.8, diseases: ['Retinal Detachment', 'Diabetic Retinopathy', 'Vitrectomy'], img: 'https://i.pravatar.cc/150?u=17' },
-        // Added Gynaecology Doctors
-        { name: 'Dr. Swati Kapoor', exp: '14 Yrs', city: 'Hyderabad', rating: 4.9, diseases: ['PCOS/PCOD', 'Pregnancy Care', 'Normal Delivery', 'C-Section'], img: 'https://i.pravatar.cc/150?u=20' },
-        { name: 'Dr. Ritu Sharma', exp: '16 Yrs', city: 'Bangalore', rating: 4.8, diseases: ['Hysterectomy', 'Uterine Fibroids', 'Ovarian Cyst', 'Laparoscopic Hysterectomy'], img: 'https://i.pravatar.cc/150?u=21' },
-        { name: 'Dr. Shalini Mehta', exp: '10 Yrs', city: 'Delhi', rating: 4.7, diseases: ['Vaginoplasty', 'Hymenoplasty', 'Cosmetic Gynaecology'], img: 'https://i.pravatar.cc/150?u=22' },
-        // ... Existing Doctors ...
-        // Proctology (Need +2)
-        { name: 'Dr. Suresh Verma', exp: '11 Yrs', city: 'Delhi', rating: 4.6, diseases: ['Pilonidal Sinus Treatment', 'Rectal Prolapse', 'Piles Treatment'], img: 'https://i.pravatar.cc/150?u=24' },
-        { name: 'Dr. Anita Roy', exp: '9 Yrs', city: 'Mumbai', rating: 4.7, diseases: ['Fissure Treatment', 'Fistula Treatment', 'Piles Treatment'], img: 'https://i.pravatar.cc/150?u=25' },
-
-        // Laparoscopy (Need +3)
-        { name: 'Dr. Vikas Khanna', exp: '14 Yrs', city: 'Pune', rating: 4.8, diseases: ['Hernia Surgery', 'Gallstones Treatment', 'Inguinal Hernia Treatment'], img: 'https://i.pravatar.cc/150?u=26' },
-        { name: 'Dr. Meena Iyer', exp: '10 Yrs', city: 'Chennai', rating: 4.7, diseases: ['Appendicitis', 'Umbilical Hernia Treatment', 'Gallstones Treatment'], img: 'https://i.pravatar.cc/150?u=27' },
-        { name: 'Dr. Rajeev Singh', exp: '16 Yrs', city: 'Hyderabad', rating: 4.9, diseases: ['Laparoscopic Surgery', 'Hernia Surgery'], img: 'https://i.pravatar.cc/150?u=28' },
-
-        // ENT (Need +2)
-        { name: 'Dr. Alok Nath', exp: '13 Yrs', city: 'Kolkata', rating: 4.7, diseases: ['Tympanoplasty', 'Mastoidectomy', 'Stapedectomy'], img: 'https://i.pravatar.cc/150?u=29' },
-        { name: 'Dr. Simran Kaur', exp: '8 Yrs', city: 'Chandigarh', rating: 4.8, diseases: ['Sinus Treatment', 'Nasal Polyps', 'Turbinate Reduction'], img: 'https://i.pravatar.cc/150?u=30' },
-
-        // Urology (Need +2)
-        { name: 'Dr. Tarun Malik', exp: '12 Yrs', city: 'Delhi', rating: 4.6, diseases: ['Circumcision', 'Stapler Circumcision', 'Frenuloplasty'], img: 'https://i.pravatar.cc/150?u=31' },
-        { name: 'Dr. Geeta Phogat', exp: '15 Yrs', city: 'Mumbai', rating: 4.9, diseases: ['Kidney Stones', 'Urinary Tract Infection', 'Testicular Torsion'], img: 'https://i.pravatar.cc/150?u=32' },
-
-        // Vascular (Need +3)
-        { name: 'Dr. Hemant Joshi', exp: '18 Yrs', city: 'Pune', rating: 4.8, diseases: ['Varicose Veins Treatment', 'DVT Treatment', 'AV Fistula'], img: 'https://i.pravatar.cc/150?u=33' },
-        { name: 'Dr. Lipika Sen', exp: '11 Yrs', city: 'Kolkata', rating: 4.7, diseases: ['Diabetic Foot Ulcer', 'Varicocele Treatment'], img: 'https://i.pravatar.cc/150?u=34' },
-        { name: 'Dr. Varun Dhawan', exp: '14 Yrs', city: 'Bangalore', rating: 4.9, diseases: ['Varicose Veins', 'Spider Veins'], img: 'https://i.pravatar.cc/150?u=35' },
-
-        // Aesthetics / Plastic Surgery (Need +2)
-        { name: 'Dr. Kabir Bedi', exp: '16 Yrs', city: 'Mumbai', rating: 4.9, diseases: ['Rhinoplasty', 'Blepharoplasty', 'Face Lift'], img: 'https://i.pravatar.cc/150?u=36' },
-        { name: 'Dr. Sana Mir', exp: '9 Yrs', city: 'Delhi', rating: 4.7, diseases: ['Scar Removal', 'Earlobe Repair', 'Cleft Lip'], img: 'https://i.pravatar.cc/150?u=37' },
-
-        // Orthopedics (Need +3)
-        { name: 'Dr. Yash Birla', exp: '20 Yrs', city: 'Mumbai', rating: 5.0, diseases: ['Hip Replacement', 'Shoulder Replacement'], img: 'https://i.pravatar.cc/150?u=38' },
-        { name: 'Dr. Zara Sheikh', exp: '12 Yrs', city: 'Hyderabad', rating: 4.8, diseases: ['Carpal Tunnel Syndrome', 'Rotator Cuff Repair', 'Meniscus Tear Treatment'], img: 'https://i.pravatar.cc/150?u=39' },
-        { name: 'Dr. Omkar Das', exp: '15 Yrs', city: 'Chennai', rating: 4.7, diseases: ['Spine Surgery', 'Slipped Disc', 'Spondylitis'], img: 'https://i.pravatar.cc/150?u=40' },
-
-        // Ophthalmology (Need +2)
-        { name: 'Dr. Vivaan Shah', exp: '10 Yrs', city: 'Pune', rating: 4.8, diseases: ['Lasik', 'SMILE Lasik', 'Contoura Vision'], img: 'https://i.pravatar.cc/150?u=41' },
-        { name: 'Dr. Nidhi Agarwal', exp: '13 Yrs', city: 'Delhi', rating: 4.9, diseases: ['ICL surgery', 'FEMTO Lasik', 'Cornea Transplant'], img: 'https://i.pravatar.cc/150?u=42' },
-
-        // Weight Loss (Need +3)
-        { name: 'Dr. Boman Irani', exp: '19 Yrs', city: 'Mumbai', rating: 5.0, diseases: ['Gastric Bypass', 'Bariatric Surgery'], img: 'https://i.pravatar.cc/150?u=45' },
-        { name: 'Dr. Farah Khan', exp: '15 Yrs', city: 'Delhi', rating: 4.8, diseases: ['Liposuction', 'Tummy Tuck', 'Mommy Makeover'], img: 'https://i.pravatar.cc/150?u=46' },
-        { name: 'Dr. Gagan Narang', exp: '12 Yrs', city: 'Chandigarh', rating: 4.7, diseases: ['SPATZ Intragastric Balloon', 'Weight Loss Management'], img: 'https://i.pravatar.cc/150?u=47' },
-
-        // Dermatology (Need +3)
-        { name: 'Dr. Kiara Advani', exp: '8 Yrs', city: 'Mumbai', rating: 4.9, diseases: ['Hydra Facial', 'Chemical Peel', 'Acne Treatment'], img: 'https://i.pravatar.cc/150?u=48' },
-        { name: 'Dr. Ranveer Brar', exp: '10 Yrs', city: 'Delhi', rating: 4.7, diseases: ['Beard Transplant', 'Hair Transplant', 'Alopecea'], img: 'https://i.pravatar.cc/150?u=49' },
-        { name: 'Dr. Disha Patani', exp: '9 Yrs', city: 'Bangalore', rating: 4.8, diseases: ['Laser Hair Removal', 'Pigmentation treatment', 'Skin Whitening'], img: 'https://i.pravatar.cc/150?u=50' }
+        { name: 'Dr. Manoj Singh', exp: '17 Yrs', city: 'Kolkata', rating: 4.8, diseases: ['Retinal Detachment', 'Diabetic Retinopathy', 'Vitrectomy'], img: 'https://i.pravatar.cc/150?u=17' }
     ]
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Relative Path Helper
+    // If we are in 'categories/', depth is 1. 'surgeries/general/', depth is 2.
+    // 'index.html', depth is 0.
+    // Simplistic check: count '../' in existing links or just check location.
+    function getRelativePrefix() {
+        const path = window.location.pathname;
+        // Fix for Windows file paths which use backslashes or mix
+        const normalizedPath = path.replace(/\\/g, '/');
+
+        if (normalizedPath.includes('/surgeries/')) {
+            // Check depth within surgeries. 
+            // root/surgeries/cat/disease.html -> ../../
+            // root/surgeries/disease_generic.html (unlikely) -> ../
+            return '../../';
+        }
+        if (normalizedPath.includes('/categories/')) {
+            return '../';
+        }
+        return './'; // Default to ./ for root to avoid empty string issues with some hrefs
+    }
+    const relPrefix = getRelativePrefix();
+
     // Force page to start from top on refresh
     window.scrollTo(0, 0);
     if ('scrollRestoration' in history) {
@@ -163,31 +211,40 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderNavCategories() {
         const navContainer = document.getElementById('navCategories');
         const mobileMegaMenu = document.getElementById('mobileMegaMenu');
-        if (!navContainer) return;
 
-        // Desktop Nav Injection
-        navContainer.innerHTML = medicalData.categories.map((cat, index) => {
-            const hasMany = cat.diseases.length > 8;
-            // Detect the last two items (Ophthalmology & Weight Loss) to align dropdowns to the right
-            const isLastItems = index >= medicalData.categories.length - 2;
-            const alignmentClass = isLastItems ? 'align-right' : '';
+        // Desktop Nav Injection - Only if container exists
+        if (navContainer) {
+            navContainer.innerHTML = medicalData.categories.map((cat, index) => {
+                const hasMany = cat.diseases.length > 8;
+                const isLastItems = index >= medicalData.categories.length - 2;
+                const alignmentClass = isLastItems ? 'align-right' : '';
+                const categoryLink = `${relPrefix}categories/${cat.id}.html`;
 
-            return `
+                return `
             <div class="nav-item group relative flex-shrink-0">
-                <div class="dropdown-trigger hover:text-primary transition-colors flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-0.5 rounded-lg hover:shadow-neu-pressed active:shadow-neu-pressed px-3" data-cat="${cat.id}">
-                    ${cat.name} <i class="fa-solid fa-chevron-down text-[8px] group-hover:rotate-180 transition-transform"></i>
-                </div>
-                <div class="dropdown-menu bg-neu-base shadow-neu-card border-none ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass}">
-                    <h4 class="text-[10px] text-primary font-bold uppercase tracking-widest mb-3 px-2 border-b border-gray-200/50 pb-2 cursor-pointer hover:bg-gray-100/50 transition-all nav-category-header" data-cat="${cat.id}">${cat.name} Services</h4>
-                    <ul class="grid ${hasMany ? 'grid-cols-2' : 'grid-cols-1'} gap-x-4">
-                        ${cat.diseases.map(d => `
-                            <li><a href="javascript:void(0)" class="nav-disease-link block px-2 py-1.5 hover:shadow-neu-pressed hover:text-primary hover:font-bold hover:text-[12px] rounded-md transition-all font-medium text-[11px] whitespace-normal leading-tight text-gray-600" title="${d}" data-cat="${cat.id}" data-name="${d}">${d}</a></li>
-                        `).join('')}
+                <a href="${categoryLink}" class="dropdown-trigger hover:text-primary transition-colors flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-3 rounded-lg hover:shadow-neu-pressed active:shadow-neu-pressed font-extrabold text-[#4A5568] tracking-tight no-underline group-hover:bg-gray-50" data-cat="${cat.id}">
+                    ${cat.name} <i class="fa-solid fa-chevron-down text-[8px] group-hover:rotate-180 transition-transform ml-1 opacity-50"></i>
+                </a>
+                <div class="dropdown-menu bg-neu-base shadow-neu-card border border-white/40 ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass} hidden group-hover:block opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <h4 class="text-[10px] text-primary font-bold uppercase tracking-widest mb-3 px-2 border-b border-gray-200/50 pb-2 cursor-pointer hover:bg-gray-100/50 transition-all nav-category-header" onclick="window.location.href='${categoryLink}'">${cat.name} Services</h4>
+                    <ul class="grid ${hasMany ? 'grid-cols-2' : 'grid-cols-1'} gap-x-2 gap-y-1">
+                        ${cat.diseases.map(d => {
+                    const surgeryLink = `${relPrefix}surgeries/${cat.folder}/${d.slug}.html`;
+                    return `
+                                <li>
+                                    <a href="${surgeryLink}" class="nav-disease-link block px-3 py-2 hover:bg-white/60 hover:shadow-sm hover:text-primary rounded-lg transition-all font-medium text-[11px] whitespace-normal leading-tight text-gray-600 flex items-center gap-2 group/link">
+                                        <i class="fa-solid fa-angle-right text-[8px] opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-primary"></i>
+                                        ${d.name}
+                                    </a>
+                                </li>
+                            `;
+                }).join('')}
                     </ul>
                 </div>
             </div>
             `;
-        }).join('');
+            }).join('');
+        } // End if (navContainer)
 
         // Mobile Menu Injection (Accordion Style)
         const mobileCategoriesContainer = document.getElementById('mobileCategoriesContainer');
@@ -203,17 +260,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 transition-transform duration-300"></i>
                     </button>
                     <ul class="hidden pl-10 pr-2 pb-3 space-y-2 animate-fade-in bg-gray-50/30 rounded-b-lg">
-                        ${cat.diseases.map(d => `
+                        ${cat.diseases.map(d => {
+                const surgeryLink = `${relPrefix}surgeries/${cat.folder}/${d.slug}.html`;
+                return `
                             <li>
-                                <a href="javascript:void(0)" 
-                                   class="nav-disease-link block py-2 text-gray-600 text-xs hover:text-primary transition-colors border-b border-gray-100 last:border-0 flex justify-between items-center" 
-                                   data-cat="${cat.id}" 
-                                   data-name="${d}">
-                                   ${d}
+                                <a href="${surgeryLink}" 
+                                   class="nav-disease-link block py-2 text-gray-600 text-xs hover:text-primary transition-colors border-b border-gray-100 last:border-0 flex justify-between items-center">
+                                   ${d.name}
                                    <i class="fa-solid fa-arrow-right text-[10px] opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all"></i>
                                 </a>
                             </li>
-                        `).join('')}
+                        `;
+            }).join('')}
+                        <li>
+                             <a href="${relPrefix}categories/${cat.id}.html" class="block py-2 text-primary font-bold text-xs text-center border-t border-gray-100 mt-1">View All ${cat.name}</a>
+                        </li>
                     </ul>
                 </div>
             `).join('');
@@ -268,74 +329,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Add listeners for menu links
-        document.querySelectorAll('.nav-disease-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const catId = link.dataset.cat;
-                const diseaseName = link.dataset.name;
+    }
 
-                // Pass false to showSubcategories so it doesn't scroll, then showDoctors will scroll
-                showSubcategories(catId, false);
-                if (diseaseName) {
-                    showDoctors(diseaseName, true);
-                }
-
-                // Close dropdown temporarily
-                const navItem = link.closest('.nav-item');
-                if (navItem) {
-                    navItem.classList.add('dropdown-closed');
-                    setTimeout(() => navItem.classList.remove('dropdown-closed'), 500);
-                }
-
-                // Close mobile menu if open
-                const mobileMenuBody = document.getElementById('mobileMenu');
-                if (mobileMenuBody) {
-                    mobileMenuBody.classList.add('hidden');
-                    document.body.style.overflow = '';
-                    const toggleBtn = document.getElementById('mobileMenuToggle');
-                    if (toggleBtn) {
-                        const toggleI = toggleBtn.querySelector('i');
-                        if (toggleI) {
-                            toggleI.classList.add('fa-bars');
-                            toggleI.classList.remove('fa-xmark');
-                        }
-                    }
-                }
-            });
-        });
-
-        // Add listeners for Category Headers and Triggers
-        document.querySelectorAll('.dropdown-trigger, .nav-category-header').forEach(el => {
-            el.addEventListener('click', (e) => {
-                const catId = el.dataset.cat;
-                if (catId) {
-                    showSubcategories(catId, true);
-
-                    // Close dropdown
-                    const navItem = el.closest('.nav-item');
-                    if (navItem) {
-                        navItem.classList.add('dropdown-closed');
-                        setTimeout(() => navItem.classList.remove('dropdown-closed'), 500);
-                    }
-                }
-            });
-        });
-
-        // Mobile Menu Toggle logic
+    // Mobile Menu Setup (Decoupled)
+    function setupMobileMenu() {
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mobileMenuElem = document.getElementById('mobileMenu');
         const navElement = document.querySelector('nav');
-        const mobileBottomBarElem = document.getElementById('mobileBottomBar');
+        // Mobile bottom bar might not have ID in some legacy pages, but we try to find it
+        const mobileBottomBarElem = document.getElementById('mobileBottomBar') || document.querySelector('.fixed.bottom-0.bg-white');
 
         // Helper function to close mobile menu
         const closeMobileMenu = () => {
             if (mobileMenuElem && !mobileMenuElem.classList.contains('hidden')) {
                 mobileMenuElem.classList.add('hidden');
-                const toggleIcon = mobileMenuToggle.querySelector('i');
+                // FIX: Re-query the live element because the original might have been replaced
+                const liveBtn = document.getElementById('mobileMenuToggle');
+                const toggleIcon = liveBtn ? liveBtn.querySelector('i') : null;
                 if (toggleIcon) {
                     toggleIcon.classList.add('fa-bars');
                     toggleIcon.classList.remove('fa-xmark');
+                    toggleIcon.classList.remove('rotate-180'); // Reset rotation
                 }
 
                 // Collapse all open sub-categories (accordions) when the menu is closed
@@ -369,10 +383,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenuElem.classList.add('max-h-none');
                 mobileMenuElem.classList.remove('max-h-[75vh]', 'overflow-y-auto');
 
-                const toggleIcon = mobileMenuToggle.querySelector('i');
+                // FIX: Re-query the live element
+                const liveBtn = document.getElementById('mobileMenuToggle');
+                const toggleIcon = liveBtn ? liveBtn.querySelector('i') : null;
+
                 if (toggleIcon) {
                     toggleIcon.classList.remove('fa-bars');
                     toggleIcon.classList.add('fa-xmark');
+                    toggleIcon.classList.add('rotate-180'); // Rotate for smooth effect
                 }
                 // Disable body scroll when menu is open
                 document.body.style.overflow = 'hidden';
@@ -386,7 +404,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (mobileMenuToggle && mobileMenuElem) {
-            mobileMenuToggle.addEventListener('click', (e) => {
+            // Remove existing listeners to avoid duplicates if called multiple times (though here it's once)
+            const newToggle = mobileMenuToggle.cloneNode(true);
+            mobileMenuToggle.parentNode.replaceChild(newToggle, mobileMenuToggle);
+
+            newToggle.addEventListener('click', (e) => {
                 e.stopPropagation(); // Prevent triggering the outside click handler
                 if (mobileMenuElem.classList.contains('hidden')) {
                     openMobileMenu();
@@ -395,12 +417,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Re-assign for closure
+            const safeToggle = newToggle;
+
             // Close menu when clicking outside (on body content)
             document.addEventListener('click', (e) => {
                 // Check if menu is open
                 if (!mobileMenuElem.classList.contains('hidden')) {
                     // Check if click is outside the nav element
-                    if (!navElement.contains(e.target)) {
+                    // Ensure navElement exists
+                    if (navElement && !navElement.contains(e.target)) {
                         closeMobileMenu();
                     }
                 }
@@ -411,20 +437,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.stopPropagation();
             });
         }
-
-        // Mobile Dropdown Toggle
-        const mobileTrigger = document.getElementById('mobileSpecialitiesTrigger');
-        if (mobileTrigger) {
-            mobileTrigger.addEventListener('click', () => {
-                const parentNav = mobileTrigger.closest('.nav-item');
-                parentNav.classList.toggle('active');
-                mobileTrigger.querySelector('i').classList.toggle('rotate-180');
-            });
-        }
     }
 
     // 1. Populate Category Grid & Main Category Chips
     function renderCategories() {
+        if (!categoryGrid) return; // Safety check
         categoryGrid.innerHTML = medicalData.categories.map((cat, index) => {
             // Default: 5 per row on LG (20%)
             let widthClass = "w-[calc(50%-1rem)] sm:w-[calc(33.33%-1rem)] md:w-[calc(25%-1.5rem)] lg:w-[calc(20%-1.5rem)]";
@@ -435,12 +452,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             return `
-                <div class="category-card flex flex-col items-center p-6 bg-neu-base rounded-[2rem] shadow-neu-card cursor-pointer group hover:shadow-neu-pressed transition-all ${widthClass}" data-id="${cat.id}">
+                <a href="${relPrefix}categories/${cat.id}.html" class="category-card flex flex-col items-center p-6 bg-neu-base rounded-[2rem] shadow-neu-card cursor-pointer group hover:shadow-neu-pressed transition-all ${widthClass} no-underline">
                     <div class="w-16 h-16 bg-neu-base rounded-full flex items-center justify-center text-primary mb-4 shadow-neu-icon group-hover:scale-110 transition-transform duration-300">
                         <i class="${cat.icon} text-2xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-700 text-sm text-center">${cat.name}</h3>
-                </div>
+                </a>
             `;
         }).join('');
 
@@ -457,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const cat = medicalData.categories.find(c => c.id === chip.dataset.id);
                     diseaseInput.value = cat.name;
                     // Pass false to prevent scrolling when using the form chips
-                    showSubcategories(cat.id, false);
+                    // showSubcategories(cat.id, false); // Disabled as per user request
                     // Highlight active chip
                     document.querySelectorAll('.category-chip').forEach(b => {
                         b.classList.remove('shadow-neu-pressed', 'text-primary');
@@ -469,11 +486,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Event listeners for categories (Main Grid - keep scrolling here)
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', () => showSubcategories(card.dataset.id, true));
-        });
     }
+
 
     // 2. Show Subcategories
     function showSubcategories(catId, shouldScroll = true) {
@@ -648,7 +662,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const allDiseases = medicalData.categories.flatMap(cat =>
-                cat.diseases.map(d => ({ name: d, category: cat.name }))
+                cat.diseases.map(d => ({ name: d.name, category: cat.name }))
             );
 
             const filtered = allDiseases.filter(d =>
@@ -803,32 +817,30 @@ document.addEventListener('DOMContentLoaded', () => {
                         icon: cat.icon,
                         score: score + 550, // Base 600 range
                         action: () => {
-                            showSubcategories(cat.id, true);
-                            document.getElementById('mobileMenu').classList.add('hidden');
+                            window.location.href = `${relPrefix}categories/${cat.id}.html`;
                         }
                     });
                 }
 
                 // Search Diseases (Score: 700 - 800)
                 cat.diseases.forEach(d => {
-                    const dScore = scoreMatch(query, d);
-                    if (dScore > 40 && !addedItems.has(d)) {
+                    const dScore = scoreMatch(query, d.name);
+                    if (dScore > 40 && !addedItems.has(d.name)) {
                         // Diseases get high priority
                         let finalDScore = dScore + 700;
                         if (dScore === 100) finalDScore = 800; // Exact disease match
 
                         allResults.push({
                             type: 'Treatment',
-                            name: d,
+                            name: d.name,
                             subtitle: `in ${cat.name}`,
                             icon: 'fa-solid fa-notes-medical',
                             score: finalDScore,
                             action: () => {
-                                showDoctors(d, true);
-                                document.getElementById('mobileMenu').classList.add('hidden');
+                                window.location.href = `${relPrefix}surgeries/${cat.folder}/${d.slug}.html`;
                             }
                         });
-                        addedItems.add(d);
+                        addedItems.add(d.name);
                     }
                 });
             });
@@ -869,34 +881,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         image: doc.img,
                         score: finalDocScore,
                         action: () => {
-                            document.getElementById('doctors').classList.remove('hidden');
-                            document.getElementById('doctorsSectionTitle').innerText = 'Search Result';
-                            document.getElementById('doctorGrid').innerHTML = `
-                                <div class="doctor-card bg-neu-base p-6 rounded-[2rem] shadow-neu-card animate-fade-in border-none">
-                                    <div class="flex items-center gap-4 mb-6">
-                                        <img src="${doc.img}" class="w-20 h-20 rounded-2xl object-cover shadow-neu-pressed" alt="${doc.name}">
-                                        <div>
-                                            <h4 class="font-extrabold text-gray-900">${doc.name}</h4>
-                                            <p class="text-xs text-gray-600 font-medium">${doc.exp} Experience</p>
-                                            <div class="flex items-center gap-1 text-yellow-500 mt-1">
-                                                <i class="fa-solid fa-star text-[10px]"></i>
-                                                <span class="text-xs font-bold text-gray-800">${doc.rating}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="space-y-3 mb-6">
-                                        <div class="flex items-center gap-2 text-xs text-gray-600">
-                                            <i class="fa-solid fa-location-dot text-primary"></i>
-                                            <span>Available in ${doc.city}</span>
-                                        </div>
-                                    </div>
-                                    <button class="uiverse-btn uiverse-btn-blue w-full">
-                                        <div class="button-outer"><div class="button-inner"><span>Book Appointment</span></div></div>
-                                    </button>
-                                </div>
-                            `;
-                            document.getElementById('doctors').scrollIntoView({ behavior: 'smooth' });
-                            document.getElementById('mobileMenu').classList.add('hidden');
+                            // Find the category of the first disease the doctor treats to show them there
+                            const doctorDisease = doc.diseases[0];
+                            const category = medicalData.categories.find(c =>
+                                c.diseases.some(d => d.name.toLowerCase().includes(doctorDisease.toLowerCase()))
+                            );
+                            if (category) {
+                                window.location.href = `${relPrefix}categories/${category.id}.html#doctors`;
+                            } else {
+                                // Fallback to a general category or just home if not found
+                                window.location.href = `${relPrefix}index.html#categories`;
+                            }
                         }
                     });
                 }
@@ -983,12 +978,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setupGlobalSearch('mobileSearchInput', 'mobileSearchResults');
     setupGlobalSearch('navMobileSearchInput', 'navMobileSearchResults'); // Navbar mobile search
 
+    // Initialize Mobile Menu
+    setupMobileMenu();
+
     // 5. Back Button Logic
-    backBtn.addEventListener('click', () => {
-        subcategorySection.classList.add('hidden');
-        doctorsSection.classList.add('hidden');
-        document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
-    });
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            if (subcategorySection) subcategorySection.classList.add('hidden');
+            if (doctorsSection) doctorsSection.classList.add('hidden');
+            const catSec = document.getElementById('categories');
+            if (catSec) catSec.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
 
     // 6. City Chips Click (Horizontal Row)
     const cityContainer = document.querySelector('.overflow-x-auto'); // Updated selector
@@ -1259,13 +1260,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
+        // Helper: Name Validation
+        const validateName = (val) => {
+            const nameRegex = /^[A-Za-z\s]+$/;
+            if (val.length < 3) return 'Name must be at least 3 letters';
+            if (!nameRegex.test(val)) return 'Name should only contain alphabets';
+            return null;
+        };
+
         // Input Blur Validation (Real-time feedback)
         nameInput.addEventListener('blur', () => {
             const val = nameInput.value.trim();
-            if (val.length > 0 && val.length < 3) {
-                showError(nameInput, 'Name must be at least 3 letters');
+            const errorMsg = validateName(val);
+            if (val.length > 0 && errorMsg) {
+                showError(nameInput, errorMsg);
             } else {
                 clearError(nameInput);
+            }
+        });
+
+        // Strict Input Control for Name (Prevent numbers/special chars)
+        nameInput.addEventListener('input', (e) => {
+            const original = e.target.value;
+            // Allow only letters and spaces
+            const clean = original.replace(/[^A-Za-z\s]/g, '');
+            if (original !== clean) {
+                e.target.value = clean;
             }
         });
 
@@ -1278,9 +1298,34 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Helper: Clean Phone Number
+        const cleanPhoneNumber = (value) => {
+            let cleaned = value.replace(/[^\d+]/g, '');
+            if (cleaned.startsWith('+91') && cleaned.length >= 13) cleaned = cleaned.substring(3);
+            else if (cleaned.startsWith('91') && cleaned.length >= 12 && !cleaned.startsWith('+')) cleaned = cleaned.substring(2);
+            else if (cleaned.startsWith('0') && cleaned.length >= 11) cleaned = cleaned.substring(1);
+            cleaned = cleaned.replace(/[^0-9]/g, '').slice(0, 10);
+            return cleaned;
+        };
+
+        // Strict Input Control for Phone (Prevent non-numbers, auto-format)
+        ['input', 'change'].forEach(eventType => {
+            phoneInput.addEventListener(eventType, (e) => {
+                const originalValue = e.target.value;
+                const cleanedValue = cleanPhoneNumber(originalValue);
+                if (originalValue !== cleanedValue) {
+                    e.target.value = cleanedValue;
+                }
+            });
+        });
+
         // Clear errors on focus
         nameInput.addEventListener('focus', () => clearError(nameInput));
-        phoneInput.addEventListener('focus', () => clearError(phoneInput));
+        phoneInput.addEventListener('focus', () => {
+            clearError(phoneInput);
+            // Also clean on focus just in case
+            phoneInput.value = cleanPhoneNumber(phoneInput.value);
+        });
 
         // Form Submit Validation
         form.addEventListener('submit', (e) => {
@@ -1288,9 +1333,10 @@ document.addEventListener('DOMContentLoaded', () => {
             let isValid = true;
 
             // Validate Name
-            if (nameInput.value.trim().length < 3) {
+            const nameValidationMsg = validateName(nameInput.value.trim());
+            if (nameValidationMsg) {
                 isValid = false;
-                showError(nameInput, 'Name must be at least 3 letters');
+                showError(nameInput, nameValidationMsg);
             }
 
             // Validate Phone
@@ -1372,6 +1418,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setupValidation('mobileHeroForm', 'mobileHeroName', 'mobileHeroPhone');
     setupValidation('mobileQuickForm', 'mobileQuickName', 'mobileQuickPhone');
 
+    // Auto-detect and validate surgery page booking form (usually inside #booking with no IDs)
+    const surgeryBookingContainer = document.getElementById('booking');
+    if (surgeryBookingContainer) {
+        const surgeryForm = surgeryBookingContainer.querySelector('form');
+        if (surgeryForm) {
+            // Assign ID if missing
+            if (!surgeryForm.id) surgeryForm.id = 'surgeryPageForm';
+
+            const nameInput = surgeryForm.querySelector('input[name="name"]');
+            const phoneInput = surgeryForm.querySelector('input[name="phone"]');
+
+            if (nameInput && phoneInput) {
+                if (!nameInput.id) nameInput.id = 'surgeryPageName';
+                if (!phoneInput.id) phoneInput.id = 'surgeryPagePhone';
+
+                // Initialize validation
+                setupValidation(surgeryForm.id, nameInput.id, phoneInput.id);
+            }
+        }
+    }
+
     // Success Modal Close Logic
     const closeSuccessBtn = document.getElementById('closeSuccessModal');
     const successModal = document.getElementById('successModal');
@@ -1401,12 +1468,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentScrollY = window.scrollY;
 
             // Show bar when scrolled past threshold
+            // Show bar when scrolled past threshold
+            // MODIFIED: Keep always visible for better UX
             if (currentScrollY > scrollThreshold) {
+                // Ensure it stays visible
                 mobileBottomBar.classList.remove('translate-y-full');
                 mobileBottomBar.classList.add('translate-y-0');
             } else {
-                mobileBottomBar.classList.add('translate-y-full');
-                mobileBottomBar.classList.remove('translate-y-0');
+                // Do NOT hide it
+                // mobileBottomBar.classList.add('translate-y-full');
+                mobileBottomBar.classList.remove('translate-y-full'); // Force visible
+                mobileBottomBar.classList.add('translate-y-0');
             }
 
             lastScrollY = currentScrollY;
@@ -1491,125 +1563,38 @@ function toggleMobileQuickForm() {
     }
 }
 
-// Mobile Quick Form Phone Validation
-document.addEventListener('DOMContentLoaded', function () {
 
-    // Helper function to clean phone numbers (handles browser autofill with +91 or leading 0)
-    function cleanPhoneNumber(value) {
-        // Remove all non-numeric characters first (except + for country code detection)
-        let cleaned = value.replace(/[^\d+]/g, '');
 
-        // Handle +91 prefix (country code) - 13 characters total
-        if (cleaned.startsWith('+91') && cleaned.length >= 13) {
-            cleaned = cleaned.substring(3); // Remove +91
-        }
-        // Handle 91 prefix without + (12 characters total)
-        else if (cleaned.startsWith('91') && cleaned.length >= 12 && !cleaned.startsWith('+')) {
-            cleaned = cleaned.substring(2); // Remove 91
-        }
-        // Handle leading 0 (11 characters total)
-        else if (cleaned.startsWith('0') && cleaned.length >= 11) {
-            cleaned = cleaned.substring(1); // Remove leading 0
-        }
+// ... (Append to end of file or inside a global setup block)
 
-        // Now remove any remaining non-numeric characters and limit to 10 digits
-        cleaned = cleaned.replace(/[^0-9]/g, '').slice(0, 10);
+/**
+ * Global function to toggle the Mobile Quick Booking Bottom Sheet
+ */
+window.toggleMobileQuickForm = function () {
+    const form = document.getElementById('mobileQuickBookForm');
+    const btn = document.getElementById('mobileBookBtn');
 
-        return cleaned;
-    }
-
-    // Apply phone validation with autofill support to all mobile phone inputs
-    const phoneInputIds = ['mobileQuickPhone', 'mobileHeroPhone', 'modalMobileNumber', 'heroMobileNumber'];
-
-    phoneInputIds.forEach(inputId => {
-        const phoneInput = document.getElementById(inputId);
-        if (phoneInput) {
-            // Handle both input and change events (change is triggered by autofill)
-            ['input', 'change'].forEach(eventType => {
-                phoneInput.addEventListener(eventType, function (e) {
-                    const originalValue = e.target.value;
-                    const cleanedValue = cleanPhoneNumber(originalValue);
-
-                    // Only update if the value changed (prevents cursor jumping)
-                    if (originalValue !== cleanedValue) {
-                        e.target.value = cleanedValue;
-                    }
-                });
-            });
-
-            // Also handle blur for autofill that doesn't trigger input/change
-            phoneInput.addEventListener('blur', function (e) {
-                e.target.value = cleanPhoneNumber(e.target.value);
-            });
-        }
-    });
-
-    // Mobile Quick Form Submission
-    const mobileQuickForm = document.getElementById('mobileQuickForm');
-    if (mobileQuickForm) {
-        mobileQuickForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent default form submission
-
-            const name = document.getElementById('mobileQuickName').value.trim();
-            const phone = document.getElementById('mobileQuickPhone').value.trim();
-
-            // Validate name
-            if (name.length < 2) {
-                alert('Please enter a valid name (at least 2 characters)');
-                return;
+    if (form) {
+        // Toggle visibility
+        if (form.classList.contains('hidden')) {
+            form.classList.remove('hidden');
+            // Optional: Add some animation class or logic here if needed
+            // Ensure bottom bar is visible (in case it was hidden by menu)
+            const bottomBar = document.getElementById('mobileBottomBar');
+            if (bottomBar) {
+                bottomBar.classList.remove('translate-y-full');
             }
-
-            // Validate phone
-            if (!/^[0-9]{10}$/.test(phone)) {
-                alert('Please enter a valid 10-digit mobile number');
-                return;
-            }
-
-            // Get submit button and show loading state
-            const submitBtn = mobileQuickForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-
-            // Submit form via fetch API
-            const formData = new FormData(mobileQuickForm);
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Close the mobile quick booking form
-                        const mobileQuickBookForm = document.getElementById('mobileQuickBookForm');
-                        if (mobileQuickBookForm) {
-                            mobileQuickBookForm.classList.add('hidden');
-                        }
-
-                        // Show success modal greeting
-                        const successModal = document.getElementById('successModal');
-                        if (successModal) {
-                            successModal.classList.remove('hidden');
-                            successModal.classList.add('flex');
-                        }
-
-                        // Reset the form
-                        mobileQuickForm.reset();
-                    } else {
-                        alert('Something went wrong. Please try again.');
-                        console.error('Submission Error:', data);
-                    }
-                })
-                .catch(error => {
-                    alert('Network error. Please try again later.');
-                    console.error('Fetch Error:', error);
-                })
-                .finally(() => {
-                    // Reset button state
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalBtnText;
-                });
-        });
+        } else {
+            form.classList.add('hidden');
+        }
+    } else {
+        console.warn('Mobile Quick Book Form element not found!');
     }
+};
+
+// Ensure the close button in the form also works generally
+document.addEventListener('DOMContentLoaded', () => {
+    // We can attach event listeners if they aren't inline
+    // But the HTML uses onclick="document.getElementById('mobileQuickBookForm').classList.add('hidden')"
+    // We can standardize this too
 });
