@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beard Transplant | MediEase</title>
+    <meta name="description" content="Best Beard Transplant by expert doctors. 0% EMI available. Quick recovery & affordable cost. Book Free Consultation.">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Global CSS -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6D83F2',
+                        secondary: '#4FD1C5',
+                        'neu-base': '#E0E5EC',
+                    },
+                    boxShadow: {
+                        'neu-flat': '9px 9px 16px rgb(163,177,198,0.5), -9px -9px 16px rgba(255,255,255, 0.6)',
+                        'neu-pressed': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
+                         'neu-icon': '6px 6px 12px #b8b9be, -6px -6px 12px #ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { background-color: #E0E5EC; color: #4A5568; }
+        /* Inline styles preserved for specific components not in styles.css */
+        .neu-pressed {
+            border-radius: 15px;
+            background: #E0E5EC;
+            box-shadow: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
+        }
+    </style>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="antialiased">
+
+    <!-- Navigation (Simplified) -->
+        <!-- Unified Navigation -->
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl mx-2 mt-2">
+        <!-- Top Row: Branding & Utility -->
+        <div class="rounded-b-2xl">
+            <!-- Mobile Nav Structure (30% - 50% - 20%) -->
+            <div class="lg:hidden flex items-center w-full px-2 py-3">
+                <!-- 1. Logo (30%) -->
+                <a href="../../index.html"
+                    class="w-[30%] flex items-center gap-1.5 flex-shrink-0 cursor-pointer no-underline group hover:opacity-100">
+                    <div
+                        class="w-9 h-9 bg-neu-base rounded-full flex items-center justify-center text-primary shadow-neu-flat group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-medical text-sm"></i>
+                    </div>
+                    <span class="text-base font-extrabold tracking-tight text-gray-800 leading-tight">MediEase<span
+                            class="text-primary">.</span></span>
+                </a>
+
+                <!-- 2. Search (50%) -->
+                <div class="w-[50%] px-1">
+                    <div class="relative w-full">
+                        <input type="text" id="navMobileSearchInput" placeholder="Diseases, Doctors, Specialities..."
+                            class="w-full py-2.5 pl-10 bg-neu-base rounded-full text-[11px] focus:outline-none focus:ring-0 shadow-neu-pressed transition-all font-bold text-gray-700 placeholder-gray-500">
+                        <i
+                            class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                        <!-- Mobile Nav Search Results -->
+                        <div id="navMobileSearchResults"
+                            class="hidden absolute left-0 w-[80vw] sm:w-[350px] top-full mt-2 bg-white border border-gray-100 rounded-xl shadow-xl z-50 overflow-hidden max-h-60 overflow-y-auto">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-[20%] flex justify-end">
+                    <button id="mobileMenuToggle"
+                        class="text-primary transition-all p-2.5 rounded-xl shadow-neu-flat bg-neu-base hover:shadow-neu-pressed active:scale-95">
+                        <i class="fa-solid fa-bars text-xl transition-transform duration-300 ease-soft"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Structure (Hidden on Mobile) -->
+            <div class="hidden lg:flex container mx-auto px-4 py-3 justify-between items-center">
+                <div class="flex items-center gap-3 lg:gap-12 flex-1">
+                    <div class="flex items-center gap-2 flex-shrink-0">
+                        <a href="../../index.html" class="flex items-center gap-2 group cursor-pointer no-underline">
+                            <div
+                                class="w-10 h-10 bg-neu-base rounded-full flex items-center justify-center text-primary shadow-neu-flat group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-house-medical text-xl"></i>
+                            </div>
+                            <span class="text-2xl font-extrabold tracking-tight text-gray-800">MediEase<span
+                                    class="text-primary">.</span></span>
+                        </a>
+                    </div>
+
+                    <!-- Global Search Bar (Desktop) -->
+                    <div class="relative flex-1 max-w-[500px]">
+                        <div class="relative">
+                            <input type="text" id="globalSearchInput"
+                                placeholder="Search disease, doctor, speciality..."
+                                class="w-full pl-10 pr-4 py-3 bg-neu-base rounded-full text-sm focus:outline-none focus:ring-0 shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700">
+                            <i
+                                class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        <!-- Global Search Results -->
+                        <div id="globalSearchResults"
+                            class="hidden absolute left-0 right-0 top-full mt-2 bg-white border border-gray-100 rounded-xl shadow-xl z-50 overflow-hidden max-h-80 overflow-y-auto">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-8 ml-4">
+                    <a href="tel:1800-123-456"
+                        class="flex items-center gap-2 text-primary font-bold hover:text-blue-700 transition-colors">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span class="text-base">1800-123-456</span>
+                    </a>
+                    <button
+                        onclick="document.getElementById('inactivityModal').classList.remove('hidden'); document.getElementById('inactivityModal').classList.add('flex'); setTimeout(() => document.getElementById('inactivityModal').classList.remove('opacity-0'), 10);"
+                        class="uiverse-btn uiverse-btn-blue w-auto neu-btn-primary">
+                        <div class="button-outer">
+                            <div class="button-inner">
+                                <span>Book Appointment</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Row: Categories -->
+        <div class="bg-neu-base hidden lg:block rounded-b-2xl nav-categories-container" id="navCategoriesContainer">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-nowrap justify-between w-full text-[11px] xl:text-[13px] font-bold text-gray-600 items-center py-1.5"
+                    id="navCategories">
+                    <!-- Categories will be injected here directly -->
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Container - Positioned as overlay on top of hero section -->
+        <div id="mobileMenu"
+            class="hidden lg:hidden absolute left-0 right-0 top-full bg-neu-base px-4 py-4 space-y-4 animate-fade-in max-h-none z-[100] shadow-neu-flat mx-4 mt-2 rounded-2xl border border-white/40">
+
+            <!-- Mobile Categories Container -->
+            <div id="mobileCategoriesContainer" class="space-y-1">
+                <!-- JS will populate accordion items here -->
+            </div>
+            <div class="pt-4 sticky bottom-0 bg-neu-base pb-2 px-2">
+                <button id="mobileNavBookAppointmentBtn" class="uiverse-btn uiverse-btn-blue w-full neu-btn-primary">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span>Book Appointment</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-4 text-xs text-gray-500">
+        <a href="../../index.html" class="hover:text-primary">Home</a> > 
+        <a href="../../categories/plastic-surgery.html" class="hover:text-primary">Aesthetics (Plastic Surgery)</a> > 
+        <span class="text-gray-700 font-bold">Beard Transplant</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-8 md:py-12">
+        <div class="container mx-auto px-4">
+             <div class="flex flex-col lg:flex-row gap-8 items-start">
+                <!-- Content -->
+                <div class="lg:w-2/3">
+                    <span class="inline-block px-3 py-1 bg-blue-100 text-[#6D83F2] rounded-full text-[10px] font-bold mb-3 tracking-wide uppercase">
+                        Aesthetics (Plastic Surgery)
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4 leading-tight">
+                        Beard Transplant
+                    </h1>
+                    <p class="text-gray-600 mb-6 text-sm md:text-base leading-relaxed">
+                        Advanced, minimally invasive treatment for Beard Transplant. Restore your confidence with our expert care.
+                    </p>
+                    
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                        <div class="neu-card p-4 text-center">
+                            <i class="fa-solid fa-clock text-[#4FD1C5] mb-2"></i>
+                            <h4 class="text-xs font-bold text-gray-500">Duration</h4>
+                            <p class="font-bold text-gray-800">45-90 Mins</p>
+                        </div>
+                         <div class="neu-card p-4 text-center">
+                            <i class="fa-solid fa-hospital-user text-[#6D83F2] mb-2"></i>
+                            <h4 class="text-xs font-bold text-gray-500">Stay</h4>
+                            <p class="font-bold text-gray-800">1 Day</p>
+                        </div>
+                         <div class="neu-card p-4 text-center">
+                            <i class="fa-solid fa-bolt text-yellow-500 mb-2"></i>
+                            <h4 class="text-xs font-bold text-gray-500">Recovery</h4>
+                            <p class="font-bold text-gray-800">3-5 Days</p>
+                        </div>
+                        <div class="neu-card p-4 text-center">
+                            <i class="fa-solid fa-indian-rupee-sign text-green-500 mb-2"></i>
+                            <h4 class="text-xs font-bold text-gray-500">EMI Stats</h4>
+                            <p class="font-bold text-gray-800">No Cost EMI</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#booking" class="neu-btn px-8 py-4 bg-[#E0E5EC] text-[#6D83F2] font-bold rounded-xl inline-flex items-center gap-2">
+                        Get Cost Estimate <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Booking Form Widget -->
+                <div class="lg:w-1/3 w-full" id="booking">
+                    <div class="neu-card p-6 sticky top-24">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Book Free Appointment</h3>
+                        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
+                            <input type="hidden" name="subject" value="Inquiry for Beard Transplant">
+                            
+                            <input type="text" name="name" placeholder="Patient Name" class="w-full px-4 py-3 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] border-none focus:outline-none text-sm" required>
+                            
+                            <input type="tel" name="phone" placeholder="Mobile Number" class="w-full px-4 py-3 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] border-none focus:outline-none text-sm" required pattern="[0-9]{10}">
+                            
+                            <select name="city" class="w-full px-4 py-3 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] border-none focus:outline-none text-sm text-gray-600">
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Mumbai">Mumbai</option>
+                            </select>
+
+                            <button type="submit" class="w-full py-3 rounded-xl bg-[#E0E5EC] text-[#6D83F2] font-bold shadow-[6px_6px_12px_#b8b9be,-6px_-6px_12px_#ffffff] hover:shadow-[inset_4px_4px_8px_#b8b9be,inset_-4px_-4px_8px_#ffffff] transition-all">
+                                Book Now
+                            </button>
+                            <p class="text-[10px] text-center text-gray-500 mt-2"><i class="fa-solid fa-lock"></i> Your data is safe with us.</p>
+                        </form>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- EMI Banner -->
+    <section class="mb-12">
+        <div class="container mx-auto px-4">
+            <div class="bg-gradient-to-r from-[#6D83F2] to-[#4FD1C5] rounded-[2rem] p-6 text-white shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-1">0% Interest EMI Available</h3>
+                        <p class="text-sm opacity-90">Pay in easy installments. Approval in 5 minutes.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="text-center">
+                            <p class="text-xs opacity-75">3 Months</p>
+                            <p class="font-bold">No Cost</p>
+                        </div>
+                         <div class="text-center">
+                            <p class="text-xs opacity-75">6 Months</p>
+                            <p class="font-bold">No Cost</p>
+                        </div>
+                         <div class="text-center">
+                            <p class="text-xs opacity-75">9+ Months</p>
+                            <p class="font-bold">Low Cost</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview & Details -->
+    <section class="py-12 bg-[#E0E5EC]">
+        <div class="container mx-auto px-4 grid lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Overview -->
+                <div class="neu-card p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-[#6D83F2]"></i> Overview
+                    </h2>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Beard Transplant is a specialized aesthetic procedure aimed at enhancing your appearance and confidence. Our approach utilizes the latest technology to ensure patient safety and effective outcomes.
+                    </p>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        This procedure is recommended for individuals looking to address specific cosmetic concerns or improve their physical features.
+                    </p>
+                </div>
+
+                <!-- Why Needed -->
+                <div class="neu-card p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-user-check text-[#4FD1C5]"></i> Why chosen?
+                    </h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-sm text-gray-600">
+                            <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                            <span>To enhance physical appearance and symmetry.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-gray-600">
+                            <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                            <span>To boost self-confidence and self-esteem.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-gray-600">
+                            <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                            <span>To correct congenital or acquired deformities.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Benefits -->
+                 <div class="neu-card p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-thumbs-up text-purple-500"></i> Benefits
+                    </h2>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="neu-pressed p-4 rounded-xl">
+                            <h4 class="font-bold text-gray-700 text-sm mb-1">Natural Look</h4>
+                            <p class="text-xs text-gray-500">Results that look and feel natural.</p>
+                        </div>
+                        <div class="neu-pressed p-4 rounded-xl">
+                            <h4 class="font-bold text-gray-700 text-sm mb-1">Minimal Scarring</h4>
+                            <p class="text-xs text-gray-500">Advanced techniques for hidden scars.</p>
+                        </div>
+                         <div class="neu-pressed p-4 rounded-xl">
+                            <h4 class="font-bold text-gray-700 text-sm mb-1">High Satisfaction</h4>
+                            <p class="text-xs text-gray-500">Proven effective outcomes.</p>
+                        </div>
+                         <div class="neu-pressed p-4 rounded-xl">
+                            <h4 class="font-bold text-gray-700 text-sm mb-1">Cost Effective</h4>
+                            <p class="text-xs text-gray-500">Affordable packages available.</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- FAQ -->
+                <div class="neu-card p-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <details class="group bg-[#E0E5EC] rounded-xl shadow-neu-flat p-4 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+                                <h3 class="text-sm font-medium">Is the procedure painful?</h3>
+                                <div class="white-circle bg-[#E0E5EC] w-6 h-6 rounded-full flex items-center justify-center shadow-neu-pressed text-gray-400">
+                                    <i class="fa-solid fa-chevron-down text-xs transition duration-300 group-open:-rotate-180"></i>
+                                </div>
+                            </summary>
+                            <p class="mt-4 leading-relaxed text-gray-700 text-xs text-gray-500">
+                                Most modern procedures are performed under anesthesia, ensuring you feel no pain during surgery. Post-operative discomfort is usually minimal and managed with medication.
+                            </p>
+                        </details>
+                        
+                         <details class="group bg-[#E0E5EC] rounded-xl shadow-neu-flat p-4 [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+                                <h3 class="text-sm font-medium">Will insurance cover this?</h3>
+                                <div class="white-circle bg-[#E0E5EC] w-6 h-6 rounded-full flex items-center justify-center shadow-neu-pressed text-gray-400">
+                                    <i class="fa-solid fa-chevron-down text-xs transition duration-300 group-open:-rotate-180"></i>
+                                </div>
+                            </summary>
+                            <p class="mt-4 leading-relaxed text-gray-700 text-xs text-gray-500">
+                                Cosmetic surgeries are generally not covered by insurance unless there is a medical necessity. However, we offer 0% EMI options to make it affordable.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar: Doctors -->
+            <div class="space-y-6">
+                <div class="neu-card p-6">
+                    <h3 class="font-bold text-gray-800 mb-4">Expert Surgeons</h3>
+                    <div class="space-y-4" id="doctor-list">
+                        <!-- Doctors injected here via Python loop -->
+                        
+        <div class="neu-card p-4 flex items-center gap-4">
+            <img src="https://i.pravatar.cc/150?u=123" class="w-14 h-14 rounded-xl object-cover shadow-sm" alt="Doctor">
+            <div>
+                <h4 class="font-bold text-gray-800 text-sm">Dr. Ritu Sharma</h4>
+                <p class="text-[10px] text-gray-500">20 Yrs Experience</p>
+                <div class="flex items-center gap-1 text-yellow-500 text-[10px]">
+                    <i class="fa-solid fa-star"></i> 4.8
+                </div>
+            </div>
+        </div>
+        
+        <div class="neu-card p-4 flex items-center gap-4">
+            <img src="https://i.pravatar.cc/150?u=164" class="w-14 h-14 rounded-xl object-cover shadow-sm" alt="Doctor">
+            <div>
+                <h4 class="font-bold text-gray-800 text-sm">Dr. Rahul Sharma</h4>
+                <p class="text-[10px] text-gray-500">23 Yrs Experience</p>
+                <div class="flex items-center gap-1 text-yellow-500 text-[10px]">
+                    <i class="fa-solid fa-star"></i> 4.6
+                </div>
+            </div>
+        </div>
+        
+        <div class="neu-card p-4 flex items-center gap-4">
+            <img src="https://i.pravatar.cc/150?u=107" class="w-14 h-14 rounded-xl object-cover shadow-sm" alt="Doctor">
+            <div>
+                <h4 class="font-bold text-gray-800 text-sm">Dr. Sonia Khan</h4>
+                <p class="text-[10px] text-gray-500">11 Yrs Experience</p>
+                <div class="flex items-center gap-1 text-yellow-500 text-[10px]">
+                    <i class="fa-solid fa-star"></i> 4.6
+                </div>
+            </div>
+        </div>
+        
+        <div class="neu-card p-4 flex items-center gap-4">
+            <img src="https://i.pravatar.cc/150?u=177" class="w-14 h-14 rounded-xl object-cover shadow-sm" alt="Doctor">
+            <div>
+                <h4 class="font-bold text-gray-800 text-sm">Dr. Suresh Verma</h4>
+                <p class="text-[10px] text-gray-500">23 Yrs Experience</p>
+                <div class="flex items-center gap-1 text-yellow-500 text-[10px]">
+                    <i class="fa-solid fa-star"></i> 4.9
+                </div>
+            </div>
+        </div>
+        
+                    </div>
+                     <div class="mt-6 text-center">
+                        <a href="#booking" class="text-xs font-bold text-[#6D83F2] hover:underline">View All Doctors</a>
+                    </div>
+                </div>
+
+                <div class="neu-card p-6 bg-blue-50/50 border border-blue-100">
+                    <h3 class="font-bold text-gray-800 mb-2">Need Help?</h3>
+                    <p class="text-xs text-gray-600 mb-4">Talk to our medical expert for free guidance.</p>
+                    <a href="tel:+919876543210" class="neu-btn w-full py-3 flex items-center justify-center gap-2 text-sm font-bold text-[#6D83F2]">
+                        <i class="fa-solid fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Procedures -->
+    <section class="py-12 bg-[#E0E5EC] border-t border-gray-200/50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-gray-800 mb-8">Related Procedures</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                
+        <a href="liposuction.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
+             <div class="flex justify-between items-start mb-3">
+                <span class="text-[10px] font-bold text-[#6D83F2] bg-blue-50 px-2 py-1 rounded-md uppercase tracking-wider">Aesthetics</span>
+                <i class="fa-solid fa-arrow-right text-xs text-gray-400 group-hover:text-[#6D83F2] transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Liposuction</h4>
+            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Fat removal surgery.</p>
+        </a>
+        
+        <a href="hair-fall-prp.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
+             <div class="flex justify-between items-start mb-3">
+                <span class="text-[10px] font-bold text-[#6D83F2] bg-blue-50 px-2 py-1 rounded-md uppercase tracking-wider">Aesthetics</span>
+                <i class="fa-solid fa-arrow-right text-xs text-gray-400 group-hover:text-[#6D83F2] transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Hair Treatment</h4>
+            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Advanced hair restoration.</p>
+        </a>
+        
+        <a href="rhinoplasty.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
+             <div class="flex justify-between items-start mb-3">
+                <span class="text-[10px] font-bold text-[#6D83F2] bg-blue-50 px-2 py-1 rounded-md uppercase tracking-wider">Aesthetics</span>
+                <i class="fa-solid fa-arrow-right text-xs text-gray-400 group-hover:text-[#6D83F2] transition-colors"></i>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Rhinoplasty</h4>
+            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Nose reshaping surgery.</p>
+        </a>
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Footer - Dark Neumorphism -->
+    <footer class="bg-[#2D3748] text-gray-300 pt-24 pb-12 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div
+            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-30">
+        </div>
+
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-[#E0E5EC]">MediEase<span class="text-primary">.</span></h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                        Pioneering hassle-free surgical care with expert specialists and patient-centric support.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#2D3748] flex items-center justify-center text-gray-400 hover:text-primary transition-all shadow-[6px_6px_12px_#232b38,-6px_-6px_12px_#374358] hover:shadow-[inset_6px_6px_12px_#232b38,inset_-6px_-6px_12px_#374358]">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-[#E0E5EC]">Services</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
+                        <li><a href="#" class="hover:text-primary transition-colors">Insurance Claim Support</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Post-Surgery Consultation</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Free Cab Services</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Diagnostic Coordination</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-[#E0E5EC]">Support</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
+                        <li><a href="#" class="hover:text-primary transition-colors">Patient Stories</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-[#E0E5EC]">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
+                        <li class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#2D3748] flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#232b38,-4px_-4px_8px_#374358]">
+                                <i class="fa-solid fa-location-dot text-primary text-xs"></i>
+                            </div>
+                            <span class="text-sm">Banjara Hills, Hyderabad, India</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#2D3748] flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#232b38,-4px_-4px_8px_#374358]">
+                                <i class="fa-solid fa-phone text-primary text-xs"></i>
+                            </div>
+                            <span class="text-sm font-mono">+91 1800-123-456</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#2D3748] flex items-center justify-center flex-shrink-0 shadow-[4px_4px_8px_#232b38,-4px_-4px_8px_#374358]">
+                                <i class="fa-solid fa-envelope text-primary text-xs"></i>
+                            </div>
+                            <span class="text-sm">contact@mediease.com</span>
+                        </li>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700/50 pt-12 text-center text-gray-500 text-xs font-medium tracking-wide">
+            &copy; 2025 MediEase Healthcare Private Limited. All Rights Reserved.
+        </div>
+        </div>
+    </footer>
+
+    <!-- Inactivity Popup Modal -->
+    <div id="inactivityModal"
+        class="fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-neu-base rounded-2xl shadow-2xl w-[95%] md:w-full max-w-5xl overflow-hidden transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto scrollbar-hide"
+            id="inactivityModalContent">
+            <!-- Header -->
+            <div
+                class="bg-neu-base px-5 py-3 md:px-6 md:py-3 flex justify-between items-center text-gray-800 relative overflow-hidden shadow-neu-flat rounded-t-2xl z-20 sticky top-0">
+                <div class="absolute inset-0 bg-neu-base/10 skew-x-12 -translate-x-full animate-[shimmer_2s_infinite]">
+                </div>
+                <h3 class="font-bold text-base md:text-lg relative z-10 text-primary">Book Your FREE Consultation</h3>
+                <button id="closeModalBtn"
+                    class="bg-neu-base text-gray-500 hover:text-primary hover:shadow-neu-pressed shadow-neu-flat rounded-full w-8 h-8 flex items-center justify-center transition-all relative z-10 active:shadow-neu-pressed">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col md:flex-row h-full">
+                <!-- Left Side: Trust & Steps (Hidden on Mobile) -->
+                <div
+                    class="hidden md:block p-6 md:w-1/2 border-r border-gray-200/50 bg-neu-base relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+                    </div>
+
+                    <h4 class="text-xl font-extrabold text-gray-800 mb-2">Simplifying Surgery Experience</h4>
+                    <p class="text-sm text-gray-500 mb-6 border-l-4 border-primary pl-3">Consult with our expert surgeon
+                        for more than <span class="font-bold text-primary">50+ diseases</span></p>
+
+                    <div class="space-y-4 mb-8 relative z-10">
+                        <!-- Step 1 -->
+                        <div class="flex gap-4 items-start group">
+                            <div
+                                class="w-10 h-10 rounded-full bg-neu-base shadow-neu-icon flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-phone-volume"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Connect</h5>
+                                <p class="text-xs text-gray-600 leading-relaxed">Once you share your details, our care
+                                    coordinator will get in touch with you.</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex gap-4 items-start group">
+                            <div
+                                class="w-10 h-10 rounded-full bg-neu-base shadow-neu-icon flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Consult</h5>
+                                <p class="text-xs text-gray-600 leading-relaxed">The coordinator will understand your
+                                    symptoms and health condition in detail.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex gap-4 items-start group">
+                            <div
+                                class="w-10 h-10 rounded-full bg-neu-base shadow-neu-icon flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-gray-800 uppercase tracking-wider mb-1">Book</h5>
+                                <p class="text-xs text-gray-600 leading-relaxed">Your consultation will be scheduled at
+                                    the earliest.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="grid grid-cols-3 gap-2 bg-neu-base p-4 rounded-2xl shadow-neu-pressed">
+                        <div class="text-center border-r border-blue-100 last:border-0 px-2">
+                            <p class="text-lg font-extrabold text-primary">3M+</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-tight">Happy Patients</p>
+                        </div>
+                        <div class="text-center border-r border-blue-100 last:border-0 px-2">
+                            <p class="text-lg font-extrabold text-primary">150+</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-tight">Clinics</p>
+                        </div>
+                        <div class="text-center px-2">
+                            <p class="text-lg font-extrabold text-primary">30+</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-tight">Cities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form -->
+                <div class="p-6 md:p-6 md:w-1/2 bg-neu-base relative">
+                    <div class="text-center mb-6 md:hidden">
+                        <h3 class="text-xl font-bold text-gray-900">Book Free Appointment</h3>
+                    </div>
+                    <form class="space-y-4 relative z-10" id="modalAppointmentForm"
+                        action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
+                        <div class="relative">
+                            <input type="text" name="name" placeholder="Patient Name" id="modalPatientName"
+                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
+                                required>
+                        </div>
+                        <div class="relative">
+                            <input type="tel" name="phone" placeholder="Mobile Number" id="modalMobileNumber"
+                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
+                                pattern="[0-9]{10}" maxlength="14" required>
+                        </div>
+
+                        <div class="relative">
+                            <select name="city"
+                                class="w-full px-4 py-3 rounded-2xl border-none bg-neu-base text-sm focus:outline-none appearance-none shadow-neu-pressed transition-all text-gray-600"
+                                required>
+                                <option value="" disabled>Select City</option>
+                                <option>Delhi</option>
+                                <option>Mumbai</option>
+                                <option selected>Hyderabad</option>
+                                <option>Bangalore</option>
+                                <option>Chennai</option>
+                            </select>
+                            <i
+                                class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                        </div>
+
+                        <!-- Select Specialty Chips -->
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Select
+                                Specialty</label>
+                            <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-none" id="modalSpecialtyChips">
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Proctology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Laparoscopy</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Gynaecology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">ENT</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Urology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Dermatology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Vascular</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Aesthetics</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Orthopedics</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Ophthalmology</button>
+                                <button type="button"
+                                    class="whitespace-nowrap px-4 py-2 bg-neu-base shadow-neu-flat rounded-xl text-xs font-bold text-gray-600 hover:text-primary hover:shadow-neu-pressed transition-all active:shadow-neu-pressed border border-white/20">Weight
+                                    Loss</button>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <label class="text-[10px] font-bold text-primary mb-1 block">Or Enter Disease</label>
+                            <div class="relative">
+                                <input type="text" name="disease" placeholder="Search disease, doctor..."
+                                    id="modalDiseaseInput" required
+                                    class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-base lg:text-sm focus:outline-none shadow-neu-pressed transition-all font-bold lg:font-normal placeholder:text-gray-400 text-gray-700">
+                                <i
+                                    class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                            </div>
+                            <!-- Search Results Container -->
+                            <div id="modalSearchResults"
+                                class="hidden absolute w-full bg-white border border-gray-100 rounded-xl shadow-lg mt-1 max-h-48 overflow-y-auto z-50">
+                                <!-- Results injected by JS -->
+                            </div>
+                        </div>
+
+                        <button type="submit" class="uiverse-btn uiverse-btn-blue mt-4 w-full">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>
+                                        Book Free Appointment <i class="fa-solid fa-arrow-right ml-1"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Success Modal -->
+    <div id="successModal"
+        class="fixed inset-0 z-[1002] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="bg-neu-base rounded-[2rem] shadow-neu-card p-8 flex flex-col items-center justify-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out] transform transition-all scale-100">
+            <div
+                class="w-20 h-20 bg-neu-base rounded-full flex items-center justify-center mb-6 relative shadow-neu-icon">
+                <i class="fa-solid fa-check text-4xl text-green-500 animate-[bounce_1s_infinite]"></i>
+                <div class="absolute inset-0 border-4 border-green-500/20 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2 text-center">Request Submitted!</h3>
+            <p class="text-gray-500 text-center mb-8 text-sm leading-relaxed">Thank you for choosing us. Our medical
+                expert will contact you shortly to confirm your appointment.</p>
+            <button id="closeSuccessModal" class="uiverse-btn uiverse-btn-green w-full">
+                <div class="button-outer">
+                    <div class="button-inner">
+                        <span>Excellent!</span>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Action Bar -->
+    <div id="mobileBottomBar"
+        class="lg:hidden fixed bottom-0 left-0 right-0 bg-neu-base border-t border-white/20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50 transform  transition-transform duration-300 ease-out">
+
+        <!-- Expandable Quick Booking Form -->
+        <div id="mobileQuickBookForm" class="hidden px-4 pt-4 pb-2 border-b border-gray-100 animate-fade-in">
+            <div class="flex justify-between items-center mb-3">
+                <h4 class="font-bold text-gray-800 text-sm">Share Your Details</h4>
+                <button onclick="document.getElementById('mobileQuickBookForm').classList.add('hidden')"
+                    class="w-8 h-8 rounded-full bg-neu-base shadow-neu-flat flex items-center justify-center text-gray-500 hover:text-red-500 hover:shadow-neu-pressed transition-all">
+                    <i class="fa-solid fa-xmark text-xs"></i>
+                </button>
+            </div>
+            <form id="mobileQuickForm" class="space-y-3" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
+                <input type="hidden" name="city" value="Hyderabad">
+                <div class="relative">
+                    <label class="text-xs text-gray-600 font-medium mb-1 block">Your Name<span
+                            class="text-red-500">*</span></label>
+                    <input type="text" name="name" id="mobileQuickName" placeholder="Enter your name"
+                        class="w-full px-4 py-3 bg-neu-base rounded-full focus:outline-none shadow-neu-pressed transition-all text-sm"
+                        required minlength="2">
+                </div>
+                <div class="relative">
+                    <label class="text-xs text-gray-600 font-medium mb-1 block">Mobile Number<span
+                            class="text-red-500">*</span></label>
+                    <div class="flex items-center rounded-full overflow-hidden bg-neu-base shadow-neu-pressed">
+                        <span class="px-3 py-2.5 bg-orange-400 text-white font-bold text-sm rounded-l-full">+91</span>
+                        <input type="tel" name="phone" id="mobileQuickPhone" placeholder="Enter mobile number"
+                            class="flex-1 px-3 py-3 bg-transparent focus:outline-none text-sm" required
+                            pattern="[0-9]{10}" maxlength="14">
+                    </div>
+                </div>
+                <button type="submit" class="uiverse-btn uiverse-btn-blue w-full">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span>Submit</span>
+                        </div>
+                    </div>
+                </button>
+            </form>
+        </div>
+
+        <!-- Bottom Buttons -->
+        <div class="px-4 py-2 pb-6 flex gap-3 w-full items-stretch">
+            <div class="flex-1">
+                <a href="tel:+919876543210"
+                    class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
+                    <div class="button-outer h-full">
+                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
+                            <span class="text-sm font-bold whitespace-nowrap"><i class="fa-solid fa-phone mr-1"></i>
+                                Call Us</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="flex-1">
+                <button id="mobileBookBtn" onclick="toggleMobileQuickForm()"
+                    class="uiverse-btn uiverse-btn-blue w-full h-full flex items-center justify-center">
+                    <div class="button-outer h-full">
+                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
+                            <span class="text-sm font-bold whitespace-nowrap"><i
+                                    class="fa-solid fa-calendar-check mr-1"></i>
+                                Book Now</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+<script src="../../script.js"></script>
+</body>
+</html>

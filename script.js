@@ -3,7 +3,7 @@ const medicalData = {
         {
             id: 'dermatology',
             name: 'Dermatology',
-            folder: 'plastic-surgery', // Assumed based on file structure
+            folder: 'dermatology',
             icon: 'fa-solid fa-hand-dots',
             diseases: [
                 { name: 'Botox', slug: 'botox' },
@@ -30,7 +30,7 @@ const medicalData = {
         {
             id: 'laparoscopy',
             name: 'Laparoscopy',
-            folder: 'general-surgery',
+            folder: 'laparoscopy',
             icon: 'fa-solid fa-microscope',
             diseases: [
                 { name: 'Hernia Surgery', slug: 'hernia' },
@@ -46,11 +46,21 @@ const medicalData = {
             folder: 'gynaecology',
             icon: 'fa-solid fa-venus',
             diseases: [
-                { name: 'Surgical Abortion', slug: 'abortion' },
+                { name: 'Surgical Abortion and MTP', slug: 'abortion' },
                 { name: 'Uterus Removal', slug: 'uterus-removal' },
+                { name: 'Miscarriage Treatment', slug: 'miscarriage' },
+                { name: 'Endometriosis', slug: 'endometriosis' },
+                { name: 'PCOS-PCOD', slug: 'pcos' },
+                { name: 'Laser Vaginal Tightening', slug: 'vaginal-tightening' },
+                { name: 'Vaginoplasty', slug: 'vaginoplasty' },
+                { name: 'Vaginal Wart Removal', slug: 'vaginal-wart' },
+                { name: 'Ectopic and Molar Pregnancy', slug: 'ectopic-pregnancy' },
                 { name: 'Ovarian Cyst', slug: 'ovarian-cysts' },
+                { name: 'Bartholin Cyst', slug: 'bartholin-cyst' },
+                { name: 'Adenomyosis', slug: 'adenomyosis' },
                 { name: 'Pregnancy Care', slug: 'pregnancy-care' },
-                { name: 'Vaginoplasty', slug: 'vaginoplasty' }
+                { name: 'Hymenoplasty', slug: 'hymenoplasty' },
+                { name: 'Labiaplasty', slug: 'labiaplasty' }
             ]
         },
         {
@@ -60,10 +70,18 @@ const medicalData = {
             icon: 'fa-solid fa-ear-listen',
             diseases: [
                 { name: 'Tympanoplasty', slug: 'tympanoplasty' },
+                { name: 'Stapedectomy', slug: 'stapedectomy' },
                 { name: 'Sinus Treatment', slug: 'sinus-surgery' },
+                { name: 'FESS Surgery', slug: 'fess' },
+                { name: 'Turbinate Reduction', slug: 'turbinate-reduction' },
+                { name: 'Thyroidectomy', slug: 'thyroidectomy' },
+                { name: 'Vocal Cord Polyps', slug: 'vocal-cord-polyps' },
+                { name: 'Mastoidectomy', slug: 'mastoidectomy' },
+                { name: 'Myringotomy', slug: 'myringotomy' },
                 { name: 'Septoplasty', slug: 'septoplasty' },
-                { name: 'Tonsillectomy', slug: 'tonsillectomy' },
-                { name: 'Adenoidectomy', slug: 'adenoidectomy' }
+                { name: 'Nasal Polyps', slug: 'nasal-polyps' },
+                { name: 'Adenoidectomy', slug: 'adenoidectomy' },
+                { name: 'Tonsillectomy', slug: 'tonsillectomy' }
             ]
         },
         {
@@ -72,11 +90,22 @@ const medicalData = {
             folder: 'urology',
             icon: 'fa-solid fa-droplet',
             diseases: [
-                { name: 'Circumcision', slug: 'circumcision' },
+                { name: 'RIRS Surgery', slug: 'rirs' },
+                { name: 'PCNL Surgery', slug: 'pcnl' },
+                { name: 'URSL Surgery', slug: 'ursl' },
                 { name: 'Kidney Stones', slug: 'kidney-stones' },
-                { name: 'Enlarged Prostate', slug: 'enlarged-prostate' },
                 { name: 'Hydrocele', slug: 'hydrocele' },
-                { name: 'Vasectomy', slug: 'vasectomy' }
+                { name: 'Enlarged Prostate', slug: 'enlarged-prostate' },
+                { name: 'Prostate Laser Surgery', slug: 'prostate-laser-surgery' },
+                { name: 'Vasectomy', slug: 'vasectomy' },
+                { name: 'Phimosis', slug: 'phimosis' },
+                { name: 'Laser Circumcision', slug: 'laser-circumcision' },
+                { name: 'Frenuloplasty', slug: 'frenuloplasty' },
+                { name: 'Stapler Circumcision', slug: 'stapler-circumcision' },
+                { name: 'No-Scalpel Vasectomy', slug: 'no-scalpel-vasectomy' },
+                { name: 'Urethral Stricture', slug: 'urethral-stricture' },
+                { name: 'ESWL Treatment', slug: 'eswl' },
+                { name: 'Diverticulectomy', slug: 'diverticulectomy' }
             ]
         },
         {
@@ -85,24 +114,39 @@ const medicalData = {
             folder: 'vascular',
             icon: 'fa-solid fa-layer-group',
             diseases: [
-                { name: 'Varicose Veins', slug: 'varicose-veins' },
-                { name: 'Varicocele', slug: 'varicocele' },
-                { name: 'DVT Treatment', slug: 'dvt' },
-                { name: 'Diabetic Foot Ulcer', slug: 'diabetic-foot' },
-                { name: 'AV Fistula', slug: 'av-fistula' }
+                { name: 'Varicose Veins Treatment', slug: 'varicose-veins' },
+                { name: 'Deep Vein Thrombosis (DVT)', slug: 'dvt' },
+                { name: 'AV Fistula', slug: 'av-fistula' },
+                { name: 'Laser Treatment (EVLT)', slug: 'evlt' },
+                { name: 'Venaseal Glue Treatment', slug: 'venaseal' },
+                { name: 'Sclerotherapy', slug: 'sclerotherapy' },
+                { name: 'Thrombolysis for DVT', slug: 'thrombolysis' },
+                { name: 'Peritoneal Dialysis Catheter', slug: 'peritoneal-dialysis' }
             ]
         },
         {
             id: 'plastic-surgery',
             name: 'Aesthetics',
-            folder: 'plastic-surgery',
+            folder: 'aesthetics',
             icon: 'fa-solid fa-wand-magic-sparkles',
             diseases: [
                 { name: 'Liposuction', slug: 'liposuction' },
-                { name: 'Lipoma Surgery', slug: 'lipoma' },
+                { name: 'Tummy Tuck', slug: 'tummy-tuck' },
                 { name: 'Gynecomastia', slug: 'gynecomastia' },
+                { name: 'Breast Augmentation', slug: 'breast-augmentation' },
+                { name: 'Double Chin', slug: 'double-chin' },
+                { name: 'Blepharoplasty', slug: 'blepharoplasty' },
+                { name: 'Scar Removal', slug: 'scar-removal' },
+                { name: 'Hair Fall PRP', slug: 'hair-fall-prp' },
+                { name: 'Sebaceous Cyst Surgery', slug: 'sebaceous-cyst' },
+                { name: 'Lipoma Surgery', slug: 'lipoma' },
+                { name: 'Fat Loss', slug: 'fat-loss' },
+                { name: 'Breast Lift', slug: 'breast-lift' },
                 { name: 'Rhinoplasty', slug: 'rhinoplasty' },
-                { name: 'Hair Transplant', slug: 'hair-transplant' }
+                { name: 'Buccal Fat', slug: 'buccal-fat' },
+                { name: 'Earlobe Repair', slug: 'earlobe-repair' },
+                { name: 'Beard Transplant', slug: 'beard-transplant' },
+                { name: 'Cleft Lip', slug: 'cleft-lip' }
             ]
         },
         {
@@ -121,14 +165,21 @@ const medicalData = {
         {
             id: 'ophthalmology',
             name: 'Ophthalmology',
-            folder: 'ophthalmology', // Note: Folder currently missing
+            folder: 'ophthalmology',
             icon: 'fa-solid fa-eye',
             diseases: [
                 { name: 'Lasik', slug: 'lasik' },
-                { name: 'Cataract', slug: 'cataract' },
+                { name: 'SMILE Lasik', slug: 'smile-lasik' },
+                { name: 'PRK Lasik', slug: 'prk-lasik' },
+                { name: 'FEMTO Lasik', slug: 'femto-lasik' },
+                { name: 'ICL Surgery', slug: 'icl-surgery' },
+                { name: 'Contoura Vision', slug: 'contoura-vision' },
+                { name: 'Cataract Surgery', slug: 'cataract' },
                 { name: 'Glaucoma', slug: 'glaucoma' },
+                { name: 'Diabetic Retinopathy', slug: 'diabetic-retinopathy' },
+                { name: 'Retinal Detachment', slug: 'retinal-detachment' },
                 { name: 'Squint Surgery', slug: 'squint' },
-                { name: 'Retinal Detachment', slug: 'retinal-detachment' }
+                { name: 'Vitrectomy', slug: 'vitrectomy' }
             ]
         },
         {
@@ -137,8 +188,12 @@ const medicalData = {
             folder: 'bariatric',
             icon: 'fa-solid fa-weight-scale',
             diseases: [
-                { name: 'Bariatric Surgery', slug: 'bariatric-surgery' },
-                { name: 'Gastric Balloon', slug: 'gastric-balloon' }
+                { name: 'Gastric Bypass', slug: 'gastric-bypass' },
+                { name: 'Sleeve Gastrectomy', slug: 'sleeve-gastrectomy' },
+                { name: 'Gastric Band', slug: 'gastric-band' },
+                { name: 'Gastric Plication', slug: 'gastric-plication' },
+                { name: 'Intragastric Balloon', slug: 'intragastric-balloon' },
+                { name: 'Weight Loss Mgmt', slug: 'weight-loss-mgmt' }
             ]
         }
     ],
@@ -222,17 +277,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 return `
             <div class="nav-item group relative flex-shrink-0">
-                <a href="${categoryLink}" class="dropdown-trigger hover:text-primary transition-colors flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-3 rounded-lg hover:shadow-neu-pressed active:shadow-neu-pressed font-extrabold text-[#4A5568] tracking-tight no-underline group-hover:bg-gray-50" data-cat="${cat.id}">
+                <a href="${categoryLink}" class="dropdown-trigger hover:text-primary transition-all duration-300 flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-4 rounded-full hover:shadow-neu-pressed active:shadow-neu-pressed font-extrabold text-[#4A5568] tracking-tight no-underline hover:bg-neu-base transform hover:scale-105" data-cat="${cat.id}">
                     ${cat.name} <i class="fa-solid fa-chevron-down text-[8px] group-hover:rotate-180 transition-transform ml-1 opacity-50"></i>
                 </a>
-                <div class="dropdown-menu bg-neu-base shadow-neu-card border border-white/40 ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass} hidden group-hover:block opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div class="dropdown-menu bg-neu-base shadow-neu-card border border-white/40 ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass} hidden group-hover:block opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl mt-2">
                     <h4 class="text-[10px] text-primary font-bold uppercase tracking-widest mb-3 px-2 border-b border-gray-200/50 pb-2 cursor-pointer hover:bg-gray-100/50 transition-all nav-category-header" onclick="window.location.href='${categoryLink}'">${cat.name} Services</h4>
                     <ul class="grid ${hasMany ? 'grid-cols-2' : 'grid-cols-1'} gap-x-2 gap-y-1">
                         ${cat.diseases.map(d => {
                     const surgeryLink = `${relPrefix}surgeries/${cat.folder}/${d.slug}.html`;
                     return `
                                 <li>
-                                    <a href="${surgeryLink}" class="nav-disease-link block px-3 py-2 hover:bg-white/60 hover:shadow-sm hover:text-primary rounded-lg transition-all font-medium text-[11px] whitespace-normal leading-tight text-gray-600 flex items-center gap-2 group/link">
+                                    <a href="${surgeryLink}" class="nav-disease-link block px-3 py-2 hover:bg-neu-base hover:shadow-neu-pressed hover:text-primary rounded-xl transition-all font-medium text-[11px] whitespace-normal leading-tight text-gray-600 flex items-center gap-2 group/link border border-transparent hover:border-white/20 transform hover:scale-105">
                                         <i class="fa-solid fa-angle-right text-[8px] opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-primary"></i>
                                         ${d.name}
                                     </a>
@@ -1028,67 +1083,278 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inactivity Tracking Logic for Mobile
+    // --- SMART PAGE-AWARE INACTIVITY & BOOKING LOGIC ---
+
+    // 1. Context Detection & Modal Prep
+    function getPageContext() {
+        const path = window.location.pathname.replace(/\\/g, '/');
+        const filename = path.split('/').pop();
+
+        // Check if Home
+        if (path.endsWith('index.html') || path === '/' || path.endsWith('/')) {
+            return { type: 'home', name: 'General' };
+        }
+
+        // Check if Category
+        if (path.includes('/categories/')) {
+            const catId = filename.replace('.html', '');
+            let category = medicalData.categories.find(c => c.id === catId || c.folder === catId);
+            return {
+                type: 'category',
+                name: category ? category.name : 'Medical',
+                catId: catId
+            };
+        }
+
+        // Check if Surgery/Treatment
+        if (path.includes('/surgeries/')) {
+            const slug = filename.replace('.html', '');
+            let foundDisease = null;
+            let foundCategory = null;
+
+            medicalData.categories.forEach(cat => {
+                const d = cat.diseases.find(d => d.slug === slug);
+                if (d) {
+                    foundDisease = d;
+                    foundCategory = cat;
+                }
+            });
+
+            if (foundDisease) {
+                return {
+                    type: 'treatment',
+                    name: foundDisease.name,
+                    category: foundCategory ? foundCategory.name : 'General'
+                };
+            }
+        }
+
+        return { type: 'general', name: 'General' };
+    }
+
+    function setupPageAwareModal() {
+        const context = getPageContext();
+        const form = document.getElementById('modalAppointmentForm');
+        if (!form) return;
+
+        const titleEl = document.querySelector('#inactivityModal h3');
+        const chipsContainer = document.getElementById('modalSpecialtyChips')?.parentElement; // Wrapper
+        const citySelect = form.querySelector('select[name="city"]');
+        const cityWrapper = citySelect?.parentElement;
+        const diseaseInput = document.getElementById('modalDiseaseInput');
+
+        // Find the 'Or Enter Disease' label wrapper to hide it cleanly
+        let diseaseWrapper = null;
+        if (diseaseInput) {
+            // Traverse up to find the container with the Label "Or Enter Disease"
+            // Structure: div.relative > label + div.relative > input
+            // diseaseInput.parent is div.relative. diseaseInput.parent.parent is the main wrapper.
+            diseaseWrapper = diseaseInput.parentElement.parentElement;
+        }
+
+        // Reset Attributes
+        if (citySelect) citySelect.setAttribute('required', 'true');
+        if (diseaseInput) diseaseInput.readOnly = false;
+
+        // Dynamic Configuration
+        let subject = "New Appointment Request";
+
+        if (context.type === 'home') {
+            subject = "New Appointment Request - Home Page";
+        }
+        else if (context.type === 'category') {
+            subject = `New Appointment Request - ${context.name}`;
+            if (titleEl) titleEl.innerHTML = `Book Free Consultation for <span class="text-primary">${context.name}</span>`;
+
+            // Minimal Friction for Category too: Hide Chips & City & Disease Input
+            if (chipsContainer) chipsContainer.classList.add('hidden');
+            if (cityWrapper) {
+                cityWrapper.classList.add('hidden');
+                citySelect?.removeAttribute('required');
+                if (citySelect) citySelect.value = "Hyderabad"; // Default
+            }
+            // Auto-fill Disease/Category and Hide Input
+            if (diseaseInput) {
+                diseaseInput.value = context.name;
+                diseaseInput.removeAttribute('required');
+            }
+            if (diseaseWrapper) diseaseWrapper.classList.add('hidden');
+        }
+        else if (context.type === 'treatment') {
+            subject = `New Appointment Request - ${context.name}`;
+            if (titleEl) titleEl.innerHTML = `Book <span class="text-primary">${context.name}</span> Consultation`;
+
+            // Minimize Friction: Hide Chips & City
+            if (chipsContainer) chipsContainer.classList.add('hidden');
+            if (cityWrapper) {
+                cityWrapper.classList.add('hidden');
+                citySelect.removeAttribute('required'); // Remove validation requirement
+                citySelect.value = "Hyderabad"; // Default value
+            }
+
+            // Auto-capture treatment (Hide input)
+            if (diseaseInput) {
+                diseaseInput.value = context.name;
+            }
+            if (diseaseWrapper) diseaseWrapper.classList.add('hidden');
+        }
+
+        // Add Hidden Fields for Data Architecture
+        const addHiddenField = (name, value) => {
+            let field = form.querySelector(`input[name="${name}"]`);
+            if (!field) {
+                field = document.createElement('input');
+                field.type = 'hidden';
+                field.name = name;
+                form.appendChild(field);
+            }
+            field.value = value;
+        };
+
+        addHiddenField('page_url', window.location.href);
+        addHiddenField('subject', subject);
+        addHiddenField('page_category', context.type === 'treatment' ? context.category : (context.name || 'General'));
+        addHiddenField('timestamp', new Date().toLocaleString());
+
+        // GDPR Note
+        if (!form.querySelector('.gdpr-note')) {
+            const note = document.createElement('p');
+            note.className = 'gdpr-note text-[9px] text-gray-400 mt-3 text-center leading-tight';
+            note.innerText = 'By booking, you agree to our Terms. Your data is secure and ensures a seamless care experience.';
+            form.appendChild(note);
+        }
+    }
+
+    // Initialize Page Aware Logic on Load
+    setupPageAwareModal();
+
+
+    // 2. Inactivity Tracking Logic
     let idleTime = 0;
     let modalShown = false;
-    let isInteractingWithForm = false; // Track if user is currently interacting with a form
+    let isInteractingWithForm = false;
     const inactivityModal = document.getElementById('inactivityModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
-    // Get all booking forms that should pause the inactivity timer while being used
-    const heroForm = document.getElementById('appointmentForm'); // Desktop hero form
-    const mobileHeroForm = document.querySelector('.lg\\:hidden form[action*="web3forms"]'); // Mobile hero form (inside lg:hidden container)
-    const mobileQuickForm = document.getElementById('mobileQuickForm'); // Mobile bottom bar form
-    const mobileQuickBookForm = document.getElementById('mobileQuickBookForm'); // Mobile bottom bar expandable container
-    const mobileBottomBarForInactivity = document.getElementById('mobileBottomBar'); // Mobile bottom bar container
+    // Get all booking forms
+    const heroForm = document.getElementById('appointmentForm');
+    const mobileHeroForm = document.querySelector('.lg\\:hidden form[action*="web3forms"]');
+    const mobileQuickForm = document.getElementById('mobileQuickForm');
+    const mobileQuickBookForm = document.getElementById('mobileQuickBookForm');
+    const mobileBottomBarForInactivity = document.getElementById('mobileBottomBar');
 
-    // Helper function to pause inactivity timer while interacting with form
     const pauseInactivityWhileInteracting = () => {
         isInteractingWithForm = true;
-        resetTimer();
+        idleTime = 0;
     };
 
-    // Helper function to resume inactivity tracking when user leaves form
     const resumeInactivityTracking = () => {
-        // Small delay to avoid immediate popup when clicking away
-        setTimeout(() => {
-            isInteractingWithForm = false;
-        }, 500);
+        setTimeout(() => { isInteractingWithForm = false; }, 500);
     };
 
-    // Helper function to attach form interaction listeners
     const attachFormListeners = (formElement) => {
         if (!formElement) return;
-
-        // Pause timer while interacting
-        formElement.addEventListener('click', pauseInactivityWhileInteracting);
-        formElement.addEventListener('focus', pauseInactivityWhileInteracting, true);
-        formElement.addEventListener('input', pauseInactivityWhileInteracting);
-        formElement.addEventListener('change', pauseInactivityWhileInteracting);
-        formElement.addEventListener('touchstart', pauseInactivityWhileInteracting);
-
-        // Resume tracking when user leaves (focusout bubbles, blur doesn't)
+        ['click', 'focus', 'input', 'change', 'touchstart'].forEach(evt =>
+            formElement.addEventListener(evt, pauseInactivityWhileInteracting)
+        );
         formElement.addEventListener('focusout', resumeInactivityTracking);
     };
 
-    // Attach listeners to all booking forms
     attachFormListeners(heroForm);
     attachFormListeners(mobileHeroForm);
     attachFormListeners(mobileQuickForm);
 
-    // Also pause when clicking on the mobile bottom bar (Book Appointment button)
     if (mobileBottomBarForInactivity) {
         mobileBottomBarForInactivity.addEventListener('click', pauseInactivityWhileInteracting);
         mobileBottomBarForInactivity.addEventListener('touchstart', pauseInactivityWhileInteracting);
     }
-
-    // Also pause when the mobile quick book form container is opened
     if (mobileQuickBookForm) {
         mobileQuickBookForm.addEventListener('click', pauseInactivityWhileInteracting);
-        mobileQuickBookForm.addEventListener('focus', pauseInactivityWhileInteracting, true);
-        mobileQuickBookForm.addEventListener('input', pauseInactivityWhileInteracting);
-        mobileQuickBookForm.addEventListener('touchstart', pauseInactivityWhileInteracting);
-        mobileQuickBookForm.addEventListener('focusout', resumeInactivityTracking);
+        attachFormListeners(mobileQuickBookForm);
+    }
+
+    // 3. Timer Logic (7 Seconds)
+    // Check 7s, Check Session, Check Interaction
+    setInterval(timerIncrement, 1000);
+
+    function timerIncrement() {
+        if (modalShown || isInteractingWithForm) return;
+
+        // Session Check
+        // if (sessionStorage.getItem('inactivityPopupShown') === 'true') return;
+
+        idleTime = idleTime + 1;
+
+        if (idleTime >= 7) { // 7 Seconds Rule
+            showInactivityModal();
+        }
+    }
+
+    function showInactivityModal() {
+        if (modalShown || isInteractingWithForm) return;
+
+        modalShown = true;
+        if (inactivityModal) {
+            inactivityModal.classList.remove('hidden');
+            inactivityModal.classList.add('flex');
+            setTimeout(() => {
+                inactivityModal.classList.remove('opacity-0');
+            }, 10);
+
+            // Set Session Flag
+            sessionStorage.setItem('inactivityPopupShown', 'true');
+        }
+    }
+
+    function closeInactivityModal() {
+        if (inactivityModal) {
+            inactivityModal.classList.add('opacity-0');
+            setTimeout(() => {
+                inactivityModal.classList.add('hidden');
+                inactivityModal.classList.remove('flex');
+                modalShown = true; // Keep true so it doesn't auto-show again in this session logic if we don't use session storage check there (but we do)
+                idleTime = 0;
+            }, 300);
+
+            // User manually closed, ensure flag is set
+            sessionStorage.setItem('inactivityPopupShown', 'true');
+        }
+    }
+
+    // Activity Events
+    const resetTimer = () => { idleTime = 0; };
+    window.onload = resetTimer;
+    window.onmousemove = resetTimer;
+    window.onmousedown = resetTimer;
+    window.ontouchstart = resetTimer;
+    window.onclick = resetTimer;
+    window.onkeypress = resetTimer;
+    window.addEventListener('scroll', resetTimer, { passive: true });
+
+    // Close Button Listener
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeInactivityModal);
+    }
+
+    // Mobile Nav Click - Manual Trigger (Bypasses Session Check Logic visually, but ensures consistent UI)
+    const mobileNavBookBtn = document.getElementById('mobileNavBookAppointmentBtn');
+    if (mobileNavBookBtn && inactivityModal) {
+        mobileNavBookBtn.addEventListener('click', () => {
+            // Force show
+            modalShown = true;
+            // Ensure Menu Close code matches original...
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+
+            // Show
+            inactivityModal.classList.remove('hidden');
+            inactivityModal.classList.add('flex');
+            setTimeout(() => inactivityModal.classList.remove('opacity-0'), 10);
+
+            // Set Flag
+            sessionStorage.setItem('inactivityPopupShown', 'true');
+        });
     }
 
     // CRITICAL: Pause inactivity timer when user types in SEARCH input AND Close Mobile Menu
@@ -1098,7 +1364,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileSearchInput) {
         mobileSearchInput.addEventListener('focus', () => {
-            pauseInactivityWhileInteracting();
+            if (typeof pauseInactivityWhileInteracting === 'function') pauseInactivityWhileInteracting();
             // Close mobile menu if it is open
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
@@ -1112,107 +1378,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-        mobileSearchInput.addEventListener('input', pauseInactivityWhileInteracting);
-        mobileSearchInput.addEventListener('click', pauseInactivityWhileInteracting);
+        mobileSearchInput.addEventListener('input', () => { if (typeof pauseInactivityWhileInteracting === 'function') pauseInactivityWhileInteracting(); });
+        mobileSearchInput.addEventListener('click', () => { if (typeof pauseInactivityWhileInteracting === 'function') pauseInactivityWhileInteracting(); });
         // Resume when they leave the search bar
-        mobileSearchInput.addEventListener('blur', resumeInactivityTracking);
-    }
-
-    // Increment idle time every second
-    setInterval(timerIncrement, 1000);
-
-    function timerIncrement() {
-        // Don't increment if modal is currently showing or user is interacting with form
-        if (modalShown || isInteractingWithForm) return;
-
-        // Show popup on ALL devices (Mobile & Desktop) after inactivity
-        // if (window.innerWidth >= 768) return; // Constraint removed
-
-        idleTime = idleTime + 1;
-        if (idleTime >= 10) { // Show popup after 10 seconds of inactivity
-            showInactivityModal();
-        }
-    }
-
-    function resetTimer() {
-        idleTime = 0;
-    }
-
-    function showInactivityModal() {
-        // Double-check before showing
-        if (modalShown || isInteractingWithForm) return;
-
-        modalShown = true;
-        if (inactivityModal) {
-            inactivityModal.classList.remove('hidden');
-            inactivityModal.classList.add('flex');
-            // Small delay to allow display:flex to apply before opacity transition
-            setTimeout(() => {
-                inactivityModal.classList.remove('opacity-0');
-            }, 10);
-        }
-    }
-
-    // Function to close modal and reset for next appearance
-    function closeInactivityModal() {
-        inactivityModal.classList.add('opacity-0');
-        setTimeout(() => {
-            inactivityModal.classList.add('hidden');
-            inactivityModal.classList.remove('flex');
-            // Reset modalShown so popup can appear again after 10 seconds of inactivity
-            modalShown = false;
-            // Reset the timer to start counting fresh
-            resetTimer();
-        }, 300);
-    }
-
-    // Activity Events to reset timer (global)
-    window.onload = resetTimer;
-    window.onmousemove = resetTimer;
-    window.onmousedown = resetTimer; // catches touchscreen presses as well typically
-    window.ontouchstart = resetTimer;
-    window.onclick = resetTimer;
-    window.onkeypress = resetTimer;
-    window.addEventListener('scroll', resetTimer, true);
-
-    // Modal Close Logic
-    // Modal Close Logic
-    if (closeModalBtn && inactivityModal) {
-        closeModalBtn.addEventListener('click', closeInactivityModal);
-
-        // Background click closing disabled as per requirement
-    }
-
-    // Mobile Nav Book Appointment Button - Show popup immediately
-    const mobileNavBookBtn = document.getElementById('mobileNavBookAppointmentBtn');
-    if (mobileNavBookBtn && inactivityModal) {
-        mobileNavBookBtn.addEventListener('click', () => {
-            // Close mobile menu first
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenu) {
-                mobileMenu.classList.add('hidden');
-                // Re-enable body scroll
-                document.body.style.overflow = '';
-                const toggleBtn = document.getElementById('mobileMenuToggle');
-                if (toggleBtn) {
-                    const icon = toggleBtn.querySelector('i');
-                    if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-xmark');
-                    }
-                }
-            }
-
-            // Show the appointment booking popup immediately
-            inactivityModal.classList.remove('hidden');
-            inactivityModal.classList.add('flex');
-            setTimeout(() => {
-                inactivityModal.classList.remove('opacity-0');
-            }, 10);
-
-            // Mark as shown so the auto-timer doesn't trigger it again
-            modalShown = true;
-        });
+        mobileSearchInput.addEventListener('blur', () => { if (typeof resumeInactivityTracking === 'function') resumeInactivityTracking(); });
     }
 
 

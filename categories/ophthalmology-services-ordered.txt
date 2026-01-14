@@ -1,0 +1,133 @@
+﻿            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="../surgeries/ophthalmology/lasik.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Lasik Surgery</h3>
+                    <p class="text-sm text-gray-500">Laser Vision Correction</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/smile-lasik.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">SMILE Lasik</h3>
+                    <p class="text-sm text-gray-500">Small Incision Lenticule Extraction</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/icl-surgery.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">ICL Surgery</h3>
+                    <p class="text-sm text-gray-500">Implantable Collamer Lens</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/prk-lasik.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">PRK Lasik</h3>
+                    <p class="text-sm text-gray-500">Photorefractive Keratectomy</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/femto-lasik.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">FEMTO Lasik</h3>
+                    <p class="text-sm text-gray-500">Femtosecond Laser Vision Correction</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/contoura-vision.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Contoura Vision</h3>
+                    <p class="text-sm text-gray-500">Topography-Guided LASIK</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/cataract.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Cataract Surgery</h3>
+                    <p class="text-sm text-gray-500">Advanced Cataract Removal</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/retinal-detachment.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Retinal Detachment</h3>
+                    <p class="text-sm text-gray-500">Retina Repair Surgery</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/glaucoma.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Glaucoma Treatment</h3>
+                    <p class="text-sm text-gray-500">Glaucoma Management</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/squint.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Squint Surgery</h3>
+                    <p class="text-sm text-gray-500">Strabismus Correction</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/diabetic-retinopathy.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Diabetic Retinopathy</h3>
+                    <p class="text-sm text-gray-500">Retinal Disease Treatment</p>
+                </a>
+
+                <a href="../surgeries/ophthalmology/vitrectomy.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Vitrectomy</h3>
+                    <p class="text-sm text-gray-500">Vitreous Gel Removal Surgery</p>
+                </a>
+            </div>

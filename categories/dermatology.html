@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dermatology Services | MediEase</title>
-    <meta name="description" content="Best Dermatology treatments and surgeries. Expert doctors, affordable costs, and insurance support.">
-    
+    <meta name="description"
+        content="Best Dermatology treatments and surgeries. Expert doctors, affordable costs, and insurance support.">
+
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Global CSS -->
-    
+
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-         tailwind.config = {
+        tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
                     },
-                     colors: {
+                    colors: {
                         primary: '#6D83F2',
                         secondary: '#4FD1C5',
                         'neu-base': '#E0E5EC',
@@ -31,8 +34,8 @@
                     boxShadow: {
                         'neu-flat': '9px 9px 16px rgb(163,177,198,0.5), -9px -9px 16px rgba(255,255,255, 0.6)',
                         'neu-pressed': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
-                         'neu-icon': '6px 6px 12px #b8b9be, -6px -6px 12px #ffffff',
-                         'neu-card': '12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff',
+                        'neu-icon': '6px 6px 12px #b8b9be, -6px -6px 12px #ffffff',
+                        'neu-card': '12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff',
                     }
                 }
             }
@@ -40,9 +43,13 @@
     </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
-        body { background-color: #E0E5EC; color: #4A5568; }
+        body {
+            background-color: #E0E5EC;
+            color: #4A5568;
+        }
+
         /* Inline styles that utilize config */
         .neu-card {
             border-radius: 20px;
@@ -50,6 +57,7 @@
             box-shadow: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
             transition: all 0.3s ease;
         }
+
         .neu-card:hover {
             transform: translateY(-5px);
             box-shadow: 15px 15px 30px #a3b1c6, -15px -15px 30px #ffffff;
@@ -59,12 +67,13 @@
 
 
 
-<link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body class="antialiased">
 
     <!-- Navigation -->
-        <!-- Unified Navigation -->
+    <!-- Unified Navigation -->
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl mx-2 mt-2">
         <!-- Top Row: Branding & Utility -->
@@ -183,7 +192,8 @@
     <!-- Header -->
     <section class="py-12 md:py-16 text-center">
         <div class="container mx-auto px-4">
-            <div class="w-20 h-20 mx-auto bg-[#E0E5EC] rounded-full flex items-center justify-center text-[#6D83F2] shadow-neu-icon mb-6">
+            <div
+                class="w-20 h-20 mx-auto bg-[#E0E5EC] rounded-full flex items-center justify-center text-[#6D83F2] shadow-neu-icon mb-6">
                 <i class="fa-solid fa-hand-dots text-3xl"></i>
             </div>
             <h1 class="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4">Dermatology</h1>
@@ -195,183 +205,100 @@
     <section class="pb-24">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a href="../surgeries/plastic-surgery/botox.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
+                <a href="../surgeries/plastic-surgery/botox.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i
+                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
                     </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Botox</h3>
-                <p class="text-sm text-gray-500">Botox Anti-aging Treatment</p>
-            </a>
-            
-            <a href="../surgeries/plastic-surgery/dermal-fillers.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Botox
+                    </h3>
+                    <p class="text-sm text-gray-500">Botox Anti-aging Treatment</p>
+                </a>
+
+                <a href="../surgeries/plastic-surgery/dermal-fillers.html"
+                    class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i
+                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
                     </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Dermal Fillers</h3>
-                <p class="text-sm text-gray-500">Facial Volume Restoration</p>
-            </a>
-            
-            <a href="../surgeries/plastic-surgery/hair-transplant.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Dermal
+                        Fillers</h3>
+                    <p class="text-sm text-gray-500">Facial Volume Restoration</p>
+                </a>
+
+                <a href="../surgeries/plastic-surgery/hair-transplant.html"
+                    class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i
+                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
                     </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hair Transplant</h3>
-                <p class="text-sm text-gray-500">Permanent Hair Restoration</p>
-            </a>
-            
-            <a href="../surgeries/plastic-surgery/anti-aging.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hair
+                        Transplant</h3>
+                    <p class="text-sm text-gray-500">Permanent Hair Restoration</p>
+                </a>
+
+                <a href="../surgeries/plastic-surgery/anti-aging.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i
+                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
                     </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Anti-Aging</h3>
-                <p class="text-sm text-gray-500">Comprehensive Anti-aging Care</p>
-            </a>
-            
-            <a href="../surgeries/plastic-surgery/pigmentation.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">
+                        Anti-Aging</h3>
+                    <p class="text-sm text-gray-500">Comprehensive Anti-aging Care</p>
+                </a>
+
+                <a href="../surgeries/plastic-surgery/pigmentation.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i
+                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
                     </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Pigmentation Treatment</h3>
-                <p class="text-sm text-gray-500">Skin Tone Correction</p>
-            </a>
-            
-            <a href="../surgeries/plastic-surgery/hydra-facial.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">
+                        Pigmentation Treatment</h3>
+                    <p class="text-sm text-gray-500">Skin Tone Correction</p>
+                </a>
+
+                <a href="../surgeries/plastic-surgery/hydra-facial.html" class="neu-card p-8 group block no-underline">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
+                            <i class="fa-solid fa-notes-medical"></i>
+                        </div>
+                        <i
+                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
                     </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hydra Facial</h3>
-                <p class="text-sm text-gray-500">Deep Skin Rejuvenation</p>
-            </a>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hydra
+                        Facial</h3>
+                    <p class="text-sm text-gray-500">Deep Skin Rejuvenation</p>
+                </a>
             </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Laparoscopic Hysterectomy</h3>
-                <p class="text-sm text-gray-500">Minimally invasive uterus removal.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/uterus-removal.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Uterus Removal Surgery</h3>
-                <p class="text-sm text-gray-500">Surgical removal of the uterus.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/vaginal-hysterectomy.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Vaginal Hysterectomy</h3>
-                <p class="text-sm text-gray-500">Uterus removal via vagina.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/uterine-prolapse.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Uterine Prolapse Surgery</h3>
-                <p class="text-sm text-gray-500">Repair of fallen uterus.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/uterine-fibroids.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Uterine Fibroids Treatment</h3>
-                <p class="text-sm text-gray-500">Removal of uterine growths.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/endometriosis.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Endometriosis Treatment</h3>
-                <p class="text-sm text-gray-500">Care for endometrial tissue issues.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/ovarian-cysts.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Ovarian Cysts Removal</h3>
-                <p class="text-sm text-gray-500">Surgery for ovarian sacs.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/myomectomy.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Myomectomy</h3>
-                <p class="text-sm text-gray-500">Removal of fibroids preserving uterus.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/hysteroscopic-polypectomy.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hysteroscopic Polypectomy</h3>
-                <p class="text-sm text-gray-500">Polyp removal from uterus.</p>
-            </a>
-            
-            <a href="../surgeries/gynaecology/tubal-ligation.html" class="neu-card p-8 group block no-underline">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                        <i class="fa-solid fa-notes-medical"></i>
-                    </div>
-                    <i class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Tubal Ligation (Tubectomy)</h3>
-                <p class="text-sm text-gray-500">Permanent female contraception.</p>
-            </a>
-            
-            </div>
+
+
+        </div>
         </div>
     </section>
 
     <!-- Footer -->
-        <!-- Footer - Dark Neumorphism -->
+    <!-- Footer - Dark Neumorphism -->
     <footer class="bg-[#2D3748] text-gray-300 pt-24 pb-12 relative overflow-hidden">
         <!-- Background decoration -->
         <div
@@ -730,5 +657,5 @@
     </div>
 
 
-<script src="../script.js"></script>
+    <script src="../script.js"></script>
 </body>
