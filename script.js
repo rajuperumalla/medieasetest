@@ -744,10 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     inputElem.value = item.dataset.name;
                     resultsElem.classList.add('hidden');
                     // Only show doctors if triggering from Hero main search
-                    if (inputId === 'diseaseInput') {
-                        // Pass false to prevent scrolling down to doctors section
-                        showDoctors(item.dataset.name, false);
-                    }
+
                 });
             });
         });
@@ -1431,9 +1428,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Helper: Name Validation
         const validateName = (val) => {
-            const nameRegex = /^[A-Za-z\s]+$/;
-            if (val.length < 3) return 'Name must be at least 3 letters';
-            if (!nameRegex.test(val)) return 'Name should only contain alphabets';
+            const nameRegex = /^[A-Za-z\s.'-]+$/;
+            if (val.length < 2) return 'Name must be at least 2 letters';
+            if (!nameRegex.test(val)) return 'Name contains invalid characters';
             return null;
         };
 
@@ -1563,7 +1560,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             form.reset();
 
                         } else {
-                            alert('Something went wrong. Please try again.');
+                            alert(data.message || 'Submission failed. Please verify your details.');
                             console.error('Submission Error:', data);
                         }
                     })

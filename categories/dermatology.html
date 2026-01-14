@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -75,7 +75,7 @@
     <!-- Navigation -->
     <!-- Unified Navigation -->
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl mx-2 mt-2">
+    <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl">
         <!-- Top Row: Branding & Utility -->
         <div class="rounded-b-2xl">
             <!-- Mobile Nav Structure (30% - 50% - 20%) -->
@@ -95,7 +95,7 @@
                 <div class="w-[50%] px-1">
                     <div class="relative w-full">
                         <input type="text" id="navMobileSearchInput" placeholder="Diseases, Doctors, Specialities..."
-                            class="w-full py-2.5 pl-10 bg-neu-base rounded-full text-[11px] focus:outline-none focus:ring-0 shadow-neu-pressed transition-all font-bold text-gray-700 placeholder-gray-500">
+                            class="w-full py-2.5 pl-10 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-full text-[11px] focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all font-bold text-gray-700 placeholder-gray-500">
                         <i
                             class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
                         <!-- Mobile Nav Search Results -->
@@ -132,7 +132,7 @@
                         <div class="relative">
                             <input type="text" id="globalSearchInput"
                                 placeholder="Search disease, doctor, speciality..."
-                                class="w-full pl-10 pr-4 py-3 bg-neu-base rounded-full text-sm focus:outline-none focus:ring-0 shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700">
+                                class="w-full pl-10 pr-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-full text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all placeholder:text-gray-400 text-gray-700">
                             <i
                                 class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         </div>
@@ -190,14 +190,31 @@
     </nav>
 
     <!-- Header -->
-    <section class="py-12 md:py-16 text-center">
+    <!-- Header / Hero Banner -->
+    <section class="py-6 md:py-8">
         <div class="container mx-auto px-4">
-            <div
-                class="w-20 h-20 mx-auto bg-[#E0E5EC] rounded-full flex items-center justify-center text-[#6D83F2] shadow-neu-icon mb-6">
-                <i class="fa-solid fa-hand-dots text-3xl"></i>
+            <div class="relative w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden shadow-neu-card group">
+                <!-- Background Image -->
+                <img src="../images/dermatology-cover.png" alt="Dermatology Cover"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+
+                <!-- Overlay Gradient -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/40 to-transparent flex items-center">
+                    <div class="px-8 md:px-16 max-w-2xl text-left animate-fade-in-up">
+                        <div
+                            class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20 shadow-lg">
+                            <i class="fa-solid fa-hand-dots text-2xl"></i>
+                        </div>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-4 leading-tight drop-shadow-md">
+                            Dermatology
+                        </h1>
+                        <p class="text-white/90 text-lg md:text-xl font-medium drop-shadow-sm leading-relaxed">
+                            Advanced skin and hair care solutions.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-800 mb-4">Dermatology</h1>
-            <p class="text-gray-600 max-w-2xl mx-auto">Advanced skin and hair care solutions.</p>
         </div>
     </section>
 
@@ -205,90 +222,112 @@
     <section class="pb-24">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="../surgeries/plastic-surgery/botox.html" class="neu-card p-8 group block no-underline">
-                    <div class="flex justify-between items-start mb-4">
+                <!-- Botox -->
+                <a href="../surgeries/plastic-surgery/botox.html"
+                    class="neu-card group block no-underline overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../images/service-botox.png" alt="Botox"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                            <i class="fa-solid fa-notes-medical"></i>
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-90">
                         </div>
-                        <i
-                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                        <div class="absolute bottom-4 left-6 right-4">
+                            <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-md">Botox</h3>
+                            <p
+                                class="text-white/80 text-xs font-medium tracking-wide bg-white/10 backdrop-blur-sm inline-block px-2 py-1 rounded-lg border border-white/20">
+                                Anti-Aging Treatment</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Botox
-                    </h3>
-                    <p class="text-sm text-gray-500">Botox Anti-aging Treatment</p>
                 </a>
 
+                <!-- Dermal Fillers -->
                 <a href="../surgeries/plastic-surgery/dermal-fillers.html"
-                    class="neu-card p-8 group block no-underline">
-                    <div class="flex justify-between items-start mb-4">
+                    class="neu-card group block no-underline overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../images/service-fillers.png" alt="Dermal Fillers"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                            <i class="fa-solid fa-notes-medical"></i>
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-90">
                         </div>
-                        <i
-                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                        <div class="absolute bottom-4 left-6 right-4">
+                            <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-md">Dermal Fillers</h3>
+                            <p
+                                class="text-white/80 text-xs font-medium tracking-wide bg-white/10 backdrop-blur-sm inline-block px-2 py-1 rounded-lg border border-white/20">
+                                Volume Restoration</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Dermal
-                        Fillers</h3>
-                    <p class="text-sm text-gray-500">Facial Volume Restoration</p>
                 </a>
 
+                <!-- Hair Transplant -->
                 <a href="../surgeries/plastic-surgery/hair-transplant.html"
-                    class="neu-card p-8 group block no-underline">
-                    <div class="flex justify-between items-start mb-4">
+                    class="neu-card group block no-underline overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../images/service-hair-transplant.png" alt="Hair Transplant"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                            <i class="fa-solid fa-notes-medical"></i>
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-90">
                         </div>
-                        <i
-                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                        <div class="absolute bottom-4 left-6 right-4">
+                            <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-md">Hair Transplant</h3>
+                            <p
+                                class="text-white/80 text-xs font-medium tracking-wide bg-white/10 backdrop-blur-sm inline-block px-2 py-1 rounded-lg border border-white/20">
+                                Permanent Restoration</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hair
-                        Transplant</h3>
-                    <p class="text-sm text-gray-500">Permanent Hair Restoration</p>
                 </a>
 
-                <a href="../surgeries/plastic-surgery/anti-aging.html" class="neu-card p-8 group block no-underline">
-                    <div class="flex justify-between items-start mb-4">
+                <!-- Anti-Aging -->
+                <a href="../surgeries/plastic-surgery/anti-aging.html"
+                    class="neu-card group block no-underline overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../images/service-anti-aging.png" alt="Anti-Aging"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                            <i class="fa-solid fa-notes-medical"></i>
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-90">
                         </div>
-                        <i
-                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                        <div class="absolute bottom-4 left-6 right-4">
+                            <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-md">Anti-Aging</h3>
+                            <p
+                                class="text-white/80 text-xs font-medium tracking-wide bg-white/10 backdrop-blur-sm inline-block px-2 py-1 rounded-lg border border-white/20">
+                                Youthful Radiance</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">
-                        Anti-Aging</h3>
-                    <p class="text-sm text-gray-500">Comprehensive Anti-aging Care</p>
                 </a>
 
-                <a href="../surgeries/plastic-surgery/pigmentation.html" class="neu-card p-8 group block no-underline">
-                    <div class="flex justify-between items-start mb-4">
+                <!-- Pigmentation -->
+                <a href="../surgeries/plastic-surgery/pigmentation.html"
+                    class="neu-card group block no-underline overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../images/service-pigmentation.png" alt="Pigmentation"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                            <i class="fa-solid fa-notes-medical"></i>
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-90">
                         </div>
-                        <i
-                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                        <div class="absolute bottom-4 left-6 right-4">
+                            <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-md">Pigmentation</h3>
+                            <p
+                                class="text-white/80 text-xs font-medium tracking-wide bg-white/10 backdrop-blur-sm inline-block px-2 py-1 rounded-lg border border-white/20">
+                                Clear Skin Therapy</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">
-                        Pigmentation Treatment</h3>
-                    <p class="text-sm text-gray-500">Skin Tone Correction</p>
                 </a>
 
-                <a href="../surgeries/plastic-surgery/hydra-facial.html" class="neu-card p-8 group block no-underline">
-                    <div class="flex justify-between items-start mb-4">
+                <!-- Hydra Facial -->
+                <a href="../surgeries/plastic-surgery/hydra-facial.html"
+                    class="neu-card group block no-underline overflow-hidden relative transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="../images/service-hydrafacial.png" alt="Hydra Facial"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div
-                            class="w-12 h-12 rounded-xl bg-[#E0E5EC] shadow-[inset_4px_4px_8px_#bebebe,inset_-4px_-4px_8px_#ffffff] flex items-center justify-center text-[#6D83F2]">
-                            <i class="fa-solid fa-notes-medical"></i>
+                            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-90">
                         </div>
-                        <i
-                            class="fa-solid fa-arrow-right text-gray-300 group-hover:text-[#6D83F2] transition-colors"></i>
+                        <div class="absolute bottom-4 left-6 right-4">
+                            <h3 class="text-2xl font-bold text-white mb-1 drop-shadow-md">Hydra Facial</h3>
+                            <p
+                                class="text-white/80 text-xs font-medium tracking-wide bg-white/10 backdrop-blur-sm inline-block px-2 py-1 rounded-lg border border-white/20">
+                                Deep Rejuvenation</p>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#6D83F2] transition-colors">Hydra
-                        Facial</h3>
-                    <p class="text-sm text-gray-500">Deep Skin Rejuvenation</p>
                 </a>
             </div>
 
@@ -477,18 +516,18 @@
                         <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
                         <div class="relative">
                             <input type="text" name="name" placeholder="Patient Name" id="modalPatientName"
-                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
+                                class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out placeholder:text-gray-400 text-gray-700 font-medium"
                                 required>
                         </div>
                         <div class="relative">
                             <input type="tel" name="phone" placeholder="Mobile Number" id="modalMobileNumber"
-                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
+                                class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out placeholder:text-gray-400 text-gray-700 font-medium"
                                 pattern="[0-9]{10}" maxlength="14" required>
                         </div>
 
                         <div class="relative">
                             <select name="city"
-                                class="w-full px-4 py-3 rounded-2xl border-none bg-neu-base text-sm focus:outline-none appearance-none shadow-neu-pressed transition-all text-gray-600"
+                                class="w-full px-4 py-3 rounded-2xl bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none transition-all duration-300 ease-in-out text-gray-600"
                                 required>
                                 <option value="" disabled>Select City</option>
                                 <option>Delhi</option>
@@ -537,7 +576,7 @@
                             <div class="relative">
                                 <input type="text" name="disease" placeholder="Search disease, doctor..."
                                     id="modalDiseaseInput" required
-                                    class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-base lg:text-sm focus:outline-none shadow-neu-pressed transition-all font-bold lg:font-normal placeholder:text-gray-400 text-gray-700">
+                                    class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-base lg:text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out font-bold lg:font-normal placeholder:text-gray-400 text-gray-700">
                                 <i
                                     class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
                             </div>
@@ -567,11 +606,7 @@
         class="fixed inset-0 z-[1002] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
         <div
             class="bg-neu-base rounded-[2rem] shadow-neu-card p-8 flex flex-col items-center justify-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out] transform transition-all scale-100">
-            <div
-                class="w-20 h-20 bg-neu-base rounded-full flex items-center justify-center mb-6 relative shadow-neu-icon">
-                <i class="fa-solid fa-check text-4xl text-green-500 animate-[bounce_1s_infinite]"></i>
-                <div class="absolute inset-0 border-4 border-green-500/20 rounded-full animate-ping opacity-20"></div>
-            </div>
+            <div class="mb-6 flex justify-center"><img src="../images/success-greeting.png" alt="Success" class="w-28 h-auto object-contain animate-[fade-in_0.5s_ease-out]"></div>
             <h3 class="text-2xl font-bold text-gray-800 mb-2 text-center">Request Submitted!</h3>
             <p class="text-gray-500 text-center mb-8 text-sm leading-relaxed">Thank you for choosing us. Our medical
                 expert will contact you shortly to confirm your appointment.</p>
@@ -629,7 +664,7 @@
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-4 py-2 pb-6 flex gap-3 w-full items-stretch">
+        <div class="px-2 py-2 pb-0 flex gap-2 w-full items-stretch">
             <div class="flex-1">
                 <a href="tel:+919876543210"
                     class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
@@ -659,3 +694,9 @@
 
     <script src="../script.js"></script>
 </body>
+
+
+
+
+
+

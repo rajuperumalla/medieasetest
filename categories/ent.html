@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -75,7 +75,7 @@
     <!-- Navigation -->
     <!-- Unified Navigation -->
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl mx-2 mt-2">
+    <nav class="sticky top-0 z-50 bg-neu-base shadow-neu-flat rounded-b-2xl">
         <!-- Top Row: Branding & Utility -->
         <div class="rounded-b-2xl">
             <!-- Mobile Nav Structure (30% - 50% - 20%) -->
@@ -95,7 +95,7 @@
                 <div class="w-[50%] px-1">
                     <div class="relative w-full">
                         <input type="text" id="navMobileSearchInput" placeholder="Diseases, Doctors, Specialities..."
-                            class="w-full py-2.5 pl-10 bg-neu-base rounded-full text-[11px] focus:outline-none focus:ring-0 shadow-neu-pressed transition-all font-bold text-gray-700 placeholder-gray-500">
+                            class="w-full py-2.5 pl-10 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-full text-[11px] focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all font-bold text-gray-700 placeholder-gray-500">
                         <i
                             class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
                         <!-- Mobile Nav Search Results -->
@@ -132,7 +132,7 @@
                         <div class="relative">
                             <input type="text" id="globalSearchInput"
                                 placeholder="Search disease, doctor, speciality..."
-                                class="w-full pl-10 pr-4 py-3 bg-neu-base rounded-full text-sm focus:outline-none focus:ring-0 shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700">
+                                class="w-full pl-10 pr-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-full text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all placeholder:text-gray-400 text-gray-700">
                             <i
                                 class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         </div>
@@ -572,18 +572,18 @@
                         <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
                         <div class="relative">
                             <input type="text" name="name" placeholder="Patient Name" id="modalPatientName"
-                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
+                                class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out placeholder:text-gray-400 text-gray-700 font-medium"
                                 required>
                         </div>
                         <div class="relative">
                             <input type="tel" name="phone" placeholder="Mobile Number" id="modalMobileNumber"
-                                class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-sm focus:outline-none shadow-neu-pressed transition-all placeholder:text-gray-400 text-gray-700 font-medium"
+                                class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out placeholder:text-gray-400 text-gray-700 font-medium"
                                 pattern="[0-9]{10}" maxlength="14" required>
                         </div>
 
                         <div class="relative">
                             <select name="city"
-                                class="w-full px-4 py-3 rounded-2xl border-none bg-neu-base text-sm focus:outline-none appearance-none shadow-neu-pressed transition-all text-gray-600"
+                                class="w-full px-4 py-3 rounded-2xl bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none transition-all duration-300 ease-in-out text-gray-600"
                                 required>
                                 <option value="" disabled>Select City</option>
                                 <option>Delhi</option>
@@ -632,7 +632,7 @@
                             <div class="relative">
                                 <input type="text" name="disease" placeholder="Search disease, doctor..."
                                     id="modalDiseaseInput" required
-                                    class="w-full px-4 py-3 bg-neu-base rounded-2xl border-none text-base lg:text-sm focus:outline-none shadow-neu-pressed transition-all font-bold lg:font-normal placeholder:text-gray-400 text-gray-700">
+                                    class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-base lg:text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out font-bold lg:font-normal placeholder:text-gray-400 text-gray-700">
                                 <i
                                     class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
                             </div>
@@ -662,11 +662,7 @@
         class="fixed inset-0 z-[1002] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
         <div
             class="bg-neu-base rounded-[2rem] shadow-neu-card p-8 flex flex-col items-center justify-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out] transform transition-all scale-100">
-            <div
-                class="w-20 h-20 bg-neu-base rounded-full flex items-center justify-center mb-6 relative shadow-neu-icon">
-                <i class="fa-solid fa-check text-4xl text-green-500 animate-[bounce_1s_infinite]"></i>
-                <div class="absolute inset-0 border-4 border-green-500/20 rounded-full animate-ping opacity-20"></div>
-            </div>
+            <div class="mb-6 flex justify-center"><img src="../images/success-greeting.png" alt="Success" class="w-28 h-auto object-contain animate-[fade-in_0.5s_ease-out]"></div>
             <h3 class="text-2xl font-bold text-gray-800 mb-2 text-center">Request Submitted!</h3>
             <p class="text-gray-500 text-center mb-8 text-sm leading-relaxed">Thank you for choosing us. Our medical
                 expert will contact you shortly to confirm your appointment.</p>
@@ -724,7 +720,7 @@
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-4 py-2 pb-6 flex gap-3 w-full items-stretch">
+        <div class="px-2 py-2 pb-0 flex gap-2 w-full items-stretch">
             <div class="flex-1">
                 <a href="tel:+919876543210"
                     class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
@@ -754,3 +750,9 @@
 
     <script src="../script.js"></script>
 </body>
+
+
+
+
+
+
