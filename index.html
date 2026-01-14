@@ -743,7 +743,11 @@
         class="fixed inset-0 z-[1002] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
         <div
             class="bg-neu-base rounded-[2rem] shadow-neu-card p-8 flex flex-col items-center justify-center max-w-sm w-full animate-[fadeIn_0.5s_ease-out] transform transition-all scale-100">
-            <div class="mb-6 flex justify-center"><img src="images/success-greeting.png" alt="Success" class="w-28 h-auto object-contain animate-[fade-in_0.5s_ease-out]"></div>
+            <div
+                class="w-20 h-20 bg-neu-base rounded-full flex items-center justify-center mb-6 relative shadow-neu-icon">
+                <i class="fa-solid fa-check text-4xl text-green-500 animate-[bounce_1s_infinite]"></i>
+                <div class="absolute inset-0 border-4 border-green-500/20 rounded-full animate-ping opacity-20"></div>
+            </div>
             <h3 class="text-2xl font-bold text-gray-800 mb-2 text-center">Request Submitted!</h3>
             <p class="text-gray-500 text-center mb-8 text-sm leading-relaxed">Thank you for choosing us. Our medical
                 expert will contact you shortly to confirm your appointment.</p>
@@ -831,6 +835,3 @@
 </body>
 
 </html>
-
-
-
