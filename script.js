@@ -398,13 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeMobileMenu = () => {
             if (mobileMenuElem && !mobileMenuElem.classList.contains('hidden')) {
                 mobileMenuElem.classList.add('hidden');
-                // FIX: Re-query the live element because the original might have been replaced
                 const liveBtn = document.getElementById('mobileMenuToggle');
-                const toggleIcon = liveBtn ? liveBtn.querySelector('i') : null;
-                if (toggleIcon) {
-                    toggleIcon.classList.add('fa-bars');
-                    toggleIcon.classList.remove('fa-xmark');
-                    toggleIcon.classList.remove('rotate-180'); // Reset rotation
+                if (liveBtn) {
+                    liveBtn.classList.remove('mobile-toggle-active');
                 }
 
                 // Collapse all open sub-categories (accordions) when the menu is closed
@@ -438,14 +434,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenuElem.classList.add('max-h-none');
                 mobileMenuElem.classList.remove('max-h-[75vh]', 'overflow-y-auto');
 
-                // FIX: Re-query the live element
                 const liveBtn = document.getElementById('mobileMenuToggle');
-                const toggleIcon = liveBtn ? liveBtn.querySelector('i') : null;
-
-                if (toggleIcon) {
-                    toggleIcon.classList.remove('fa-bars');
-                    toggleIcon.classList.add('fa-xmark');
-                    toggleIcon.classList.add('rotate-180'); // Rotate for smooth effect
+                if (liveBtn) {
+                    liveBtn.classList.add('mobile-toggle-active');
                 }
                 // Disable body scroll when menu is open
                 document.body.style.overflow = 'hidden';
@@ -1367,11 +1358,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.add('hidden');
                 document.body.style.overflow = ''; // Re-enable scroll
                 if (mobileMenuToggle) {
-                    const icon = mobileMenuToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.add('fa-bars');
-                        icon.classList.remove('fa-xmark');
-                    }
+                    mobileMenuToggle.classList.remove('mobile-toggle-active');
                 }
             }
         });
@@ -1558,6 +1545,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             }
 
                             form.reset();
+                            if (formId === 'mobileQuickForm') {
+                                toggleMobileQuickForm();
+                            }
 
                         } else {
                             alert(data.message || 'Submission failed. Please verify your details.');
@@ -1735,11 +1725,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Toggle Mobile Quick Booking Form
 function toggleMobileQuickForm() {
     const form = document.getElementById('mobileQuickBookForm');
-    if (form) {
-        form.classList.toggle('hidden');
+    const btn = document.getElementById('mobileBookBtn');
+
+    if (form && btn) {
+        const isOpen = !form.classList.contains('hidden');
+        const inner = btn.querySelector('.button-inner');
+
+        if (!isOpen) {
+            // Opening
+            form.classList.remove('hidden');
+            btn.classList.remove('uiverse-btn-blue');
+            btn.classList.add('shadow-neu-pressed'); // Give it a pressed look maybe? Or just keep it base
+            if (inner) {
+                inner.innerHTML = '<span class="text-lg font-bold"><i class="fa-solid fa-xmark"></i></span>';
+            }
+        } else {
+            // Closing
+            form.classList.add('hidden');
+            btn.classList.add('uiverse-btn-blue');
+            btn.classList.remove('shadow-neu-pressed');
+            if (inner) {
+                inner.innerHTML = '<span class="text-sm font-bold whitespace-nowrap"><i class="fa-solid fa-calendar-check mr-1"></i> Book Now</span>';
+            }
+        }
     }
 }
 
@@ -1750,27 +1760,7 @@ function toggleMobileQuickForm() {
 /**
  * Global function to toggle the Mobile Quick Booking Bottom Sheet
  */
-window.toggleMobileQuickForm = function () {
-    const form = document.getElementById('mobileQuickBookForm');
-    const btn = document.getElementById('mobileBookBtn');
-
-    if (form) {
-        // Toggle visibility
-        if (form.classList.contains('hidden')) {
-            form.classList.remove('hidden');
-            // Optional: Add some animation class or logic here if needed
-            // Ensure bottom bar is visible (in case it was hidden by menu)
-            const bottomBar = document.getElementById('mobileBottomBar');
-            if (bottomBar) {
-                bottomBar.classList.remove('translate-y-full');
-            }
-        } else {
-            form.classList.add('hidden');
-        }
-    } else {
-        console.warn('Mobile Quick Book Form element not found!');
-    }
-};
+window.toggleMobileQuickForm = toggleMobileQuickForm;
 
 // Ensure the close button in the form also works generally
 document.addEventListener('DOMContentLoaded', () => {

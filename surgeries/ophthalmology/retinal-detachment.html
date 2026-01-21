@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -93,8 +93,7 @@
 
                 <div class="w-[20%] flex justify-end">
                     <button id="mobileMenuToggle"
-                        class="text-primary transition-all p-2.5 rounded-xl shadow-neu-flat bg-neu-base hover:shadow-neu-pressed active:scale-95">
-                        <i class="fa-solid fa-bars text-xl transition-transform duration-300 ease-soft"></i>
+                        class="text-primary transition-all p-2.5 rounded-xl shadow-neu-flat bg-neu-base"><div class="hamburger-lux"><span></span><span></span><span></span></div>
                     </button>
                 </div>
             </div>
@@ -450,36 +449,36 @@
     </section>
 
     <!-- Related Procedures -->
-    <section class="py-12 bg-[#E0E5EC] border-t border-gray-200/50">
+    <section class="py-12 bg-[#E0E5EC] border-t border-gray-200/50 pb-24 lg:pb-12">
         <div class="container mx-auto px-4">
             <h3 class="text-2xl font-bold text-gray-800 mb-8">Related Procedures</h3>
             <div class="grid md:grid-cols-3 gap-6">
                 
-        <a href="sleeve-gastrectomy.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
+        <a href="cataract.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
              <div class="flex justify-between items-start mb-3">
                 <span class="text-[10px] font-bold text-[#6D83F2] bg-blue-50 px-2 py-1 rounded-md uppercase tracking-wider">Ophthalmology</span>
                 <i class="fa-solid fa-arrow-right text-xs text-gray-400 group-hover:text-[#6D83F2] transition-colors"></i>
             </div>
-            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Metabolic Surgery (Sleeve Gastrectomy)</h4>
-            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Reducing stomach size.</p>
+            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Cataract Surgery</h4>
+            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Advanced lens replacement for clear vision.</p>
         </a>
         
-        <a href="gastric-plication.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
+        <a href="lasik.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
              <div class="flex justify-between items-start mb-3">
                 <span class="text-[10px] font-bold text-[#6D83F2] bg-blue-50 px-2 py-1 rounded-md uppercase tracking-wider">Ophthalmology</span>
                 <i class="fa-solid fa-arrow-right text-xs text-gray-400 group-hover:text-[#6D83F2] transition-colors"></i>
             </div>
-            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Gastric Plication</h4>
-            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Folding the stomach to reduce capacity.</p>
+            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">LASIK Surgery</h4>
+            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Freedom from glasses and contact lenses.</p>
         </a>
         
-        <a href="weight-loss-mgmt.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
+        <a href="glaucoma.html" class="neu-card p-6 block group no-underline hover:shadow-neu-pressed transition-all">
              <div class="flex justify-between items-start mb-3">
                 <span class="text-[10px] font-bold text-[#6D83F2] bg-blue-50 px-2 py-1 rounded-md uppercase tracking-wider">Ophthalmology</span>
                 <i class="fa-solid fa-arrow-right text-xs text-gray-400 group-hover:text-[#6D83F2] transition-colors"></i>
             </div>
-            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Weight Loss Management</h4>
-            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Holistic weight management.</p>
+            <h4 class="font-bold text-gray-800 mb-2 text-sm group-hover:text-[#6D83F2] transition-colors">Glaucoma Treatment</h4>
+            <p class="text-[11px] text-gray-500 line-clamp-2 leading-relaxed">Preserving vision through advanced pressure management.</p>
         </a>
         
             </div>
@@ -774,17 +773,13 @@
     </div>
 
     <!-- Mobile Bottom Action Bar -->
-    <div id="mobileBottomBar"
-        class="lg:hidden fixed bottom-0 left-0 right-0 bg-neu-base border-t border-white/20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50 transform  transition-transform duration-300 ease-out">
+    <div id="mobileBottomBar" class="lg:hidden fixed bottom-0 left-0 right-0 bg-neu-base border-t border-white/20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50 transform  transition-transform duration-300 ease-out translate-y-full">
 
         <!-- Expandable Quick Booking Form -->
         <div id="mobileQuickBookForm" class="hidden px-4 pt-4 pb-2 border-b border-gray-100 animate-fade-in">
             <div class="flex justify-between items-center mb-3">
                 <h4 class="font-bold text-gray-800 text-sm">Share Your Details</h4>
-                <button onclick="document.getElementById('mobileQuickBookForm').classList.add('hidden')"
-                    class="w-8 h-8 rounded-full bg-neu-base shadow-neu-flat flex items-center justify-center text-gray-500 hover:text-red-500 hover:shadow-neu-pressed transition-all">
-                    <i class="fa-solid fa-xmark text-xs"></i>
-                </button>
+                
             </div>
             <form id="mobileQuickForm" class="space-y-3" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
@@ -817,7 +812,7 @@
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-2 py-2 pb-0 flex gap-2 w-full items-stretch">
+        <div class="px-2 py-2 pb-0 flex gap-2 w-full items-stretch mt-[1px]">
             <div class="flex-1">
                 <a href="tel:+919876543210"
                     class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
