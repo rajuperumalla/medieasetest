@@ -87,8 +87,86 @@
     }
 }
 
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    75% {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes blink-red {
+
+    0%,
+    100% {
+        box-shadow: inset 6px 6px 12px #b8b9be, inset -6px -6px 12px #ffffff;
+    }
+
+    50% {
+        box-shadow: inset 6px 6px 12px #b8b9be, inset -6px -6px 12px #ffffff, inset 0 0 0 3px #dc2626, inset 0 0 25px rgba(220, 38, 38, 0.6);
+    }
+}
+
 .animate-fade-in {
     animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.shake-input {
+    animation: shake 0.4s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.border-red-500 {
+    border: 1px solid transparent !important;
+    /* Premium Neumorphic Inner Red Glow - High Concentration */
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff,
+        inset 0 0 0 3px #dc2626,
+        inset 0 0 25px rgba(220, 38, 38, 0.5) !important;
+    transition: all 0.2s ease;
+}
+
+.border-green-500 {
+    border: 1px solid transparent !important;
+    /* Premium Neumorphic Inner Green Glow */
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff,
+        inset 0 0 0 2px #10b981,
+        inset 0 0 20px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* --- VALIDATION STATE OVERRIDES (Must come last to win specificity) --- */
+
+/* Invalid State - Inner Glow */
+input.border-red-500,
+input.border-red-500:focus {
+    border: 1px solid transparent !important;
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff,
+        inset 0 0 0 2px #ef4444,
+        inset 0 0 20px rgba(239, 68, 68, 0.3) !important;
+    transition: all 0.2s ease;
+}
+
+/* Valid State - Inner Glow */
+input.border-green-500,
+input.border-green-500:focus {
+    border: 1px solid transparent !important;
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff,
+        inset 0 0 0 2px #10b981,
+        inset 0 0 20px rgba(16, 185, 129, 0.25) !important;
 }
 
 /* Smooth Scrollbar */
@@ -475,3 +553,32 @@ nav {
     background: rgba(109, 131, 242, 0.05);
     z-index: -1;
 }
+
+/* --- VALIDATION STATE OVERRIDES (Must come last to win specificity) --- */
+
+/* Invalid State - Inner Glow (High Contrast) */
+input.border-red-500,
+input.border-red-500:focus {
+    border: 1px solid transparent !important;
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff,
+        inset 0 0 0 3px #dc2626,
+        inset 0 0 25px rgba(220, 38, 38, 0.5) !important;
+    transition: all 0.2s ease;
+}
+
+/* Valid State - Inner Glow */
+input.border-green-500,
+input.border-green-500:focus {
+    border: 1px solid transparent !important;
+    box-shadow:
+        inset 6px 6px 12px #b8b9be,
+        inset -6px -6px 12px #ffffff,
+        inset 0 0 0 2px #10b981,
+        inset 0 0 20px rgba(16, 185, 129, 0.25) !important;
+}/ *   A d d   t h i s   t o   y o u r   s t y l e s . c s s   * /  
+ . a n i m a t e - b l i n k - r e d   {  
+         a n i m a t i o n :   b l i n k - r e d   0 . 5 s   e a s e - i n - o u t ;  
+ }  
+ 

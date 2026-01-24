@@ -217,21 +217,9 @@
                                 required>
                         </div>
                         <div class="relative">
-                            <input type="tel" name="phone" id="mobileHeroPhone" placeholder="Mobile Number"
+                            <input type="tel" name="phone" id="mobileHeroPhone" placeholder="Phone Number"
                                 class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out text-sm text-gray-700 placeholder-gray-500"
                                 required maxlength="14" pattern="[0-9]{10}">
-                        </div>
-
-                        <div class="relative">
-                            <select name="city"
-                                class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm outline-none focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none text-gray-700 transition-all duration-300 ease-in-out"
-                                required>
-                                <option value="Hyderabad" selected>Hyderabad</option>
-                                <option value="Bangalore">Bangalore</option>
-                                <option value="Delhi">Delhi</option>
-                            </select>
-                            <i
-                                class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
                         </div>
 
                         <div class="relative">
@@ -245,6 +233,18 @@
                                 class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-gray-100 rounded-xl shadow-xl z-50 overflow-hidden max-h-48 overflow-y-auto">
                             </div>
                         </div>
+
+                        <div class="relative">
+                            <select name="city"
+                                class="w-full px-4 py-3 pr-10 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm outline-none focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none text-gray-700 transition-all duration-300 ease-in-out"
+                                required>
+                                <option value="Hyderabad" selected>Hyderabad</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Delhi">Delhi</option>
+                            </select>
+                            <i
+                                class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
+                        </div>
                         <button type="submit" class="uiverse-btn uiverse-btn-blue mt-2 w-full">
                             <div class="button-outer">
                                 <div class="button-inner">
@@ -252,6 +252,9 @@
                                 </div>
                             </div>
                         </button>
+                        <div class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                        </div>
                     </form>
                 </div>
 
@@ -318,23 +321,9 @@
                             required>
                     </div>
                     <div class="relative">
-                        <input type="tel" name="phone" placeholder="Mobile Number" id="heroMobileNumber"
+                        <input type="tel" name="phone" placeholder="Phone Number" id="heroMobileNumber"
                             class="w-full px-5 py-2.5 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out font-medium text-sm text-gray-700 placeholder-gray-500"
                             required maxlength="14" pattern="[0-9]{10}">
-                    </div>
-                    <div class="relative">
-                        <select name="city"
-                            class="w-full px-5 py-2.5 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none font-medium text-sm text-gray-700 transition-all duration-300 ease-in-out"
-                            required>
-                            <option value="">Select City</option>
-                            <option value="hyderabad" selected>Hyderabad</option>
-                            <option value="secunderabad">Secunderabad</option>
-                            <option value="nalgonda">Nalgonda</option>
-                            <option value="mahbubnagar">Mahbubnagar</option>
-                        </select>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-primary text-xs">
-                            <i class="fa-solid fa-chevron-down"></i>
-                        </div>
                     </div>
 
                     <!-- Main Specialities (Single Row) -->
@@ -362,6 +351,21 @@
                         </div>
                     </div>
 
+                    <div class="relative">
+                        <select name="city"
+                            class="w-full px-5 py-2.5 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none font-medium text-sm text-gray-700 transition-all duration-300 ease-in-out"
+                            required>
+                            <option value="">Select City</option>
+                            <option value="hyderabad" selected>Hyderabad</option>
+                            <option value="secunderabad">Secunderabad</option>
+                            <option value="nalgonda">Nalgonda</option>
+                            <option value="mahbubnagar">Mahbubnagar</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-primary text-xs">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+
                     <button type="submit" class="uiverse-btn uiverse-btn-blue mt-2 w-full">
                         <div class="button-outer">
                             <div class="button-inner">
@@ -369,6 +373,9 @@
                             </div>
                         </div>
                     </button>
+                    <div class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                    </div>
                 </form>
             </div>
 
@@ -565,7 +572,7 @@
     <!-- Inactivity Popup Modal -->
     <div id="inactivityModal"
         class="fixed inset-0 z-[1001] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
-        <div class="bg-neu-base rounded-2xl shadow-2xl w-[95%] md:w-full max-w-5xl overflow-hidden transform scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto scrollbar-hide"
+        <div class="bg-neu-base rounded-2xl shadow-2xl w-[95%] md:w-full max-w-6xl overflow-hidden transform scale-95 transition-all duration-300 max-h-[95vh] md:max-h-[90vh] overflow-y-auto md:overflow-y-hidden scrollbar-hide"
             id="inactivityModalContent">
             <!-- Header -->
             <div
@@ -582,7 +589,7 @@
             <div class="flex flex-col md:flex-row h-full">
                 <!-- Left Side: Trust & Steps (Hidden on Mobile) -->
                 <div
-                    class="hidden md:block p-6 md:w-1/2 border-r border-gray-200/50 bg-neu-base relative overflow-hidden">
+                    class="hidden md:block p-6 md:p-5 md:w-1/2 border-r border-gray-200/50 bg-neu-base relative overflow-hidden">
                     <div
                         class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
                     </div>
@@ -648,11 +655,11 @@
                 </div>
 
                 <!-- Right Side: Form -->
-                <div class="p-6 md:p-6 md:w-1/2 bg-neu-base relative">
+                <div class="p-6 md:p-5 md:w-1/2 bg-neu-base relative">
                     <div class="text-center mb-6 md:hidden">
                         <h3 class="text-xl font-bold text-gray-900">Book Free Appointment</h3>
                     </div>
-                    <form class="space-y-4 relative z-10" id="modalAppointmentForm"
+                    <form class="space-y-4 md:space-y-3 relative z-10" id="modalAppointmentForm"
                         action="https://api.web3forms.com/submit" method="POST">
                         <input type="hidden" name="access_key" value="a3fce90f-0e9f-4abf-b0b5-a4ae3660fae2">
                         <div class="relative">
@@ -661,24 +668,9 @@
                                 required>
                         </div>
                         <div class="relative">
-                            <input type="tel" name="phone" placeholder="Mobile Number" id="modalMobileNumber"
+                            <input type="tel" name="phone" placeholder="Phone Number" id="modalMobileNumber"
                                 class="w-full px-4 py-3 bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm rounded-2xl text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent transition-all duration-300 ease-in-out placeholder:text-gray-400 text-gray-700 font-medium"
                                 pattern="[0-9]{10}" maxlength="14" required>
-                        </div>
-
-                        <div class="relative">
-                            <select name="city"
-                                class="w-full px-4 py-3 rounded-2xl bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none transition-all duration-300 ease-in-out text-gray-600"
-                                required>
-                                <option value="" disabled>Select City</option>
-                                <option>Delhi</option>
-                                <option>Mumbai</option>
-                                <option selected>Hyderabad</option>
-                                <option>Bangalore</option>
-                                <option>Chennai</option>
-                            </select>
-                            <i
-                                class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
                         </div>
 
                         <!-- Select Specialty Chips -->
@@ -728,6 +720,21 @@
                             </div>
                         </div>
 
+                        <div class="relative">
+                            <select name="city"
+                                class="w-full px-4 py-3 rounded-2xl bg-white/60 backdrop-blur-md border border-white shadow-neu-flat-sm text-sm focus:outline-none focus:ring-0 focus:bg-neu-base focus:shadow-neu-pressed focus:border-transparent appearance-none transition-all duration-300 ease-in-out text-gray-600"
+                                required>
+                                <option value="" disabled>Select City</option>
+                                <option>Delhi</option>
+                                <option>Mumbai</option>
+                                <option selected>Hyderabad</option>
+                                <option>Bangalore</option>
+                                <option>Chennai</option>
+                            </select>
+                            <i
+                                class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+                        </div>
+
                         <button type="submit" class="uiverse-btn uiverse-btn-blue mt-4 w-full">
                             <div class="button-outer">
                                 <div class="button-inner">
@@ -737,6 +744,9 @@
                                 </div>
                             </div>
                         </button>
+                        <div class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                        </div>
                     </form>
                 </div>
             </div>
@@ -785,11 +795,11 @@
                         required minlength="2">
                 </div>
                 <div class="relative">
-                    <label class="text-xs text-gray-600 font-medium mb-1 block">Mobile Number<span
+                    <label class="text-xs text-gray-600 font-medium mb-1 block">Phone Number<span
                             class="text-red-500">*</span></label>
                     <div class="flex items-center rounded-full overflow-hidden bg-neu-base shadow-neu-pressed">
                         <span class="px-3 py-2.5 bg-orange-400 text-white font-bold text-sm rounded-l-full">+91</span>
-                        <input type="tel" name="phone" id="mobileQuickPhone" placeholder="Enter mobile number"
+                        <input type="tel" name="phone" id="mobileQuickPhone" placeholder="Enter phone number"
                             class="flex-1 px-3 py-3 bg-transparent focus:outline-none text-sm" required
                             pattern="[0-9]{10}" maxlength="14">
                     </div>
@@ -801,17 +811,21 @@
                         </div>
                     </div>
                 </button>
+                <div class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                    <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                </div>
             </form>
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-2 py-2 pb-0 flex gap-2 w-full items-stretch mt-[1px]">
+        <div class="px-2 py-2 pb-safe flex gap-2 w-full items-stretch mt-[1px]"
+            style="padding-bottom: env(safe-area-inset-bottom);">
             <div class="flex-1">
-                <a href="tel:+919876543210"
+                <a href="tel:1800-123-456"
                     class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
                     <div class="button-outer h-full">
-                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
-                            <span class="text-sm font-bold whitespace-nowrap"><i class="fa-solid fa-phone mr-1"></i>
+                        <div class="button-inner h-full justify-center items-center !py-1.5 !px-3">
+                            <span class="text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-phone mr-1"></i>
                                 Call Us</span>
                         </div>
                     </div>
@@ -821,8 +835,8 @@
                 <button id="mobileBookBtn" onclick="toggleMobileQuickForm()"
                     class="uiverse-btn uiverse-btn-blue w-full h-full flex items-center justify-center">
                     <div class="button-outer h-full">
-                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
-                            <span class="text-sm font-bold whitespace-nowrap"><i
+                        <div class="button-inner h-full justify-center items-center !py-1.5 !px-3">
+                            <span class="text-xs font-bold whitespace-nowrap"><i
                                     class="fa-solid fa-calendar-check mr-1"></i>
                                 Book Now</span>
                         </div>

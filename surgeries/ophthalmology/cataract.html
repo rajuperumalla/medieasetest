@@ -101,7 +101,8 @@
 
                 <div class="w-[20%] flex justify-end">
                     <button id="mobileMenuToggle"
-                        class="text-primary transition-all p-2.5 rounded-xl shadow-neu-flat bg-neu-base"><div class="hamburger-lux"><span></span><span></span><span></span></div>
+                        class="text-primary transition-all p-2.5 rounded-xl shadow-neu-flat bg-neu-base">
+                        <div class="hamburger-lux"><span></span><span></span><span></span></div>
                     </button>
                 </div>
             </div>
@@ -265,8 +266,10 @@
                                 class="w-full py-3 rounded-xl bg-[#E0E5EC] text-[#6D83F2] font-bold shadow-[6px_6px_12px_#b8b9be,-6px_-6px_12px_#ffffff] hover:shadow-[inset_4px_4px_8px_#b8b9be,inset_-4px_-4px_8px_#ffffff] transition-all">
                                 Book Now
                             </button>
-                            <p class="text-[10px] text-center text-gray-500 mt-2"><i class="fa-solid fa-lock"></i> Your
-                                data is safe with us.</p>
+                            <div
+                                class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -797,6 +800,9 @@
                                 </div>
                             </div>
                         </button>
+                        <div class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                        </div>
                     </form>
                 </div>
             </div>
@@ -862,17 +868,21 @@
                         </div>
                     </div>
                 </button>
+                <div class="text-center text-[10px] text-gray-500 mt-2 flex items-center justify-center gap-1">
+                    <i class="fa-solid fa-lock text-green-500"></i> Your data is safe with us
+                </div>
             </form>
         </div>
 
         <!-- Bottom Buttons -->
-        <div class="px-2 py-2 pb-0 flex gap-2 w-full items-stretch mt-[1px]">
+        <div class="px-2 py-2 pb-safe flex gap-2 w-full items-stretch mt-[1px]"
+            style="padding-bottom: env(safe-area-inset-bottom);">
             <div class="flex-1">
-                <a href="tel:+919876543210"
+                <a href="tel:1800-123-456"
                     class="uiverse-btn uiverse-btn-green w-full h-full flex items-center justify-center no-underline">
                     <div class="button-outer h-full">
-                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
-                            <span class="text-sm font-bold whitespace-nowrap"><i class="fa-solid fa-phone mr-1"></i>
+                        <div class="button-inner h-full justify-center items-center !py-1.5 !px-3">
+                            <span class="text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-phone mr-1"></i>
                                 Call Us</span>
                         </div>
                     </div>
@@ -882,8 +892,8 @@
                 <button id="mobileBookBtn" onclick="toggleMobileQuickForm()"
                     class="uiverse-btn uiverse-btn-blue w-full h-full flex items-center justify-center">
                     <div class="button-outer h-full">
-                        <div class="button-inner h-full justify-center items-center !py-2 !px-4">
-                            <span class="text-sm font-bold whitespace-nowrap"><i
+                        <div class="button-inner h-full justify-center items-center !py-1.5 !px-3">
+                            <span class="text-xs font-bold whitespace-nowrap"><i
                                     class="fa-solid fa-calendar-check mr-1"></i>
                                 Book Now</span>
                         </div>

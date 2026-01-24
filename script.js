@@ -1266,7 +1266,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(timerIncrement, 1000);
 
     function timerIncrement() {
-        if (modalShown || isInteractingWithForm) return;
+        // Global Safeguard: If user is focused on ANY input, textarea, or select, strictly reset timer
+        const active = document.activeElement;
+        const isInputFocused = active && (
+            active.tagName === 'INPUT' ||
+            active.tagName === 'TEXTAREA' ||
+            active.tagName === 'SELECT'
+        );
+
+        if (modalShown || isInteractingWithForm || isInputFocused) {
+            idleTime = 0; // Reset idle timer immediately
+            return;
+        }
 
         // Session Check
         // if (sessionStorage.getItem('inactivityPopupShown') === 'true') return;
@@ -1371,7 +1382,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Validation Logic ---
     function validatePhone(phone) {
-        if (!phone) return true; // Phone is optional in check, but required in form
+        if (!phone) return false; // Phone is mandatory
         const cleanPhone = phone.replace(/\s/g, '');
         // Indian number validation: +91 optional, starts with 6-9, followed by 9 digits
         const phoneRegex = /^(\+91)?[6-9]\d{9}$/;
@@ -1389,16 +1400,16 @@ document.addEventListener('DOMContentLoaded', () => {
         form.setAttribute('novalidate', true);
 
         // Helper: Show Error Message
-        const showError = (input, msg) => {
-            input.classList.add('shake-input');
+        const showError = (input, msg, position = 'top') => {
+            input.classList.remove('border-green-500');
             input.classList.add('border-red-500');
-            setTimeout(() => input.classList.remove('shake-input'), 500);
 
             // Check if error msg exists
             let errorMsg = input.parentNode.querySelector('.custom-error-msg');
             if (!errorMsg) {
                 errorMsg = document.createElement('p');
-                errorMsg.className = 'custom-error-msg absolute right-0 -top-6 text-[10px] text-red-500 font-bold mr-1';
+                const posClass = position === 'top' ? 'right-0 -top-6' : 'left-4 -bottom-5';
+                errorMsg.className = `custom-error-msg absolute ${posClass} text-[10px] text-red-500 font-bold mr-1 z-20 pointer-events-none transition-all duration-300 animate-fade-in`;
                 input.parentNode.appendChild(errorMsg);
             }
             errorMsg.innerText = msg;
@@ -1407,6 +1418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Helper: Clear Error
         const clearError = (input) => {
             input.classList.remove('border-red-500');
+            input.classList.remove('border-green-500');
             const errorMsg = input.parentNode.querySelector('.custom-error-msg');
             if (errorMsg) {
                 errorMsg.remove();
@@ -1445,7 +1457,11 @@ document.addEventListener('DOMContentLoaded', () => {
         phoneInput.addEventListener('blur', () => {
             const val = phoneInput.value.trim();
             if (val.length > 0 && !validatePhone(val)) {
-                showError(phoneInput, 'Enter the correct number');
+                showError(phoneInput, 'Please enter a valid 10-digit phone number', 'below');
+                phoneInput.classList.remove('shake-input');
+                void phoneInput.offsetWidth; // Trigger reflow
+                phoneInput.classList.add('shake-input');
+                setTimeout(() => phoneInput.classList.remove('shake-input'), 400);
             } else {
                 clearError(phoneInput);
             }
@@ -1461,16 +1477,61 @@ document.addEventListener('DOMContentLoaded', () => {
             return cleaned;
         };
 
-        // Strict Input Control for Phone (Prevent non-numbers, auto-format)
-        ['input', 'change'].forEach(eventType => {
+        // PREMIUM MOBILE VALIDATION INTERACTION
+        let lastValue = '';
+        ['input', 'change', 'keyup'].forEach(eventType => {
             phoneInput.addEventListener(eventType, (e) => {
                 const originalValue = e.target.value;
                 const cleanedValue = cleanPhoneNumber(originalValue);
                 if (originalValue !== cleanedValue) {
                     e.target.value = cleanedValue;
                 }
+
+                const currentVal = e.target.value;
+                const isDeleting = currentVal.length < lastValue.length;
+                lastValue = currentVal;
+
+                // Logic based on first digit
+                if (currentVal.length > 0) {
+                    const firstDigit = currentVal[0];
+                    const isInvalidStart = /^[0-5]/.test(firstDigit);
+                    const isValidStart = /^[6-9]/.test(firstDigit);
+
+                    if (isInvalidStart) {
+                        e.target.classList.remove('border-green-500');
+                        e.target.classList.add('border-red-500');
+                        showError(e.target, "Please enter a valid mobile number", 'below');
+                        e.target.classList.remove('shake-input');
+                        void e.target.offsetWidth;
+                        e.target.classList.add('shake-input');
+                        setTimeout(() => e.target.classList.remove('shake-input'), 400);
+                    } else if (isValidStart) {
+                        e.target.classList.remove('border-red-500');
+                        e.target.classList.remove('border-green-500');
+                        clearError(e.target);
+                        if (validatePhone(currentVal)) e.target.classList.add('border-green-500');
+                    }
+                } else {
+                    // 3. Correction / Empty State
+                    const wasRed = e.target.classList.contains('border-red-500');
+                    if (isDeleting && wasRed) {
+                        e.target.classList.remove('border-red-500');
+                        e.target.classList.add('border-green-500');
+
+                        // Remove warning immediately
+                        const errorMsg = e.target.parentNode.querySelector('.custom-error-msg');
+                        if (errorMsg) errorMsg.remove();
+
+                        setTimeout(() => {
+                            e.target.classList.remove('border-green-500');
+                        }, 800);
+                    } else {
+                        clearError(e.target);
+                    }
+                }
             });
         });
+
 
         // Clear errors on focus
         nameInput.addEventListener('focus', () => clearError(nameInput));
@@ -1485,25 +1546,39 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             let isValid = true;
 
-            // Validate Name
+            // 1. Validate Name
             const nameValidationMsg = validateName(nameInput.value.trim());
             if (nameValidationMsg) {
                 isValid = false;
                 showError(nameInput, nameValidationMsg);
+                nameInput.focus();
             }
 
-            // Validate Phone
-            if (!validatePhone(phoneInput.value.trim())) {
-                isValid = false;
-                showError(phoneInput, 'Enter the correct number');
+            // 2. Validate Phone
+            const phoneVal = phoneInput.value.trim();
+            if (isValid) { // Only check phone if name is valid
+                if (!phoneVal) {
+                    isValid = false;
+                    showError(phoneInput, 'Phone Number is mandatory', 'below');
+                    phoneInput.focus();
+                } else if (!validatePhone(phoneVal)) {
+                    isValid = false;
+                    showError(phoneInput, 'Please enter a valid 10-digit phone number', 'below');
+                    phoneInput.classList.remove('shake-input');
+                    void phoneInput.offsetWidth;
+                    phoneInput.classList.add('shake-input');
+                    setTimeout(() => phoneInput.classList.remove('shake-input'), 400);
+                    phoneInput.focus();
+                }
             }
 
-            // Validate Disease (Ensure it's selected/entered)
+            // 3. Validate Disease (Category)
             const diseaseInput = form.querySelector('input[name="disease"]');
-            if (diseaseInput && diseaseInput.value.trim().length === 0) {
+            if (isValid && diseaseInput && diseaseInput.value.trim().length === 0) {
                 isValid = false;
                 diseaseInput.classList.add('shake-input');
                 diseaseInput.classList.add('border-red-500');
+                diseaseInput.focus();
                 setTimeout(() => diseaseInput.classList.remove('shake-input'), 500);
 
                 // Clear error on focus
