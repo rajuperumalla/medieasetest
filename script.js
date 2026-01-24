@@ -1404,13 +1404,21 @@ document.addEventListener('DOMContentLoaded', () => {
             input.classList.remove('border-green-500');
             input.classList.add('border-red-500');
 
+            // Find valid container (closest relative wrapper) to avoid overflow clipping
+            const container = input.closest('.relative') || input.parentNode;
+
             // Check if error msg exists
-            let errorMsg = input.parentNode.querySelector('.custom-error-msg');
+            let errorMsg = container.querySelector('.custom-error-msg');
             if (!errorMsg) {
                 errorMsg = document.createElement('p');
-                const posClass = position === 'top' ? 'right-0 -top-6' : 'left-4 -bottom-5';
+                // Check if label exists to adjust vertical position (Header vs floating)
+                const hasLabel = container.querySelector('label');
+                // If label exists, align with label (top-0). If no label, float above input (-top-6).
+                const verticalPos = hasLabel ? 'top-0' : '-top-6';
+
+                const posClass = position === 'top' ? `right-0 ${verticalPos}` : 'left-4 -bottom-5';
                 errorMsg.className = `custom-error-msg absolute ${posClass} text-[10px] text-red-500 font-bold mr-1 z-20 pointer-events-none transition-all duration-300 animate-fade-in`;
-                input.parentNode.appendChild(errorMsg);
+                container.appendChild(errorMsg);
             }
             errorMsg.innerText = msg;
         };
@@ -1419,7 +1427,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const clearError = (input) => {
             input.classList.remove('border-red-500');
             input.classList.remove('border-green-500');
-            const errorMsg = input.parentNode.querySelector('.custom-error-msg');
+
+            const container = input.closest('.relative') || input.parentNode;
+            const errorMsg = container.querySelector('.custom-error-msg');
             if (errorMsg) {
                 errorMsg.remove();
             }
@@ -1457,7 +1467,7 @@ document.addEventListener('DOMContentLoaded', () => {
         phoneInput.addEventListener('blur', () => {
             const val = phoneInput.value.trim();
             if (val.length > 0 && !validatePhone(val)) {
-                showError(phoneInput, 'Please enter a valid 10-digit phone number', 'below');
+                showError(phoneInput, 'Please enter a valid 10-digit phone number', 'top');
                 phoneInput.classList.remove('shake-input');
                 void phoneInput.offsetWidth; // Trigger reflow
                 phoneInput.classList.add('shake-input');
@@ -1500,7 +1510,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (isInvalidStart) {
                         e.target.classList.remove('border-green-500');
                         e.target.classList.add('border-red-500');
-                        showError(e.target, "Please enter a valid mobile number", 'below');
+
+                        // Explicitly remove any existing error message from parentNode if it exists (legacy cleanup)
+                        const oldMsg = e.target.parentNode.querySelector('.custom-error-msg');
+                        if (oldMsg) oldMsg.remove();
+
+                        showError(e.target, "Please enter a valid mobile number", 'top');
                         e.target.classList.remove('shake-input');
                         void e.target.offsetWidth;
                         e.target.classList.add('shake-input');
@@ -1519,7 +1534,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         e.target.classList.add('border-green-500');
 
                         // Remove warning immediately
-                        const errorMsg = e.target.parentNode.querySelector('.custom-error-msg');
+                        const container = e.target.closest('.relative') || e.target.parentNode;
+                        const errorMsg = container.querySelector('.custom-error-msg');
                         if (errorMsg) errorMsg.remove();
 
                         setTimeout(() => {
@@ -1559,11 +1575,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isValid) { // Only check phone if name is valid
                 if (!phoneVal) {
                     isValid = false;
-                    showError(phoneInput, 'Phone Number is mandatory', 'below');
+                    showError(phoneInput, 'Phone Number is mandatory', 'top');
                     phoneInput.focus();
                 } else if (!validatePhone(phoneVal)) {
                     isValid = false;
-                    showError(phoneInput, 'Please enter a valid 10-digit phone number', 'below');
+                    showError(phoneInput, 'Please enter a valid 10-digit phone number', 'top');
                     phoneInput.classList.remove('shake-input');
                     void phoneInput.offsetWidth;
                     phoneInput.classList.add('shake-input');
