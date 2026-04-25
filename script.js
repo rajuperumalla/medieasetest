@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 return `
             <div class="nav-item group relative flex-shrink-0">
-                <a href="${categoryLink}" class="dropdown-trigger hover:text-primary transition-all duration-300 flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-4 rounded-full hover:shadow-neu-pressed active:shadow-neu-pressed font-extrabold text-[#4A5568] tracking-tight no-underline hover:bg-neu-base transform hover:scale-105" data-cat="${cat.id}">
+                <a href="${categoryLink}" class="dropdown-trigger nav-liquid-glass hover:text-primary transition-all duration-300 flex items-center gap-1 whitespace-nowrap cursor-pointer py-2 px-4 rounded-full font-extrabold text-[#4A5568] tracking-tight no-underline transform hover:scale-105" data-cat="${cat.id}">
                     ${cat.name} <i class="fa-solid fa-chevron-down text-[8px] group-hover:rotate-180 transition-transform ml-1 opacity-50"></i>
                 </a>
                 <div class="dropdown-menu bg-neu-base shadow-neu-card border border-white/40 ${hasMany ? 'w-[500px]' : 'w-[280px]'} ${alignmentClass} hidden group-hover:block opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl mt-2">
@@ -287,9 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const surgeryLink = `${relPrefix}surgeries/${cat.folder}/${d.slug}.html`;
                     return `
                                 <li>
-                                    <a href="${surgeryLink}" class="nav-disease-link block px-3 py-2 hover:bg-neu-base hover:shadow-neu-pressed hover:text-primary rounded-xl transition-all font-medium text-[11px] whitespace-normal leading-tight text-gray-600 flex items-center gap-2 group/link border border-transparent hover:border-white/20 transform hover:scale-105">
-                                        <i class="fa-solid fa-angle-right text-[8px] opacity-0 group-hover/link:opacity-100 -translate-x-2 group-hover/link:translate-x-0 transition-all text-primary"></i>
-                                        ${d.name}
+                                    <a href="${surgeryLink}" class="nav-disease-link nav-neumorphic-item flex items-center gap-2 transform hover:scale-[1.02]">
+                                        <i class="fa-solid fa-angle-right text-[10px] opacity-0 group-hover:opacity-100 transition-all text-primary"></i>
+                                        <span class="text-[11px] font-bold tracking-tight">${d.name}</span>
                                     </a>
                                 </li>
                             `;
@@ -1860,9 +1860,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // We append it to the body
     
     const chatbotHTML = `
-    <div id="desktopChatbotContainer" class="hidden lg:block fixed bottom-6 right-6 z-[9999]">
+    <div id="chatbotContainer" class="fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-[9999]">
         <!-- Chat Window -->
-        <div id="chatWindow" class="hidden absolute bottom-24 right-0 w-[400px] bg-slate-50 rounded-3xl shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)] border border-blue-50 overflow-hidden flex-col origin-bottom-right transition-all duration-300 scale-95 opacity-0">
+        <div id="chatWindow" class="hidden absolute bottom-20 lg:bottom-24 right-0 w-[calc(100vw-32px)] sm:w-[400px] bg-slate-50 rounded-3xl shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)] border border-blue-50 overflow-hidden flex-col origin-bottom-right transition-all duration-300 scale-95 opacity-0">
             <!-- Sleek AI Header -->
             <div class="relative bg-gradient-to-r from-indigo-950 via-blue-900 to-indigo-900 p-5 text-white flex justify-between items-center shadow-lg overflow-hidden">
                 <!-- Decorative AI Glow -->
@@ -1886,7 +1886,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <!-- Body Container -->
-            <div class="h-[450px] relative flex flex-col bg-slate-50">
+            <div class="h-[400px] lg:h-[450px] relative flex flex-col bg-slate-50">
                 <!-- Chat Interface -->
                 <div id="chatInterfaceView" class="flex-1 flex flex-col h-full">
                     <div id="chatMessages" class="flex-1 overflow-y-auto p-5 space-y-5 scrollbar-hide flex flex-col gap-2 relative border-b border-slate-200/50">
@@ -1930,7 +1930,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Toggle Button (Floating AI Orb with Red Ring) -->
-        <button id="chatToggleBtn" class="relative group w-[75px] h-[75px] flex items-center justify-center focus:outline-none transition-transform hover:scale-110 active:scale-95 duration-300">
+        <button id="chatToggleBtn" class="relative group w-[65px] h-[65px] lg:w-[75px] lg:h-[75px] flex items-center justify-center focus:outline-none transition-transform hover:scale-110 active:scale-95 duration-300">
             <!-- Glowing Aura Rings -->
             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 opacity-40 blur-lg group-hover:opacity-70 group-hover:blur-xl transition-all duration-500 animate-pulse"></div>
             
@@ -1940,8 +1940,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="absolute inset-2 z-0 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 animate-[spin_4s_linear_infinite]"></div>
             
             <!-- Core Button -->
-            <div class="relative z-10 w-[60px] h-[60px] bg-indigo-950 rounded-full border-[2px] border-blue-300/30 shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center justify-center overflow-hidden">
-                <i class="fa-solid fa-brain text-2xl text-blue-200 group-hover:text-white transition-colors"></i>
+            <div class="relative z-10 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] bg-indigo-950 rounded-full border-[2px] border-blue-300/30 shadow-[0_0_20px_rgba(59,130,246,0.5)] flex items-center justify-center overflow-hidden">
+                <i class="fa-solid fa-brain text-xl lg:text-2xl text-blue-200 group-hover:text-white transition-colors"></i>
             </div>
             
             <!-- Notification Badge -->
@@ -1954,7 +1954,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.insertAdjacentHTML('beforeend', chatbotHTML);
 
-    const chatContainer = document.getElementById('desktopChatbotContainer');
+    const chatContainer = document.getElementById('chatbotContainer');
     const chatToggleBtn = document.getElementById('chatToggleBtn');
     const chatWindow = document.getElementById('chatWindow');
     const closeChatBtn = document.getElementById('closeChatBtn');

@@ -24,6 +24,33 @@
     right: 0;
 }
 
+/* Soft Neumorphic Dropdown Item */
+.nav-neumorphic-item {
+    display: block !important;
+    padding: 10px 16px !important;
+    margin: 4px 8px !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    transition: all 0.2s ease-in-out !important;
+    border-left: 3px solid transparent !important;
+    color: #4A5568 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-neumorphic-item:hover,
+.nav-neumorphic-item.active {
+    background: #E0E5EC !important;
+    box-shadow: 
+        inset 5px 5px 10px #b8b9be,
+        inset -5px -5px 10px #ffffff !important;
+    border-left: 3px solid #6D83F2 !important; /* Medical blue indicator */
+    color: #6D83F2 !important;
+    padding-left: 20px !important; /* Gentle slide-in effect */
+}
+
 /* Invisible bridge to prevent closing on gap */
 .nav-item::after {
     content: '';
@@ -882,4 +909,64 @@ input.border-green-500:focus {
     font-size: 14px;
     text-transform: uppercase;
     text-align: center;
+}
+
+/* --- APPLE LIQUID GLASS EFFECT --- */
+.nav-liquid-glass {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    position: relative !important;
+    border: 1px solid transparent !important;
+}
+
+.nav-liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.05),
+        inset 0 0 12px rgba(255, 255, 255, 0.3) !important;
+    color: #1a202c !important;
+}
+
+/* Water Bubble Marks at Borders */
+.nav-liquid-glass::before,
+.nav-liquid-glass::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 75%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+    filter: blur(1.5px);
+    z-index: 10;
+}
+
+/* Top-Left Bubble */
+.nav-liquid-glass::before {
+    top: -5px;
+    left: 15%;
+    transform: scale(0.4);
+}
+
+/* Bottom-Right Bubble */
+.nav-liquid-glass::after {
+    bottom: -5px;
+    right: 15%;
+    transform: scale(0.3);
+}
+
+.nav-liquid-glass:hover::before {
+    opacity: 1;
+    left: 25%;
+    transform: scale(1.1);
+}
+
+.nav-liquid-glass:hover::after {
+    opacity: 1;
+    right: 25%;
+    transform: scale(1);
 }
